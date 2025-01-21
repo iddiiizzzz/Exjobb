@@ -12,7 +12,5 @@ Files:
 - genome_full_lineage.tsv - Komplett taxonomi för alla bakteriegenomen
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
 
-makeblastdb -in /storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna -parse_seqids -blastdb_version 5 -taxid_map /storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv -title "BLAST_db" -dbtype nucl
-/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna
-/storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv
+makeblastdb -in /storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna -parse_seqids -blastdb_version 5 -taxid_map /storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv -title "BLAST_db" -dbtype nucl -out /storage/koningen/antibiotic_resistance_db
 '''
