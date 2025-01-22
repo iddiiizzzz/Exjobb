@@ -12,9 +12,17 @@ Files:
 - genome_full_lineage.tsv - Komplett taxonomi för alla bakteriegenomen
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
 
-makeblastdb -in /storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna -dbtype nucl -out /storage/koningen/antibiotic_resistance_db -title "Antibiotic Resistance Genes DB" -parse_seqids
+----------------------------------------------------------------------------------------------
+
+to work in conda: conda activate exjobb_env
+
+skriva om id: seq1, seq2, seq3 etc
+
+makeblastdb -in /storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna -dbtype nucl -out /storage/bergid/antibiotic_resistance_db -title "Antibiotic Resistance Genes DB" -parse_seqids
 
 blastn -query query.fna \
        -db blast_db \
        -out results.txt
+
+
 '''
