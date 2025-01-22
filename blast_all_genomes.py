@@ -3,7 +3,7 @@ import os
 import subprocess
 
 paths_to_genomes = "exempel_paths.tsv"
-database = "/storage/bergid/antibiotic_resistance_db.fna"
+database = "/storage/bergid/antibiotic_resistance_db"
 output_file = "blast_results.txt"
 
 
