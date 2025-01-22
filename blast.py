@@ -15,6 +15,6 @@ Files:
 makeblastdb -in /storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna -dbtype nucl -out /storage/koningen/antibiotic_resistance_db -title "Antibiotic Resistance Genes DB" -parse_seqids
 
 blastn -query query.fna \
-       -db /storage/koningen/antibiotic_resistance_db \
+       -db blast_db \
        -out results.txt
 '''
