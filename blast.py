@@ -20,9 +20,9 @@ to work in conda: conda activate exjobb_env
 
 skriva om id: seq1, seq2, seq3 etc
 
-makeblastdb -in shorter_id.fna -dbtype nucl -out /storage/koningen/antibiotic_resistance_db -title "Antibiotic Resistance Genes DB" -parse_seqids
+makeblastdb -in /storage/bergid/shorter_id.fna -dbtype nucl -out /storage/bergid/antibiotic_resistance_db -title "Antibiotic Resistance Genes DB" -parse_seqids
 
-blastn -query /storage/koningen/GCA_001141985.1_6259_7_14_genomic.fna -db /storage/koningen/antibiotic_resistance_db -out blast_results_example.txt
+blastn -query /storage/bergid/GCA_001141985.1_6259_7_14_genomic.fna -db /storage/bergid/antibiotic_resistance_db -out blast_results_example.txt
 
 example query: 
        /storage/shared/ncbi_bacteria_assembly/GCA/001/141/985/GCA_001141985.1_6259_7_14/GCA_001141985.1_6259_7_14_genomic.fna.gz
