@@ -30,4 +30,17 @@ example query:
 ------------------------------------------------------------------------------
 gunzip file.fna.gz --> file.fna
 
+
+
+chmod 777 catalognamn for att ge rattigheter
+ln -s "katalog namn path" for att gora egen "fake" katalog till en annan plats typ storage.
+90% sekvenslikhet/identity, 70 coverage resistencegenen (db)
+tmux, ctrlb + d (deattach) for att kora kod lange
+htop for att kolla minne osv
+
+blast output table: 
+query acc.ver | subject acc.ver | % identity | alignment length | mismatches | gap opens | q. start | q. end | s. start | s. end | evalue | bit score
+
+
+
 '''
