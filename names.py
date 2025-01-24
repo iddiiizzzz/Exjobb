@@ -1,10 +1,8 @@
 import pandas as pd
 
-
 ARG_names = "/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna"
 blast_results = "blast_results.txt" #"/storage/bergid/blast_results.txt"
 
-# Initialize an empty list to store sequence ids
 seq_ids = []
 
 # Open the ARG_names (FASTA) file and read it line by line
@@ -15,19 +13,29 @@ with open(ARG_names, "r") as infile:
             seq_id = line[1:]  # Remove the ">" at the start
             seq_ids.append(seq_id)  # Store the sequence id
 
-ARG_names_dataframe = pd.DataFrame({"seq_id": seq_id})
+ARG_names_dataframe = pd.DataFrame({"seq_id": seq_ids})
 blast_results_dataframe = pd.read_csv(blast_results, sep="\t")
-#ARG_names_dataframe = pd.read_csv(ARG_names, sep="\t", header=None)
 
 short_name_blast = blast_results_dataframe["sseqid"]
-#true_name = ARG_names_dataframe[0]
 
 name_index_column = short_name_blast.str.slice(start=3)
 name_index_column = pd.to_numeric(name_index_column, errors='coerce')  # Coerce errors to NaN
 
-#mapping_true_names = true_name.to_dict()
-
-#blast_results_dataframe["True gene names"] = name_index_column.map(lambda x: true_name[x] if pd.notna(x) else None)
 blast_results_dataframe["True gene names"] = name_index_column.map(lambda x: ARG_names_dataframe["seq_id"].iloc[x] if pd.notna(x) and x < len(ARG_names_dataframe) else None)
 
-print(blast_results_dataframe.head(10))
+#print(blast_results_dataframe.head(10))
+
+
+count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
+filtered_count_matrix = "filtered_count_matrix.tsv" #/storage/koningen/filtered_count_matrix.tsv
+
+blast_with_true_names = blast_results_dataframe["True gene names"].dropna().tolist()
+
+matching_lines = []
+
+with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outfile:
+        for line in infile:
+            line = line.strip()
+            genes_in_count_matrix = line.split()[0]
+            if genes_in_count_matrix in blast_with_true_names:
+                outfile.write( + "\n")
