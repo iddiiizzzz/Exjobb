@@ -36,11 +36,14 @@ chmod 777 catalognamn for att ge rattigheter
 ln -s "katalog namn path" for att gora egen "fake" katalog till en annan plats typ storage.
 90% sekvenslikhet/identity, 70 coverage resistencegenen (db)
 tmux, ctrlb + d (deattach) for att kora kod lange
+tmux a -t mysession (öppna en specifik session)
 htop for att kolla minne osv
+tmux list-sessions (lista alla dina sessions)
 
 blast output table: 
 query acc.ver | subject acc.ver | % identity | alignment length | mismatches | gap opens | q. start | q. end | s. start | s. end | evalue | bit score
 
-
+------------------------------------------------------------------
+dataframe.iloc[0] --> first row in a dataframe
 
 '''
