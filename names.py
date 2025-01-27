@@ -40,9 +40,9 @@ for gene in blast_with_true_names:
 
 
 with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outfile:
-        for line in infile:
-            line = line.strip()
-            genes_in_count_matrix = line.split("\t")[0]
-            if genes_in_count_matrix in normalized_blast_genes:
-                outfile.write(line + "\n")
+    for line in infile:
+        line = line.strip()
+        genes_in_count_matrix = line.split("\t")[0]
+        if genes_in_count_matrix in normalized_blast_genes:
+            outfile.write(line + "\n")
 
