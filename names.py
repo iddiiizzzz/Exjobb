@@ -32,7 +32,6 @@ filtered_count_matrix = "filtered_count_matrix.tsv" #/storage/koningen/filtered_
 blast_with_true_names = blast_results_dataframe["True gene names"].dropna().tolist()
 matching_lines = []
 normalized_blast_genes = []
-genes_in_count_matrix = []
 
 for gene in blast_with_true_names:
     gene = gene.strip()  # Strip extra spaces
@@ -40,7 +39,7 @@ for gene in blast_with_true_names:
 
     # Apply normalization on each part of the gene (if multiple parts exist after split)
     normalized_blast_genes = [part.replace("(", ".").replace(")", ".").replace("'", ".").replace("-", ".").replace("@", ".") for part in rows_blast]
-
+    normalized_blast_genes.append(normalized_blast_genes)
 
 
 with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outfile:
@@ -57,3 +56,10 @@ with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outf
 
 # GCA_000300175.1_ASM30017v1_CP003873.1_seq1@@@class_B_3
 # GCA_030316925.1_ASM3031692v1_JASZYP010000015.1_seq1...class_B_3
+
+
+#GCA_007997035.1_ASM799703v1_VOSS01000001.1_seq1...tet_efflux
+#GCA_029237305.1_ASM2923730v1_JAACFY010000001.1_seq1...class_C
+#GCA_000300175.1_ASM30017v1_CP003873.1_seq1...class_B_3
+#GCA_001663155.1_ASM166315v1_CP015963.1_seq2...class_A
+# GCA_004458765.1_ASM445876v1_SPJX01000184.1_seq1...aac3_class1
