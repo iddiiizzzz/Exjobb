@@ -34,10 +34,9 @@ normalized_blast_genes = []
 
 for gene in blast_with_true_names:
     gene = gene.strip() 
-    rows_blast = gene.split("\t") 
 
-    normalized_blast_genes = [part.replace("(", ".").replace(")", ".").replace("'", ".").replace("-", ".").replace("@", ".") for part in rows_blast]
-    normalized_blast_genes.append(normalized_blast_genes)
+    normalized_genes = gene.replace("(", ".").replace(")", ".").replace("'", ".").replace("-", ".").replace("@", ".")
+    normalized_blast_genes.append(normalized_genes)
 
 
 with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outfile:
