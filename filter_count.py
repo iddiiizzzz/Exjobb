@@ -7,9 +7,9 @@ with open(filtered_count_matrix, "r") as infile, open(genes_in_original_hosts, "
     outfile.write(header + "\n")
     for line in infile:
         columns = line.strip().split("\t")
-        for value in columns:
-            count_values = int(value)
+        
+        count_values = [int(value) for value in columns[1:]]
 
-            if any(0 < count_value <= 20 for count_value in count_values) and all(count_value <= 20 for count_value in count_values):
-                outfile.write("\t".join(columns) + "\n")
+        if any(0 < count_value <= 20 for count_value in count_values) and all(count_value <= 20 for count_value in count_values):
+            outfile.write("\t".join(columns) + "\n")
                 
