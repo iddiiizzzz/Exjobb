@@ -1,5 +1,5 @@
 input_file = "/storage/koningen/antibiotic_resistance_genes.fna"
-output_file = "shorter_id.fna"
+output_file = "storage/koningen/shorter_id.fna"
 
 with open(input_file, "r") as infile, open(output_file, "w") as outfile:
     count = 1

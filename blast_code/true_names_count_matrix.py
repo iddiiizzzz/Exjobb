@@ -1,7 +1,7 @@
 import pandas as pd
 
 ARG_names = "/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna"
-blast_results = "blast_results.txt" #"/storage/bergid/blast_results.txt"
+blast_results = "/blast_code/blast_outputs/blast_results.txt" #"/storage/bergid/blast_results.txt"
 
 seq_ids = []
 with open(ARG_names, "r") as infile:
@@ -26,10 +26,9 @@ blast_results_dataframe["True gene names"] = name_index_column.map(lambda x: ARG
 ##################################################
 
 count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
-filtered_count_matrix = "filtered_count_matrix.tsv" #/storage/koningen/filtered_count_matrix.tsv
+filtered_count_matrix = "/blast_code/blast_outputs/filtered_count_matrix.tsv" #/storage/koningen/filtered_count_matrix.tsv
 
 blast_with_true_names = blast_results_dataframe["True gene names"].dropna().tolist()
-matching_lines = []
 normalized_blast_genes = []
 
 for gene in blast_with_true_names:
@@ -40,6 +39,9 @@ for gene in blast_with_true_names:
 
 
 with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outfile:
+    header = infile.readline().strip()  # Read and keep the header
+    outfile.write(header + "\n")
+    
     for line in infile:
         line = line.strip()
         genes_in_count_matrix = line.split("\t")[0]
