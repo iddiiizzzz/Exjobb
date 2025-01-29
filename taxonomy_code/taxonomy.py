@@ -41,7 +41,7 @@ def extract_taxids_from_file(file_path):
 if __name__ == "__main__":
     # Define the file paths
     names_file_path = "/storage/koningen/nbci_taxonomy/names.dmp"
-    kraken_file_path = "test_kraken.csv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_metagenomes.csv"
+    kraken_file_path = "/test_files/test_kraken.csv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_metagenomes.csv"
     output_file_path = "/blast_code/blast_outputs/count_matrix_found_bacteria.tsv"
 
     # Load the names data
