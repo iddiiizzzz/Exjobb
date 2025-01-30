@@ -1,7 +1,7 @@
 import pandas as pd
 
 ARG_names = "/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna"
-blast_results = "/blast_code/blast_outputs/blast_results.txt" #"/storage/bergid/blast_results.txt"
+blast_results = "blast_code/blast_outputs/blast_results.txt" #"/storage/bergid/blast_results.txt"
 
 seq_ids = []
 with open(ARG_names, "r") as infile:
@@ -26,7 +26,7 @@ blast_results_dataframe["True gene names"] = name_index_column.map(lambda x: ARG
 ##################################################
 
 count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
-filtered_count_matrix = "/blast_code/blast_outputs/filtered_count_matrix.tsv" #/storage/koningen/filtered_count_matrix.tsv
+filtered_count_matrix = "blast_code/blast_outputs/filtered_count_matrix.tsv" #/storage/koningen/filtered_count_matrix.tsv
 
 blast_with_true_names = blast_results_dataframe["True gene names"].dropna().tolist()
 normalized_blast_genes = []

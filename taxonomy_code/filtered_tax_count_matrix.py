@@ -2,9 +2,9 @@ import pandas as pd
 import re
 import csv
 
-filtered_taxid = "/blast_code/blast_outputs/filtered_taxid.tsv" # taxid + relevanta namn
-kraken_file_path = "/test_files/test_kraken_counts.csv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_metagenomes.csv"
-filtered_tax_count = "/blast_code/blast_outputs/filtered_tax_count.csv" # outfile
+filtered_taxid = "taxonomy_code/taxonomy_outputs/filtered_taxid.tsv" # taxid + relevanta namn
+kraken_file_path = "test_files/test_kraken_counts.csv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_metagenomes.csv"
+filtered_tax_count = "taxonomy_code/taxonomy_outputs/filtered_tax_count.csv" # outfile
 
 filtered_taxids = []
 with open(filtered_taxid, "r") as file:
