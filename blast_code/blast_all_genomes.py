@@ -2,17 +2,18 @@ import gzip
 import os
 import subprocess
 
-paths_to_genomes = "/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv"
-database = "/storage/bergid/antibiotic_resistance_db"
+paths_to_genomes = "/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv" # "test_files/exempel_paths.tsv"
+database = "/storage/bergid/data_base/antibiotic_resistance_db"
 output_file = "/storage/bergid/blast_results.txt"
 
 
 with open(paths_to_genomes, "r") as file:
     for line in file:
+        print(line)
         zipped_file_paths = line.strip()
 
         if zipped_file_paths.endswith(".gz"):
-            unzipped_file_paths = "/storage/bergid/{}".format(os.path.basename(zipped_file_paths[:-3]))
+            unzipped_file_paths = "/storage/bergid/unzipped_files/{}".format(os.path.basename(zipped_file_paths[:-3]))
 
 
             with gzip.open(zipped_file_paths, "rb") as zipped_file:
