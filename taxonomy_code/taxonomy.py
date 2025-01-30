@@ -4,7 +4,7 @@ import re
 # Define the file paths
 names_file_path = "/storage/koningen/nbci_taxonomy/names.dmp"
 kraken_file_path = "test_files/test_kraken.csv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_metagenomes.csv"
-output_file_path = "blast_code/blast_outputs/count_matrix_found_bacteria.tsv"
+output_file_path = "blast_code/blast_outputs/translated_names.tsv"
 
 
 # Read the names.dmp file with the correct separator (tab-pipe-tab)
@@ -42,7 +42,7 @@ for taxid in taxids:
 
 ######## filter out viruses and other things that are not in the relevant set of genomes ###########
 full_taxonomy = "/storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv"
-out = "taxonomy_code/taxonomy_outputs/filtered_taxid.tsv"
+out = "taxonomy_code/taxonomy_outputs/bacteria.tsv"
 
 # Load all lines of full_taxonomy for searching
 with open(full_taxonomy, "r") as tax_file:
