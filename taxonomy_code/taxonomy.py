@@ -19,7 +19,6 @@ taxids = []
 with open(kraken_file_path, 'r') as file:
     # Read each line and extract all taxids using a regular expression
     for line in file:
-        print(line)
         # Find all occurrences of taxids in the form of (taxid <number>)
         matches = re.findall(r'\(taxid (\d+)\)', line)
         taxids.extend([int(match) for match in matches])  # Append all found taxids
