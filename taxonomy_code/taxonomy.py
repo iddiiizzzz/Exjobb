@@ -43,7 +43,7 @@ for taxid in taxids:
 
 ######## filter out viruses and other things that are not in the relevant set of genomes ###########
 full_taxonomy = "/storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv"
-out = "storage/koningen/bacteria.tsv" #"taxonomy_code/taxonomy_outputs/bacteria.tsv"
+out = "/storage/koningen/bacteria.tsv" #"taxonomy_code/taxonomy_outputs/bacteria.tsv"
 
 # Load all lines of full_taxonomy for searching
 with open(full_taxonomy, "r") as tax_file:
