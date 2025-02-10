@@ -12,7 +12,7 @@ Files:
 - genome_full_lineage.tsv - Komplett taxonomi för alla bakteriegenomen
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
 
-/storage/shared/data_for_master_students/ida_and_ellen
+/ 
 
 ----------------------------------------------------------------------------------------------
 
@@ -39,6 +39,8 @@ tmux, ctrlb + d (deattach) for att kora kod lange
 tmux a -t mysession (öppna en specifik session)
 htop for att kolla minne osv
 tmux list-sessions (lista alla dina sessions)
+tmux rename-session -t <old-name> <new-name> (döpa om session)
+tmux kill-session -t my_session (radera session)
 
 blast output table: 
 query acc.ver | subject acc.ver | % identity | alignment length | mismatches | gap opens | q. start | q. end | s. start | s. end | evalue | bit score
