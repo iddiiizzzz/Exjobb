@@ -51,4 +51,7 @@ query acc.ver | subject acc.ver | % identity | alignment length | mismatches | g
 ------------------------------------------------------------------
 dataframe.iloc[0] --> first row in a dataframe
 
+titta specifik rad: sed -n '10p' <filename>
+titta på specifk rad och kolumn: cut -d',' -f2,5 <filename>
+
 '''
