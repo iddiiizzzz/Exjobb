@@ -1,54 +1,54 @@
-import csv
+
+
+# -------------------------------------------------------------------------------
+# Create a new count matrix with only the relevant organisms
+# -------------------------------------------------------------------------------
+
+
 import pandas as pd
-filtered_taxid = "taxonomy_code/taxonomy_outputs/bacteria_species_only.tsv"  # taxid + relevant names
-kraken_file_path = "test_files/test_kraken.tsv"  # Path to Kraken file
-filtered_tax_count = "taxonomy_code/taxonomy_outputs/filtered_tax_count.tsv"  # Output file
 
-kraken_with_zeros = pd.read_csv(kraken_file_path, sep="\s+", engine="python")
-kraken_with_zeros = kraken_with_zeros.fillna(0)
-print(kraken_with_zeros)
+filtered_taxids_paths = [
+    "taxonomy_code/taxonomy_outputs/bacteria_species_only_ww1.tsv",
+    "taxonomy_code/taxonomy_outputs/bacteria_species_only_ww2.tsv",
+    "taxonomy_code/taxonomy_outputs/bacteria_species_only_hg.tsv"
+]
 
-# filtered_taxids = []
-# with open(filtered_taxid, "r") as file:
-#     for line in file:
-#         line = line.strip()
-#         taxid, name = line.split(maxsplit=1)  # Split taxid and name
-#         filtered_taxids.append(taxid.strip())  # Add stripped taxid to the list
+kraken_file_paths = [
+    "test_files/test_kraken1.tsv",
+    "test_files/test_kraken2.tsv",
+    "test_files/test_kraken3.tsv"
+]
 
-# print("Filtered TaxIDs:", filtered_taxids)  # Print filtered taxids
+filtered_tax_count_paths = [
+    "taxonomy_code/taxonomy_outputs/filtered_tax_count_ww1.tsv",
+    "taxonomy_code/taxonomy_outputs/filtered_tax_count_ww2.tsv",
+    "taxonomy_code/taxonomy_outputs/filtered_tax_count_hg.tsv"
+]
 
-# with open(kraken_file_path, "r") as infile, open(filtered_tax_count, "w") as outfile:
-#      reader = csv.reader(infile, delimiter='\t')
-#      writer = csv.writer(outfile, delimiter='\t')
 
-#      header_line = next(infile)
-#      header = header_line.strip().split()
-#      print("Header:", header)  # Print header
+for i in range(3):
 
-#      keep_indices = [0]  # Keeps the first column
+     kraken_with_zeros = pd.read_csv(kraken_file_paths[i], sep="\s+", engine="python")
+     kraken_with_zeros = kraken_with_zeros.fillna(0)
 
-#      # Find column indices to keep
-#      for i, taxid in enumerate(header):
-#           if taxid.strip() in filtered_taxids:  # Match stripped taxid
-#                keep_indices.append(i)
+     filtered_taxids = []
+     with open(filtered_tax_count_paths[i], "r") as file:
+          for line in file:
+               taxid, name = line.strip.split(maxsplit=1)  # Split taxid and name
+               filtered_taxids.append(taxid.strip())  # Add stripped taxid to the list
 
-#      print("Keep Indices:", keep_indices)  # Print indices of columns to keep
 
-#      filtered_header = []
+     columns_to_keep = ["SampleID"]
 
-#      # Write the new header row (keeping the sample names and filtered taxids)
-#      for i in keep_indices:
-#           filtered_header.append(header[i])  # Append only the columns we want to keep
-#      writer.writerow(filtered_header)
+     for column in kraken_with_zeros.columns:
+          for taxid in filtered_taxids:
+               if column == taxid:
+                    columns_to_keep.append(column)
+                    break # break when match found
 
-#      # Reinitialize the csv reader to process the data rows
-#      infile.seek(0)
-#      reader = csv.reader(infile, delimiter='\t')
-#      next(reader)  # Skip the header line
+     # New dataframe with only the selected columns
+     filtered_df = kraken_with_zeros[columns_to_keep]
 
-#      # Process the rest of the file
-#      for row in reader:
-#           filtered_row = []
-#           for i in keep_indices:
-#                filtered_row.append(row[i])  # Append the corresponding value to filtered_row
-#           writer.writerow(filtered_row)
+     # Save to new file
+     filtered_df.to_csv(filtered_tax_count_paths[i], sep="\t", index=False)
+
