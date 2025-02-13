@@ -53,6 +53,8 @@ dataframe.iloc[0] --> first row in a dataframe
 
 titta på endast headern: head -n 1 <filename>
 titta specifik rad: sed -n '10p' <filename>
-titta på specifk rad och kolumn: cut -d',' -f2,5 <filename>
+titta på specifka kolumner: cut -d',' -f2,5 <filename>
+
+första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,4,5,7,8,9,10,11,12,13 
 
 '''
