@@ -7,9 +7,9 @@ import pandas as pd
 
 names_file_path = "/storage/koningen/nbci_taxonomy/names.dmp"
 
-counts_wastewater1 = "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv"
-counts_wastewater2 = "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv"
-counts_humangut = "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.tsv"
+counts_wastewater1 = "test_files/test_kraken1.tsv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv"
+counts_wastewater2 = "test_files/test_kraken2.tsv"  #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv"
+counts_humangut = "test_files/test_kraken3.tsv"  #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.tsv"
 
 output_file_path1 = "/storage/koningen/wastewater1/wastewater1_names.tsv" 
 output_file_path2 = "/storage/koningen/wastewater2/wastewater2_names.tsv"

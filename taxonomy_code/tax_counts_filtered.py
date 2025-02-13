@@ -8,9 +8,9 @@
 import pandas as pd
 
 filtered_taxids_paths = [
-    "taxonomy_code/taxonomy_outputs/bacteria_species_only_ww1.tsv",
-    "taxonomy_code/taxonomy_outputs/bacteria_species_only_ww2.tsv",
-    "taxonomy_code/taxonomy_outputs/bacteria_species_only_hg.tsv"
+    "/storage/koningen/wastewater1/bacteria_species_only_ww1.tsv",
+    "/storage/koningen/wastewater2/bacteria_species_only_ww2.tsv",
+    "/storage/koningen/humangut/bacteria_species_only_hg.tsv"
 ]
 
 kraken_file_paths = [
@@ -20,9 +20,9 @@ kraken_file_paths = [
 ]
 
 filtered_tax_count_paths = [
-    "taxonomy_code/taxonomy_outputs/filtered_tax_count_ww1.tsv",
-    "taxonomy_code/taxonomy_outputs/filtered_tax_count_ww2.tsv",
-    "taxonomy_code/taxonomy_outputs/filtered_tax_count_hg.tsv"
+    "/storage/koningen/wastewater1/filtered_tax_counts_ww1.tsv",
+    "/storage/koningen/wastewater2/filtered_tax_counts_ww2.tsv",
+    "/storage/koningen/humangut/filtered_tax_counts_hg.tsv"
 ]
 
 

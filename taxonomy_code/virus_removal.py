@@ -9,9 +9,9 @@ taxids_with_names = ["/storage/koningen/wastewater1/wastewater1_names.tsv",
                      "/storage/koningen/humangut/humangut_names.tsv" 
                     ] 
 bacteria = [
-    "/storage/koningen/bacteria_ww1.tsv",
-    "/storage/koningen/bacteria_ww2.tsv",
-    "/storage/koningen/bacteria_hg.tsv"
+    "/storage/koningen/wastewater1/bacteria_ww1.tsv",
+    "/storage/koningen/wastewater2/bacteria_ww2.tsv",
+    "/storage/koningen/humangut/bacteria_hg.tsv"
     ]
 
 for i in range(3):
