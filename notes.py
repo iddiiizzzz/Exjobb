@@ -11,9 +11,9 @@ Files:
 - count_matrix.tsv - Abundans av resistensgener i metagenom
 - genome_full_lineage.tsv - Komplett taxonomi för alla bakteriegenomen
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
-       - taxonomy_wastewater_1.csv
-       - taxonomy_wastewater_2.csv
-       - taxonomy_human_gut.csv
+       - taxonomy_wastewater_1.tsv
+       - taxonomy_wastewater_2.tsv
+       - taxonomy_human_gut.tsv
 
 /storage/shared/data_for_master_students/ida_and_ellen
 
@@ -51,6 +51,7 @@ query acc.ver | subject acc.ver | % identity | alignment length | mismatches | g
 ------------------------------------------------------------------
 dataframe.iloc[0] --> first row in a dataframe
 
+titta på endast headern: head -n 1 <filename>
 titta specifik rad: sed -n '10p' <filename>
 titta på specifk rad och kolumn: cut -d',' -f2,5 <filename>
 

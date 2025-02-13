@@ -4,7 +4,7 @@ import csv
 
 filtered_taxid = "taxonomy_code/taxonomy_outputs/filtered_bacteria.tsv" # taxid + relevanta namn
 kraken_file_path = "test_files/test_kraken_counts.csv" #"/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_metagenomes.csv"
-filtered_tax_count = "taxonomy_code/taxonomy_outputs/filtered_tax_count.csv" # outfile
+tax_count = "taxonomy_code/taxonomy_outputs/filtered_tax_count.csv" # outfilefiltered_
 
 filtered_taxids = []
 with open(filtered_taxid, "r") as file:
