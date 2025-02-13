@@ -52,4 +52,4 @@ plt.title("Histogram of Count Matrix Values for Organisms")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
 plt.xlim([1, 100])
 plt.ylim([0, 50000])
-plt.savefig("histograms/bilder/histogram_organisms.png")
+plt.savefig("histograms/bilder/organisms_all/histogram_organisms.png")

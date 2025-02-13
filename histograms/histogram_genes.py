@@ -21,5 +21,5 @@ plt.title("Histogram of Count Matrix Values for Genes")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
 plt.xlim([1,50])
 plt.ylim([0,200000])
-plt.savefig("histograms/bilder/histogram_genes.png")  
+plt.savefig("histograms/bilder/genes_all/histogram_genes.png")  
 

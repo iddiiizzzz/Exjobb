@@ -4,12 +4,12 @@ import matplotlib.pyplot as plt
 
 count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
 #highest_raw_counts = "/storage/koningen/ranked_counts/highest_raw_counts.tsv"
-lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_raw_counts.tsv"
+lowest_raw_counts = "test.tsv" #"/storage/koningen/ranked_counts/lowest_raw_counts.tsv"
 
-num_top_rows = 10
+num_top_rows = 2
 max_zero_percentage = 0.25
 
-values = []
+sums = []
 with open(count_matrix, "r") as infile:
     next(infile)  # Skip the header line
     
@@ -17,22 +17,21 @@ with open(count_matrix, "r") as infile:
         columns = line.strip().split("\t")  # Split line into columns
         identifier = columns[0]  # First column is identifiers
         numeric_values = list(map(int, columns[1:]))  # Convert remaining columns to integers
-        
+
         # Calculate the number of zeroes in the row
         num_zeroes = numeric_values.count(0)
         zero_percentage = num_zeroes / len(numeric_values)
 
         # Only include rows with more than 75% non-zero
         if zero_percentage <= max_zero_percentage:
-           #max_value = max(numeric_values)  # Find the maximum value in the row
-           min_value = min(numeric_values) # Find the minimum value in the row
-           values.append((identifier, min_value))  # Store as tuple (identifier, max_value)
+            row_sum = sum(numeric_values)  # Sum the values
+            sums.append((identifier, row_sum))  # Store as tuple (identifier, sum)
 
-# Sort by the maximum value (highest to lowest)
-values.sort(key=lambda x: x[1], reverse=True)
+# Sort sums by sum value (lowest to highest)
+sums.sort(key=lambda x: x[1], reverse=False)  # False for ascending (lowest first)
 
-# Get the top N identifiers based on the highest individual values
-top_identifiers = {identifier for identifier, _ in values[:num_top_rows]}
+# Get the top N identifiers based on sum
+top_identifiers = {identifier for identifier, _ in sums[:num_top_rows]}
 
 # Filter the original file to keep only the rows with identifiers in the selected list
 with open(count_matrix, "r") as infile, open(lowest_raw_counts, "w") as outfile:
@@ -48,7 +47,8 @@ with open(count_matrix, "r") as infile, open(lowest_raw_counts, "w") as outfile:
 
 
 #### Histogram #####
-df = pd.read_csv(lowest_raw_counts, sep="\t", skiprows=1).iloc[:, 1:] 
+
+df = pd.read_csv(lowest_raw_counts, sep="\t", header=0).iloc[:, 1:]  # Skip first column (identifier)
 all_values = df.values.flatten()
 
 # Apply transformation
@@ -57,8 +57,8 @@ all_values = np.log(all_values + 1)
 # Plot histogram
 plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
-plt.xlabel("Log-transformed Count Value")
+plt.xlabel("Count Value")
 plt.ylabel("Frequency")
-plt.title(f"Log-transformed counts for the {num_top_rows} genes with the lowest individual values")
+plt.title(f"Counts for the {num_top_rows} least abundant genes")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/genes_filtered/histogram_genes_lowest_individual.png")
+plt.savefig("histograms/bilder/genes_filtered/histogram_genes_lowest_sum.png")
