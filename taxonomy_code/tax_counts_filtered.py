@@ -32,9 +32,9 @@ for i in range(3):
      kraken_with_zeros = kraken_with_zeros.fillna(0)
 
      filtered_taxids = []
-     with open(filtered_tax_count_paths[i], "r") as file:
+     with open(filtered_taxids_paths[i], "r") as file:
           for line in file:
-               taxid, name = line.strip.split(maxsplit=1)  # Split taxid and name
+               taxid, name = line.strip().split(maxsplit=1)  # Split taxid and name
                filtered_taxids.append(taxid.strip())  # Add stripped taxid to the list
 
 
