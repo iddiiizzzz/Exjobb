@@ -7,7 +7,7 @@ highest_raw_counts = "/storage/koningen/ranked_counts/highest_raw_counts.tsv"
 #lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_raw_counts.tsv"
 
 num_top_rows = 10
-max_zero_percentage = 0.25
+max_zero_percentage = 0.5
 
 values = []
 with open(count_matrix, "r") as infile:
@@ -29,7 +29,7 @@ with open(count_matrix, "r") as infile:
            values.append((identifier, max_value))  # Store as tuple (identifier, max_value)
 
 # Sort
-values.sort(key=lambda x: x[1], reverse=True)
+values.sort(key=lambda x: x[1], reverse=False)
 
 # Get the top N identifiers based on the highest individual values
 top_identifiers = {identifier for identifier, _ in values[:num_top_rows]}
@@ -61,4 +61,4 @@ plt.xlabel("Log-transformed Count Value")
 plt.ylabel("Frequency")
 plt.title(f"Log-transformed counts for the {num_top_rows} genes with the highest individual values")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/genes_filtered/histogram_genes_highest_individual.png")
+plt.savefig("histograms/bilder/genes_filtered/histogram_genes_highest_individual_50.png")

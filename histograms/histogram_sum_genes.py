@@ -3,11 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
-highest_raw_counts = "/storage/koningen/ranked_counts/highest_sum_counts.tsv"
-#lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_sum_counts.tsv"
+#highest_raw_counts = "/storage/koningen/ranked_counts/highest_sum_counts.tsv"
+lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_sum_counts.tsv"
 
 num_top_rows = 10
-max_zero_percentage = 0.25
+max_zero_percentage = 0.5
 
 sums = []
 with open(count_matrix, "r") as infile:
@@ -28,13 +28,13 @@ with open(count_matrix, "r") as infile:
             sums.append((identifier, row_sum))  # Store as tuple (identifier, sum)
 
 # Sort sums
-sums.sort(key=lambda x: x[1], reverse=True)  # False for ascending, true for decending
+sums.sort(key=lambda x: x[1], reverse=False)  # False for ascending, true for decending
 
 # Get the top N identifiers based on sum
 top_identifiers = {identifier for identifier, _ in sums[:num_top_rows]}
 
 # Filter the original file to keep only the rows with identifiers in the selected list
-with open(count_matrix, "r") as infile, open(highest_raw_counts, "w") as outfile:
+with open(count_matrix, "r") as infile, open(lowest_raw_counts, "w") as outfile:
     header = next(infile)  # Read and write the header
     outfile.write(header)
 
@@ -48,7 +48,7 @@ with open(count_matrix, "r") as infile, open(highest_raw_counts, "w") as outfile
 
 #### Histogram #####
 
-df = pd.read_csv(highest_raw_counts, sep="\t", header=0).iloc[:, 1:]  # Skip first column (identifier)
+df = pd.read_csv(lowest_raw_counts, sep="\t", header=0).iloc[:, 1:]  # Skip first column (identifier)
 all_values = df.values.flatten()
 
 # Apply transformation
@@ -57,8 +57,8 @@ all_values = np.log(all_values + 1)
 # Plot histogram
 plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
-plt.xlabel("Count Value")
+plt.xlabel("Log-transformed Count Value")
 plt.ylabel("Frequency")
-plt.title(f"Counts for the {num_top_rows} most abundant genes")
+plt.title(f"Log-transformed counts for the {num_top_rows} least abundant genes")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/genes_filtered/histogram_genes_highest_sum.png")
+plt.savefig("histograms/bilder/genes_filtered/histogram_genes_lowest_sum_50.png")
