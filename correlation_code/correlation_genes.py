@@ -6,14 +6,14 @@
 import numpy as np
 from scipy.stats import pearsonr
 
-# gene_counts = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
+gene_counts = "/storage/koningen/count_matrix.tsv"
 results = "correlation_code/results_gene_correlation.tsv"
-lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_sum_counts.tsv"
+#lowest_raw_counts = "/storage/koningen/ranked_counts/highest_average_counts.tsv"
 
 
 transformed_counts = []
 gene_names = []
-with open(lowest_raw_counts, 'r') as infile:
+with open(gene_counts, 'r') as infile:
     next(infile)
     
     for line in infile:
@@ -31,19 +31,18 @@ with open(lowest_raw_counts, 'r') as infile:
 transformed_counts = np.array(transformed_counts)
 results_list = []     
 
-print(transformed_counts)
-# for i in range(len(transformed_counts)):
-#     print(i)
-#     for j in range(i, len(transformed_counts)):
-#         if i==j:
-#             corr_coefficient, p_value = 1.0, 0.0
-#         else:
-#             corr_coefficient, p_value = pearsonr(transformed_counts[i], transformed_counts[j])
+for i in range(len(transformed_counts)):
+    print(i)
+    for j in range(i, len(transformed_counts)):
+        if i==j:
+            corr_coefficient, p_value = 1.0, 0.0
+        else:
+            corr_coefficient, p_value = pearsonr(transformed_counts[i], transformed_counts[j])
         
-#         gene1, gene2 = gene_names[i], gene_names[j]
-#         results_list.append(f"{gene1}\t{gene2}\t{corr_coefficient:.6f}\t{p_value:.6f}\n")
+        gene1, gene2 = gene_names[i], gene_names[j]
+        results_list.append(f"{gene1}\t{gene2}\t{corr_coefficient:.6f}\t{p_value:.6f}\n")
 
 
-# with open(results, 'w') as outfile:
-#     outfile.write("Gene 1\tGene 2\tCorrelation coefficient\tp-value\n")
-#     outfile.writelines(results_list)
+with open(results, 'w') as outfile:
+    outfile.write("Gene 1\tGene 2\tCorrelation coefficient\tp-value\n")
+    outfile.writelines(results_list)
