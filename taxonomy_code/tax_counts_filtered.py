@@ -38,7 +38,7 @@ for i in range(3):
                filtered_taxids.append(taxid.strip())  # Add stripped taxid to the list
 
 
-     columns_to_keep = ["SampleID"]
+     columns_to_keep = ["TrueID"]
 
      for column in kraken_with_zeros.columns:
           for taxid in filtered_taxids:

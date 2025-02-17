@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
+count_matrix = "/storage/koningen/count_matrix.tsv"
 highest_raw_counts = "/storage/koningen/ranked_counts/highest_raw_counts.tsv"
 #lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_raw_counts.tsv"
 
@@ -44,7 +44,7 @@ with open(count_matrix, "r") as infile, open(highest_raw_counts, "w") as outfile
         identifier = columns[0]  # First column (identifier)
 
         if identifier in top_identifiers:  # Check if identifier is in the selected list
-            outfile.write(line + "\n")  # Write the matching rows to the new file
+            outfile.write(line)  # Write the matching rows to the new file
 
 
 #### Histogram #####

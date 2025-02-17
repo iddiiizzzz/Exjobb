@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
+count_matrix = "/storage/koningen/count_matrix.tsv"
 #highest_mean_counts = "/storage/koningen/ranked_counts/highest_average_counts.tsv"
 lowest_mean_counts = "/storage/koningen/ranked_counts/lowest_average_counts.tsv"
 
@@ -28,7 +28,7 @@ with open(count_matrix, "r") as infile:
             means.append((identifier, row_mean))  # Store as tuple (identifier, sum)
 
 # Sort means in descending order (highest to lowest mean)
-means.sort(key=lambda x: x[1], reverse=False)
+means.sort(key=lambda x: x[1], reverse=True)
 
 # Get the top N identifiers based on mean
 top_identifiers = {identifier for identifier, _ in means[:num_top_rows]}
@@ -43,7 +43,7 @@ with open(count_matrix, "r") as infile, open(lowest_mean_counts, "w") as outfile
         identifier = columns[0]  # First column (identifier)
 
         if identifier in top_identifiers:  # Check if identifier is in the selected list
-            outfile.write(line + "\n")  # Write the matching rows to the new file
+            outfile.write(line)  # Write the matching rows to the new file
 
 
 #### Histogram #####
@@ -61,3 +61,5 @@ plt.ylabel("Frequency")
 plt.title(f"Log-transformed counts for the {num_top_rows} genes with the lowest mean")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
 plt.savefig("histograms/bilder/genes_filtered/histogram_genes_lowest_mean_50.png")
+
+print(top_identifiers)
