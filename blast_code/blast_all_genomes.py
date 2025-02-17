@@ -2,10 +2,13 @@ import gzip
 import os
 import subprocess
 
-paths_to_genomes = "/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv" # "test_files/exempel_paths.tsv"
+paths_to_genomes =  "test_files/exempel_paths.tsv" #"/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv" # "test_files/exempel_paths.tsv"
 database = "/storage/bergid/data_base/antibiotic_resistance_db"
-output_file = "/storage/bergid/blast_results.txt"
+output_file = "blast_code/blast_outputs/blast_results_test.txt"#"/storage/bergid/blast_results.txt"
 
+with open(output_file, "w") as outfile:
+    # header to output file
+    outfile.write("qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore\tslen\tscov\n")
 
 with open(paths_to_genomes, "r") as file:
     for line in file:
@@ -32,9 +35,7 @@ with open(paths_to_genomes, "r") as file:
         subprocess.call(result)
 
 
-        with open(temporary_output_file, "r") as infile, open(output_file, "w") as outfile:
-            # header to output file
-            outfile.write("qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore\tslen\tscov\n")
+        with open(temporary_output_file, "r") as infile, open(output_file, 'a') as outfile:
             for line in infile:
                 fields = line.strip().split("\t")
                 alignment_length = abs(float(fields[7]) - float(fields[6]))+1 # Alignment length
