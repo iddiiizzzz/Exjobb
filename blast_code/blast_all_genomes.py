@@ -2,9 +2,9 @@ import gzip
 import os
 import subprocess
 
-paths_to_genomes =  "test_files/exempel_paths.tsv" #"/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv" # "test_files/exempel_paths.tsv"
+paths_to_genomes = "/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv" # "test_files/exempel_paths.tsv"
 database = "/storage/bergid/data_base/antibiotic_resistance_db"
-output_file = "blast_code/blast_outputs/blast_results_test.txt"#"/storage/bergid/blast_results.txt"
+output_file = "/storage/bergid/blast_results.txt"
 
 with open(output_file, "w") as outfile:
     # header to output file
@@ -30,7 +30,7 @@ with open(paths_to_genomes, "r") as file:
                 "-db", database, 
                 "-out", temporary_output_file, 
                 "-outfmt", "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore slen",  # Tabular format 6, 7 with header, add coverage, scov
-                "-num_threads", "20"
+                "-num_threads", "40"
                 ]
         subprocess.call(result)
 

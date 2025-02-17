@@ -59,4 +59,5 @@ första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,4,5,7,8,9
 
 grep -n "/storage/shared/ncbi_bacteria_assembly/GCA/036/526/695/GCA_036526695.1_PDT002074561.1/GCA_036526695.1_PDT002074561.1_genomic.fna.gz" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
 
+
 '''
