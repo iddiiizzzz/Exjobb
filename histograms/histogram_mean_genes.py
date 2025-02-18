@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 count_matrix = "/storage/koningen/count_matrix.tsv"
-highest_mean_counts = "/storage/koningen/ranked_counts/highest_average_counts.tsv"
-# lowest_mean_counts = "/storage/koningen/ranked_counts/lowest_average_counts.tsv"
+#highest_mean_counts = "/storage/koningen/ranked_counts/highest_average_counts.tsv"
+lowest_mean_counts = "/storage/koningen/ranked_counts/lowest_average_counts.tsv"
 
 num_top_rows = 1
 max_zero_percentage = 0.5
@@ -28,13 +28,13 @@ with open(count_matrix, "r") as infile:
             means.append((identifier, row_mean))  # Store as tuple (identifier, sum)
 
 # Sort means in descending order (highest to lowest mean)
-means.sort(key=lambda x: x[1], reverse=True)
+means.sort(key=lambda x: x[1], reverse=False)
 
 # Get the top N identifiers based on mean
 top_identifiers = {identifier for identifier, _ in means[:num_top_rows]}
 
 # Filter the original file to keep only the rows with identifiers in the selected list
-with open(count_matrix, "r") as infile, open(highest_mean_counts, "w") as outfile:
+with open(count_matrix, "r") as infile, open(lowest_mean_counts, "w") as outfile:
     header = next(infile)  # Read and write the header
     outfile.write(header)
 
@@ -47,16 +47,16 @@ with open(count_matrix, "r") as infile, open(highest_mean_counts, "w") as outfil
 
 
 #### Histogram #####
-df = pd.read_csv(highest_mean_counts, sep="\t").iloc[:, 1:] 
+df = pd.read_csv(lowest_mean_counts, sep="\t").iloc[:, 1:] 
 all_values = df.values.flatten()
 # Apply log transformation
-all_values = np.log(all_values + 1)
+all_values = np.sqrt(all_values)
 
 # Plot histogram
 plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
-plt.xlabel("Log-transformed Count Value")
-plt.ylabel("Frequency")
-plt.title(f"Log-transformed counts for the {num_top_rows} gene with the highest mean")
+plt.xlabel("SquareRoot-transformed Count Values")
+plt.ylabel("Number of counts")
+plt.title(f"SquareRoot-transformed counts for the gene with the lowest mean")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/one_gene_histograms/histogram_1gene_highest_mean.png")
+plt.savefig("histograms/bilder/one_gene_histograms/histogram_1gene_lowest_mean_sqrt.png")
