@@ -5,15 +5,15 @@
 
 
 bacteria = [
+    "/storage/koningen/humangut/bacteria_hg.tsv",
     "/storage/koningen/wastewater1/bacteria_ww1.tsv",
-    "/storage/koningen/wastewater2/bacteria_ww2.tsv",
-    "/storage/koningen/humangut/bacteria_hg.tsv"
+    "/storage/koningen/wastewater2/bacteria_ww2.tsv"
     ]
 
 without_sp = [
+    "/storage/koningen/humangut/bacteria_species_only_hg.tsv",
     "/storage/koningen/wastewater1/bacteria_species_only_ww1.tsv",
-    "/storage/koningen/wastewater2/bacteria_species_only_ww2.tsv",
-    "/storage/koningen/humangut/bacteria_species_only_hg.tsv"
+    "/storage/koningen/wastewater2/bacteria_species_only_ww2.tsv"
     ]
 
 for i in range(3):

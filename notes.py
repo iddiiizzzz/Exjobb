@@ -13,7 +13,7 @@ Files:
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
        - taxonomy_wastewater_1.tsv
        - taxonomy_wastewater_2.tsv
-       - taxonomy_human_gut.tsv
+       - taxonomy_human_gut.csv
 
 /storage/shared/data_for_master_students/ida_and_ellen
 
@@ -55,9 +55,9 @@ titta på endast headern: head -n 1 <filename>
 titta specifik rad: sed -n '10p' <filename>
 titta på specifka kolumner: cut -d',' -f2,5 <filename>
 
-första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,4,5,7,8,9,10,11,12,13 
+första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,2,3,4,5,7,8,9,10,11,12,13 
 
-grep -n "/storage/shared/ncbi_bacteria_assembly/GCA/000/760/415/GCA_000760415.1_ASM76041v1/GCA_000760415.1_ASM76041v1_genomic.fna.gz" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
+grep -n "" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
 
 
 
