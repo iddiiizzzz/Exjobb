@@ -28,7 +28,7 @@ with open(count_matrix, "r") as infile:
             sums.append((identifier, row_sum))  # Store as tuple (identifier, sum)
 
 # Sort sums
-sums.sort(key=lambda x: x[1], reverse=False)  # False for ascending, true for decending
+sums.sort(key=lambda x: x[1], reverse=True)  # False for ascending, true for decending
 
 # Get the top N identifiers based on sum
 top_identifiers = {identifier for identifier, _ in sums[:num_top_rows]}
