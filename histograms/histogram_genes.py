@@ -12,6 +12,9 @@ all_values = df.values.flatten()
 # sample_size = int(0.1 * len(all_values))  
 # random_sample = np.random.choice(all_values, sample_size, replace=False)
 
+print(f"Number of values: {len(all_values)}")
+print(f"Number of bins: {(all_values.max() + 2) - 0.5}")
+
 # Plot histogram
 plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
