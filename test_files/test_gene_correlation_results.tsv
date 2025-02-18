@@ -1,4 +1,4 @@
-Gene 1  Gene 2  Correlation coefficient p-value
+Gene1  Gene2  CorrelationCoefficient pValue
 AAC.2...Ib      AAC.2...Ib      1.000000        0.000000
 AAC.2...Ib      AAC.2...IIa     -0.000209       0.986408
 AAC.2...Ib      AAC.3..Ic       -0.000150       0.990227

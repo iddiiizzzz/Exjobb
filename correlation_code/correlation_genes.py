@@ -44,5 +44,5 @@ for i in range(len(transformed_counts)):
 
 
 with open(results, 'w') as outfile:
-    outfile.write("Gene 1\tGene 2\tCorrelation coefficient\tp-value\n")
+    outfile.write("Gene1\tGene2\tCorrelationCoefficient\tpValue\n")
     outfile.writelines(results_list)
