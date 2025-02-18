@@ -28,7 +28,7 @@ with open(count_matrix, "r") as infile:
             sums.append((identifier, row_sum))  # Store as tuple (identifier, sum)
 
 # Sort sums
-sums.sort(key=lambda x: x[1], reverse=True)  # False for ascending, true for decending
+sums.sort(key=lambda x: x[1], reverse=False)  # False for ascending, true for decending
 
 # Get the top N identifiers based on sum
 top_identifiers = {identifier for identifier, _ in sums[:num_top_rows]}
@@ -48,7 +48,7 @@ with open(count_matrix, "r") as infile, open(highest_raw_counts, "w") as outfile
 
 ### Histogram #####
 
-df = pd.read_csv(lowest_raw_counts, sep="\t").iloc[:, 1:]  # Skip first column (identifier)
+df = pd.read_csv(highest_raw_counts, sep="\t").iloc[:, 1:]  # Skip first column (identifier)
 all_values = df.values.flatten()
 
 # Apply transformation
@@ -58,7 +58,7 @@ all_values = np.log(all_values + 1)
 plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
 plt.xlabel("Log-transformed Count Value")
-plt.ylabel("Frequency")
-plt.title(f"Log-transformed counts for the {num_top_rows} least abundant genes")
+plt.ylabel("Number of counts for the most abundant gene")
+plt.title("Log-transformed counts for the most abundant gene")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/genes_filtered/histogram_genes_lowest_sum_50.png")
+plt.savefig("histograms/bilder/one_gene_histograms/log_histogram_1gene_highest_sum.png")
