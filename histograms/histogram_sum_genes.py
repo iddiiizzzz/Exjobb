@@ -7,7 +7,7 @@ highest_raw_counts = "/storage/koningen/ranked_counts/highest_sum_counts.tsv"
 #lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_sum_counts.tsv"
 
 num_top_rows = 1
-max_zero_percentage = 0.5
+max_zero_percentage = 0.75
 
 sums = []
 with open(count_matrix, "r") as infile:

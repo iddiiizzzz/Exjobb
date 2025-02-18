@@ -7,7 +7,7 @@ count_matrix = "/storage/koningen/count_matrix.tsv"
 lowest_mean_counts = "/storage/koningen/ranked_counts/lowest_average_counts.tsv"
 
 num_top_rows = 1
-max_zero_percentage = 0.5
+max_zero_percentage = 0.75
 
 means = []  # List to store (identifier, mean) tuples
 with open(count_matrix, "r") as infile:

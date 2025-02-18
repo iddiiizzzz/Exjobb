@@ -60,5 +60,4 @@ första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,2,3,4,5,7
 grep -n "" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
 
 
-
 '''
