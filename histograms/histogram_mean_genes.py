@@ -57,6 +57,6 @@ plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
 plt.xlabel("Log-transformed Count Value")
 plt.ylabel("Frequency")
-plt.title(f"Log-transformed counts for the {num_top_rows} genes with the highest mean")
+plt.title(f"Log-transformed counts for the {num_top_rows} gene with the highest mean")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/genes_filtered/histogram_1gene_highest_mean.png")
+plt.savefig("histograms/bilder/one_gene_histograms/histogram_1gene_highest_mean.png")
