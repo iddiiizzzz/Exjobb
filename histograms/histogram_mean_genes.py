@@ -50,13 +50,13 @@ with open(count_matrix, "r") as infile, open(lowest_mean_counts, "w") as outfile
 df = pd.read_csv(lowest_mean_counts, sep="\t").iloc[:, 1:] 
 all_values = df.values.flatten()
 # Apply log transformation
-all_values = np.sqrt(all_values)
+all_values = np.log(all_values + 1)
 
 # Plot histogram
 plt.figure(figsize=(8, 5))
 plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
-plt.xlabel("SquareRoot-transformed Count Values")
+plt.xlabel("Log-transformed Count Values")
 plt.ylabel("Number of counts")
-plt.title(f"SquareRoot-transformed counts for the gene with the lowest mean")
+plt.title(f"Log-transformed counts for the gene with the lowest mean")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/one_gene_histograms/histogram_1gene_lowest_mean_sqrt.png")
+plt.savefig("histograms/bilder/one_gene_histograms/histogram_1gene_lowest_mean.png")
