@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 count_matrix = "/storage/koningen/count_matrix.tsv"
-df = pd.read_csv(count_matrix, sep="\t", skiprows=1).iloc[:, 1:] 
+df = pd.read_csv(count_matrix, sep="\t").iloc[:, 1:] 
 
 all_values = df.values.flatten()
 

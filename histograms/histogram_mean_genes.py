@@ -6,7 +6,7 @@ count_matrix = "/storage/koningen/count_matrix.tsv"
 highest_mean_counts = "/storage/koningen/ranked_counts/highest_average_counts.tsv"
 # lowest_mean_counts = "/storage/koningen/ranked_counts/lowest_average_counts.tsv"
 
-num_top_rows = 10
+num_top_rows = 1
 max_zero_percentage = 0.5
 
 means = []  # List to store (identifier, mean) tuples
@@ -47,9 +47,8 @@ with open(count_matrix, "r") as infile, open(highest_mean_counts, "w") as outfil
 
 
 #### Histogram #####
-df = pd.read_csv(highest_mean_counts, sep="\t", skiprows=1).iloc[:, 1:] 
+df = pd.read_csv(highest_mean_counts, sep="\t").iloc[:, 1:] 
 all_values = df.values.flatten()
-
 # Apply log transformation
 all_values = np.log(all_values + 1)
 
@@ -60,4 +59,4 @@ plt.xlabel("Log-transformed Count Value")
 plt.ylabel("Frequency")
 plt.title(f"Log-transformed counts for the {num_top_rows} genes with the highest mean")
 plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-plt.savefig("histograms/bilder/genes_filtered/histogram_genes_highest_mean_50.png")
+plt.savefig("histograms/bilder/genes_filtered/histogram_1gene_highest_mean.png")

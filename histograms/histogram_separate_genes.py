@@ -6,7 +6,7 @@ count_matrix = "/storage/koningen/count_matrix.tsv"
 #highest_raw_counts = "/storage/koningen/ranked_counts/highest_raw_counts.tsv"
 lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_raw_counts.tsv"
 
-num_top_rows = 10
+num_top_rows = 1
 max_zero_percentage = 0.5
 
 values = []
@@ -47,18 +47,18 @@ with open(count_matrix, "r") as infile, open(lowest_raw_counts, "w") as outfile:
             outfile.write(line)  # Write the matching rows to the new file
 
 
-#### Histogram #####
-# df = pd.read_csv(highest_raw_counts, sep="\t", skiprows=1).iloc[:, 1:] 
-# all_values = df.values.flatten()
+### Histogram #####
+df = pd.read_csv(highest_raw_counts, sep="\t").iloc[:, 1:] 
+all_values = df.values.flatten()
 
-# # Apply transformation
-# all_values = np.log(all_values + 1)
+# Apply transformation
+all_values = np.log(all_values + 1)
 
-# # Plot histogram
-# plt.figure(figsize=(8, 5))
-# plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
-# plt.xlabel("Log-transformed Count Value")
-# plt.ylabel("Frequency")
-# plt.title(f"Log-transformed counts for the {num_top_rows} genes with the highest individual values")
-# plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
-# plt.savefig("histograms/bilder/genes_filtered/histogram_genes_highest_individual_50.png")
+# Plot histogram
+plt.figure(figsize=(8, 5))
+plt.hist(all_values, bins=np.arange(all_values.max() + 2) - 0.5, edgecolor='black')
+plt.xlabel("Log-transformed Count Value")
+plt.ylabel("Frequency")
+plt.title(f"Log-transformed counts for the {num_top_rows} genes with the highest individual values")
+plt.xticks(range(int(all_values.max()) + 1))  # Ensure discrete values on x-axis
+plt.savefig("histograms/bilder/genes_filtered/histogram_genes_highest_individual_50.png")
