@@ -26,3 +26,6 @@ plt.xlim([1,50])
 plt.ylim([0,200000])
 plt.savefig("histograms/bilder/genes_all/histogram_genes.png")  
 
+'''
+python histograms/genes/histogram_genes.py
+'''

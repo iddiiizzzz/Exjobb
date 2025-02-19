@@ -57,13 +57,26 @@ titta på specifka kolumner: cut -d',' -f2,5 <filename>
 
 första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,2,3,4,5,7,8,9,10,11,12,13 
 
-grep -n "" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
-/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv
+kolla vilken rad en string är: grep -n "" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
+find specific string in header: awk -F'\t' '{for(i=1; i<=NF; i++) if($i=="YourString") print i; exit}' <file>
 
-find specific string: awk -F'\t' '{for(i=1; i<=NF; i++) if($i=="2") print i; exit}' <file>
+kolla hur många rader filen har: wc -l <file>
+
+kolla hur många kolumner filen har: head -n 1 <file> | awk -F'\t' '{print NF}'
+
+--------------------------------------------------------------------------------------------------------
 
 
 bacteria: column 1805 in wastewater1, column 2322 in wastewater 2, column 440 in human gut
+dimensioner gener count: 30655 rader, 6665 kolumner = 204 315 575 counts
+dimensioner ww1 count: 859 rader(samples), 21585 kolumner(orgs) = 18 541 515 counts
+
+
+hög count på rad 328:ERR2683205
+ERR2683205: 48 018 219 summan av alla taxonomiska counst
+Enterobacteriaceae högsta count: 44 692 804
+
+när jag kör en testfil utan höga counts går det snabbt, när där är höga counts går det superlångsamt
 
 
 '''
