@@ -58,6 +58,12 @@ titta på specifka kolumner: cut -d',' -f2,5 <filename>
 första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,2,3,4,5,7,8,9,10,11,12,13 
 
 grep -n "" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
+/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv
+
+find specific string: awk -F'\t' '{for(i=1; i<=NF; i++) if($i=="2") print i; exit}' <file>
+
+
+bacteria: column 1805 in wastewater1, column 2322 in wastewater 2, column 440 in human gut
 
 
 '''
