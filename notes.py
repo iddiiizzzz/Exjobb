@@ -77,6 +77,15 @@ ERR2683205: 48 018 219 summan av alla taxonomiska counst
 Enterobacteriaceae högsta count: 44 692 804
 
 när jag kör en testfil utan höga counts går det snabbt, när där är höga counts går det superlångsamt
+går bra med counts på 1000 storlek --> 5 sek
+några counts på 10 000 --> 50 sek 
+några counts på 50 000 -- > 4 minuter = 
+(några = typ 2-3st)
 
+
+200 bins/s
+208 bins/s
+
+223 464 s --> 62h --> 2.5 dygn
 
 '''
