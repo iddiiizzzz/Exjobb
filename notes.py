@@ -88,4 +88,10 @@ några counts på 50 000 -- > 4 minuter =
 
 223 464 s --> 62h --> 2.5 dygn
 
+
+kolla hur höga de 10 högsta countsen är om man kan filtrerea bort?
+kolla också vilka organismer de är isf
+
+testa r ist för python
+
 '''
