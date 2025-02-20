@@ -11,9 +11,9 @@ Files:
 - count_matrix.tsv - Abundans av resistensgener i metagenom
 - genome_full_lineage.tsv - Komplett taxonomi för alla bakteriegenomen
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
-       - taxonomy_wastewater_1.tsv
-       - taxonomy_wastewater_2.tsv
-       - taxonomy_human_gut.csv
+       - taxonomy_wastewater_1.tsv --> omformatterade i /storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv
+       - taxonomy_wastewater_2.tsv --> omformaterade i /storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv
+       - taxonomy_human_gut.csv --> omformatterade i /storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv
 
 /storage/shared/data_for_master_students/ida_and_ellen
 
@@ -93,5 +93,15 @@ kolla hur höga de 10 högsta countsen är om man kan filtrerea bort?
 kolla också vilka organismer de är isf
 
 testa r ist för python
+
+
+TO DO:
+transponera i omformateringen av kraken så de kan köras i gen-koden
+köra alla highest/lowest koder
+köra histogram på alla highest/lowest listor
+
+Felsöka varför heatmap ej funkar
+
+ge rättigheter till alla nya mappar och filer i storage
 
 '''
