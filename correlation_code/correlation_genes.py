@@ -7,7 +7,7 @@ import numpy as np
 from scipy.stats import pearsonr
 
 gene_counts = "/storage/koningen/count_matrix.tsv"
-results = "correlation_code/results_gene_correlation.tsv"
+results = "/storage/bergid/correlation/results_gene_correlation.tsv"
 #highest_raw_counts = "/storage/koningen/ranked_counts/highest_average_counts.tsv"
 
 
