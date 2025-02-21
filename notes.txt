@@ -106,10 +106,8 @@ Se om det går o göra för alla organismer tillsammans också på highest och l
 köra histogram på alla nya highest/lowest listor
 lägga in transform i histogramen
 
-
-Felsöka varför heatmap ej funkar
-
+filtrera på p-värde eller korrelation och gör en till heatmap på det
 
 kör korrelation på organismer, har gjort test och de funkar
-
+kör heatmap på dem också
 
