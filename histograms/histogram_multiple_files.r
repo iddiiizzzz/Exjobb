@@ -35,5 +35,5 @@ ggplot(df, aes(x = values)) +
 
 ggsave("histograms/bilder/organisms_all/histogram_org_ww.jpg")
 
-# Rscript histograms/organisms/histogram_multiple_files.r
+# Rscript histograms/histogram_multiple_files.r
 

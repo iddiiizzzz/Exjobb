@@ -44,5 +44,5 @@ ggplot(df, aes(x = values)) +
 ggsave("histograms/bilder/organisms_all/histogram_org_hg.jpg")
 
 
-# Rscript histograms/organisms/histogram_one_file.r
+# Rscript histograms/histogram_one_file.r
 

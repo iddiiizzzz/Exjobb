@@ -1,3 +1,8 @@
+
+# ----------------------------------------------------------------
+# Rewrite the taxonomy count files to the gene count format
+# ----------------------------------------------------------------
+
 import pandas as pd
 
 # taxonomy_file = "test_files/test_kraken1.tsv"
@@ -13,19 +18,20 @@ taxonomy_file = "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy
 new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 
 
-# Read the file
 df = pd.read_csv(taxonomy_file, sep="\s+", engine="python")
-
-# Fill empty spaces with zeros
 df = df.fillna(0)
 
-# Convert only the numeric columns to integers
+# Convert to integers
 for col in df.columns:
-    if df[col].dtype != object:  # Check if the column is not object type (strings)
+    if df[col].dtype != object: 
         df[col] = df[col].astype(int)
 
-# Write the modified DataFrame to a new file
-df.to_csv(new_taxonomy_file, sep="\t", index=False)
+
+df_transposed = df.transpose()
+df_transposed.columns = df_transposed.iloc[0]
+df_transposed = df_transposed[1:] 
+df_transposed.insert(0, 'TrueID', df.columns[1:])
+df_transposed.to_csv(new_taxonomy_file, sep="\t", index=False, header=True)
 
 '''
 python histograms/organisms/rewrite_tax_files.py

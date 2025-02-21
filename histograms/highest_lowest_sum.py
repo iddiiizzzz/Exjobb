@@ -13,9 +13,27 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-count_matrix = "/storage/koningen/count_matrix.tsv"
-highest_raw_counts = "/storage/koningen/ranked_counts/highest_sum_counts_gene.tsv"
-# lowest_raw_counts = "/storage/koningen/ranked_counts/lowest_sum_counts_gene.tsv"
+# Genes
+# count_matrix = "/storage/koningen/count_matrix.tsv"
+# highest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/highest_sum_counts_gene.tsv"
+# lowest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/lowest_sum_counts_gene.tsv"
+
+
+# Organisms
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+
+# highest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/highest_sum_counts_org_hg.tsv"
+# highest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/highest_sum_counts_org_ww1.tsv"
+# highest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/highest_sum_counts_org_ww2.tsv"
+
+# lowest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/lowest_sum_counts_org_hg.tsv"
+# lowest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/lowest_sum_counts_org_ww1.tsv"
+lowest_sum_counts = "/storage/koningen/ranked_counts/sum_counts/lowest_sum_counts_org_ww2.tsv"
+
+
+
 
 num_top_rows = 1
 max_zero_percentage = 0.75
@@ -39,11 +57,11 @@ with open(count_matrix, "r") as infile:
             sums.append((identifier, row_sum)) 
 
 
-sums.sort(key=lambda x: x[1], reverse=True)  # True is descending, highest to lowest
+sums.sort(key=lambda x: x[1], reverse=False)  # True is descending, highest to lowest
 
 top_identifiers = {identifier for identifier, _ in sums[:num_top_rows]}
 
-with open(count_matrix, "r") as infile, open(highest_raw_counts, "w") as outfile:
+with open(count_matrix, "r") as infile, open(lowest_sum_counts, "w") as outfile:
     header = next(infile)  
     outfile.write(header)
 

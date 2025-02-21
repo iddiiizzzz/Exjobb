@@ -13,9 +13,25 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-count_matrix = "/storage/koningen/count_matrix.tsv"
-# highest_mean_counts = "/storage/koningen/ranked_counts/highest_average_counts_gene.tsv"
-lowest_mean_counts = "/storage/koningen/ranked_counts/lowest_average_counts_gene.tsv"
+# Genes
+# count_matrix = "/storage/koningen/count_matrix.tsv"
+# highest_mean_counts = "/storage/koningen/ranked_counts/average_counts/highest_average_counts_gene.tsv"
+# lowest_mean_counts = "/storage/koningen/ranked_counts/average_counts/lowest_average_counts_gene.tsv"
+
+# Organisms
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+
+# highest_mean_counts = "/storage/koningen/ranked_counts/average_counts/highest_average_counts_org_hg.tsv"
+# highest_mean_counts = "/storage/koningen/ranked_counts/average_counts/highest_average_counts_org_ww1.tsv"
+highest_mean_counts = "/storage/koningen/ranked_counts/average_counts/highest_average_counts_org_ww2.tsv"
+
+# lowest_mean_counts = "/storage/koningen/ranked_counts/average_counts/lowest_average_counts_org_hg.tsv"
+# lowest_mean_counts = "/storage/koningen/ranked_counts/average_counts/lowest_average_counts_org_ww1.tsv"
+# lowest_mean_counts = "/storage/koningen/ranked_counts/average_counts/lowest_average_counts_org_ww2.tsv"
+
+
 
 num_top_rows = 1
 max_zero_percentage = 0.75
@@ -39,11 +55,11 @@ with open(count_matrix, "r") as infile:
             means.append((identifier, row_mean)) 
 
 
-means.sort(key=lambda x: x[1], reverse=False) # True is descending, highest to lowest
+means.sort(key=lambda x: x[1], reverse=True) # True is descending, highest to lowest
 top_identifiers = {identifier for identifier, _ in means[:num_top_rows]}
 
 
-with open(count_matrix, "r") as infile, open(lowest_mean_counts, "w") as outfile:
+with open(count_matrix, "r") as infile, open(highest_mean_counts, "w") as outfile:
     header = next(infile)  
     outfile.write(header)
 

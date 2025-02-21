@@ -96,9 +96,13 @@ testa r ist för python
 
 
 TO DO:
-transponera i omformateringen av kraken så de kan köras i gen-koden
-köra alla highest/lowest koder
-köra histogram på alla highest/lowest listor
+transponera i omformateringen av kraken så de kan köras i gen-koden -----------------DONE
+
+köra alla highest/lowest koder -------------- DONE
+ - och ta bort de gamla filerna efter att ha bytt till nya namn ---------------DONE
+ - se om det går o göra för alla organismer tillsammans också
+ 
+köra histogram på alla nya highest/lowest listor
 
 Felsöka varför heatmap ej funkar
 
