@@ -102,6 +102,7 @@ Se om det går o göra för alla organismer tillsammans också på highest och l
 - wastewater1 - 21585 rader, 859 kolumner
 - wastewater2 - 19297 rader, 251 kolumner
 
+alla tax filer tillsammans: 23625 rader, 6681 kolumner
 
 köra histogram på alla nya highest/lowest listor
 lägga in transform i histogramen
