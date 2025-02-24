@@ -106,8 +106,6 @@ Se om det går o göra för alla organismer tillsammans också på highest och l
 
 alla tax filer tillsammans: 23625 rader, 6681 kolumner
 
-köra histogram på alla nya highest/lowest listor
-lägga in transform i histogramen
 
 filtrera generna på p-värde eller korrelation och gör en till heatmap på det
 
