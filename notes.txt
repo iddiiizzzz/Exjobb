@@ -20,6 +20,7 @@ Files:
 ----------------------------------------------------------------------------------------------
 
 to work in conda: conda activate exjobb_env
+to install in r: conda install -c conda-forge r-"package"
 
 skriva om id: seq1, seq2, seq3 etc
 
@@ -98,17 +99,18 @@ TO DO:
 
 Se om det går o göra för alla organismer tillsammans också på highest och lowest?
 - Dimensioner, rader = organismer, kolumner = samples:
-- human gut - 21318 rader, 5573 kolumner
-- wastewater1 - 21585 rader, 859 kolumner
-- wastewater2 - 19297 rader, 251 kolumner
+       - human gut - 21318 rader, 5573 kolumner
+       - wastewater1 - 21585 rader, 859 kolumner
+       - wastewater2 - 19297 rader, 251 kolumner
+- har gjort för individual. När de är olika många samples känns det skevt med medelvärde och summa
 
 alla tax filer tillsammans: 23625 rader, 6681 kolumner
 
 köra histogram på alla nya highest/lowest listor
 lägga in transform i histogramen
 
-filtrera på p-värde eller korrelation och gör en till heatmap på det
+filtrera generna på p-värde eller korrelation och gör en till heatmap på det
 
-kör korrelation på organismer, har gjort test och de funkar
-kör heatmap på dem också
+kör korrelation på organismer
+kör heatmap på organismer
 

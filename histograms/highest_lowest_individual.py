@@ -24,15 +24,18 @@ import matplotlib.pyplot as plt
 # Organisms
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
 
 # highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_org_hg.tsv"
 # highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_org_ww1.tsv"
-highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_org_ww2.tsv"
+# highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_org_ww2.tsv"
+highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_org_all.tsv"
 
 # lowest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/lowest_individual_counts_org_hg.tsv"
 # lowest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/lowest_individual_counts_org_ww1.tsv"
 # lowest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/lowest_individual_counts_org_ww2.tsv"
+# lowest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/lowest_individual_counts_org_all.tsv"
 
 
 
