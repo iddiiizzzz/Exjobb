@@ -30,10 +30,10 @@ df <- data.frame(values = values)
 ggplot(df, aes(x = values)) +
   geom_histogram(binwidth = 1000, fill = "blue", color = "black", boundary = 0.5) +
   labs(title = "Histogram of Count Values", x = "Count Value", y = "Number of counts") +
-  theme_minimal() +
+  theme_bw() +
   ylim(0, 400)
 
-ggsave("histograms/bilder/organisms_all/histogram_org_ww.jpg")
+ggsave("histograms/bilder/organisms_all/histogram_org_ww.jpg", bg = "white)
 
 # Rscript histograms/histogram_multiple_files.r
 
