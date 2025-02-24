@@ -33,7 +33,7 @@ ggplot(df, aes(x = values)) +
   theme_bw() +
   ylim(0, 400)
 
-ggsave("histograms/bilder/organisms_all/histogram_org_ww.jpg", bg = "white)
+ggsave("histograms/bilder/organisms_all/histogram_org_ww.jpg", bg = "white")
 
 # Rscript histograms/histogram_multiple_files.r
 
