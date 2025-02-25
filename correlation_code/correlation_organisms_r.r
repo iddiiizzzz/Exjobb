@@ -11,14 +11,14 @@ library(reshape2)
 # count_matrix <- "test_files/rewritten_test_kraken1.tsv"
 # results <- "test_files/results_org_correlation_ww1_test.tsv"
 
-count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-results = "/storage/bergid/correlation/results_org_correlation_ww1_r.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+# results = "/storage/bergid/correlation/results_org_correlation_ww1_log.tsv"
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_ww2.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_hg.tsv"
+# results = "/storage/bergid/correlation/results_org_correlation_ww2_log.tsv"
+count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+results = "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_all.tsv"
+# results = "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
 
 
 
@@ -27,6 +27,7 @@ org_names <- data$TrueID
 rownames(data) <- org_names
 
 data <- data[, -1]  
+data <- log(data + 1)
 data <- data[rowSums(data != 0) > 0, ]
 
 # Convert data to a numeric matrix while preserving row and column names.

@@ -10,11 +10,15 @@ library(gplots)
 library(RColorBrewer)
 
 
-
-# correlations <- read.table("/storage/bergid/correlation/results_gene_correlation.tsv", 
-#                            sep = "", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
 correlations <- read.table("test_files/results_org_correlation_ww1_test.tsv", 
                            sep = "", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
+
+# correlations <- read.table("/storage/bergid/correlation/results_org_correlation_ww1_r.tsv", 
+#                            sep = "", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
+# correlations <- read.table("/storage/bergid/correlation/results_org_correlation_ww2.tsv", 
+#                            sep = "", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
+# correlations <- read.table("/storage/bergid/correlation/results_org_correlation_hg.tsv", 
+#                            sep = "", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
 
 
 # Convert long format to a wide format (matrix)
@@ -32,7 +36,7 @@ cor_matrix[is.na(cor_matrix)] <- 0
 # Create a color palette using RColorBrewer
 my_palette <- colorRampPalette(brewer.pal(9, "YlOrRd"))(100)
 
-pdf("correlation_code/heatmap_org_ww1_r_test.pdf")
+pdf("correlation_code/heatmap_org_ww1.pdf")
 heatmap.2(cor_matrix, main = "Organism Correlation Heatmap", 
 col=my_palette,
 trace = "none",
