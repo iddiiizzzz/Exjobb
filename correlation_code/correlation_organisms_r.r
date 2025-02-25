@@ -15,10 +15,10 @@ library(reshape2)
 # results = "/storage/bergid/correlation/results_org_correlation_ww1_log.tsv"
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
 # results = "/storage/bergid/correlation/results_org_correlation_ww2_log.tsv"
-count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-results = "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# results = "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
+count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
+results = "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
 
 
 

@@ -58,7 +58,7 @@ titta på specifka kolumner: cut -d',' -f2,5 <filename>
 
 första 20 raderna och specifika kolumner: head -n 20 <file> | cut -f1,2,3,4,5,7,8,9,10,11,12,13 
 
-kolla vilken rad en string är: grep -n "" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
+kolla vilken rad en string är: grep -n "/storage/shared/ncbi_bacteria_assembly/GCA/020/322/235/GCA_020322235.1_PDT001144748.1/GCA_020322235.1_PDT001144748.1_genomic.fna.gz" /storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv
 find specific string in header: awk -F'\t' '{for(i=1; i<=NF; i++) if($i=="YourString") print i; exit}' <file>
 
 kolla hur många rader filen har: wc -l <file>
@@ -86,7 +86,6 @@ alla tax filer tillsammans: 23625 rader, 6681 kolumner
 
 filtrera generna på p-värde eller korrelation och gör en till heatmap på det
 
-kör korrelation på organismer
-- med transformation också
+kör korrelation på organismer med transformation
 kör heatmap på organismer
 
