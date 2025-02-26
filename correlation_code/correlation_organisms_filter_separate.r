@@ -1,19 +1,19 @@
 library(Hmisc)      
 library(reshape2)
 
-# count_matrix_ww1 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# count_matrix_ww2 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# count_matrix_hg <- "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
+count_matrix_ww1 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+count_matrix_ww2 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+count_matrix_hg <- "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
 
-# results <- "/storage/bergid/correlation/results_org_correlation_all_log_sep75.tsv"
+results <- "/storage/bergid/correlation/results_org_correlation_all_log_sep75.tsv"
 
-count_matrix_ww1 <- "test_files/rewritten_test_kraken1.tsv"
-count_matrix_ww2 <- "test_files/rewritten_test_kraken2.tsv"
-count_matrix_hg <- "test_files/rewritten_test_kraken3.tsv"
-count_matrix <- "test_files/test_all_organisms.tsv"
+# count_matrix_ww1 <- "test_files/rewritten_test_kraken1.tsv"
+# count_matrix_ww2 <- "test_files/rewritten_test_kraken2.tsv"
+# count_matrix_hg <- "test_files/rewritten_test_kraken3.tsv"
+# count_matrix <- "test_files/test_all_organisms.tsv"
 
-results <- "test_files/filter_75"
+# results <- "test_files/filter_75"
 
 # Function to read and filter data
 read_and_filter <- function(file) {

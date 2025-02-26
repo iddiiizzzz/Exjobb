@@ -86,6 +86,6 @@ alla tax filer tillsammans: 23625 rader, 6681 kolumner
 
 filtrera generna på p-värde eller korrelation och gör en till heatmap på det
 
-kör korrelation på organismer med transformation
+kör korrelation på organismer med transformation och filter
 kör heatmap på organismer
 
