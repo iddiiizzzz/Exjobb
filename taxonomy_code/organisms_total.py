@@ -15,6 +15,9 @@ wastewater1 = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
 wastewater2 = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
 outfile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
 
+# wastewater1 = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+# wastewater2 = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+# outfile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv"
 
 df_hgut = pd.read_csv(humangut, sep="\t", index_col=0)
 df_waste1 = pd.read_csv(wastewater1, sep="\t", index_col=0)
