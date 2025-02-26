@@ -18,17 +18,17 @@ library(reshape2)
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 # results = "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
 count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-results = "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
+# results = "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
 
-
+results = "/storage/bergid/correlation/results_org_correlation_all_log_switchLogSum.tsv"
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 org_names <- data$TrueID
 rownames(data) <- org_names
 
 data <- data[, -1]  
-data <- log(data + 1)
 data <- data[rowSums(data != 0) > 0, ]
+data <- log(data + 1)
 
 # Convert data to a numeric matrix while preserving row and column names.
 data_mat <- as.matrix(data)
