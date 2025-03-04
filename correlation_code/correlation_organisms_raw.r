@@ -8,8 +8,8 @@ library(Hmisc)
 library(reshape2)   
 
 
-# count_matrix <- "test_files/rewritten_test_kraken1.tsv"
-# results <- "test_files/results_org_correlation_ww1_test.tsv"
+count_matrix <- "test_files/rewritten_test_kraken1.tsv"
+results <- "test_files/results_org_correlation_ww1_test.tsv"
 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
 # results = "/storage/bergid/correlation/results_org_correlation_ww1_log.tsv"
@@ -17,10 +17,10 @@ library(reshape2)
 # results = "/storage/bergid/correlation/results_org_correlation_ww2_log.tsv"
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 # results = "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
-count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
 # results = "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
 
-results = "/storage/bergid/correlation/results_org_correlation_all_log_switchLogSum.tsv"
+# results = "/storage/bergid/correlation/results_org_correlation_all_log_switchLogSum.tsv"
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 org_names <- data$TrueID
@@ -53,4 +53,31 @@ p_long   <- melt(p_matrix,   varnames = c("Organism1", "Organism2"), value.name 
 
 result_df <- merge(cor_long, p_long, by = c("Organism1", "Organism2"))
 
+
+
+# Function to calculate the percentage of zero-pairs
+calculate_zero_percentage <- function(mat) {
+  n <- ncol(mat)  # Number of samples/columns
+  zero_percentage_matrix <- matrix(0, nrow = nrow(mat), ncol = nrow(mat), 
+                                   dimnames = list(rownames(mat), rownames(mat)))
+  
+  for (i in 1:nrow(mat)) {
+    for (j in 1:nrow(mat)) {
+      zero_count <- sum(mat[i, ] == 0 & mat[j, ] == 0)  # Count both zero
+      zero_percentage_matrix[i, j] <- (zero_count / n) * 100  # Convert to percentage
+    }
+  }
+  return(zero_percentage_matrix)
+}
+
+# Compute zero percentage matrix
+zero_percentage_matrix <- calculate_zero_percentage(data_mat)
+
+# Convert to long format
+zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2"), value.name = "ZeroPercentage")
+
+# Merge with correlation and p-value results
+result_df <- merge(result_df, zero_long, by = c("Organism1", "Organism2"))
+
+# Save the updated results
 write.table(result_df, file = results, sep = "\t", quote = FALSE, row.names = FALSE)
