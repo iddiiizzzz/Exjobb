@@ -11,13 +11,13 @@ library(RColorBrewer)
 
 # file_path <- "/storage/bergid/correlation/results_org_correlation_all_log75.tsv"
 #file_path <- "/storage/bergid/correlation/results_org_correlation_hg_log75.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww2_log75.tsv" #11
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww1_log75.tsv" #14
-#file_path <- "/storage/bergid/correlation/results_org_correlation_all_log_sep75.tsv" #15
-#file_path <- "/storage/bergid/correlation/results_org_correlation_hg_log.tsv" #16
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww2_log.tsv" #17
-#file_path <- "/storage/bergid/correlation/results_org_correlation_all_log.tsv" #18
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww1_log.tsv" #19
+#file_path <- "/storage/bergid/correlation/results_org_correlation_ww2_log75.tsv"
+#file_path <- "/storage/bergid/correlation/results_org_correlation_ww1_log75.tsv"
+#file_path <- "/storage/bergid/correlation/results_org_correlation_all_log_sep75.tsv" 
+#file_path <- "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
+#file_path <- "/storage/bergid/correlation/results_org_correlation_ww2_log.tsv"
+#file_path <- "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
+#file_path <- "/storage/bergid/correlation/results_org_correlation_ww1_log.tsv"
 
 file_path <- "test_files/results_org_correlation_ww1_test.tsv"
 
