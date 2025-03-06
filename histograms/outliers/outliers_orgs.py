@@ -1,5 +1,7 @@
+# --------------------------------------------------------------------
+# Finding the unique organisms that have outliers
+# --------------------------------------------------------------------
 
-## Organisms
 count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 #count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
 #count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
