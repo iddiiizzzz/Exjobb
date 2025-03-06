@@ -39,7 +39,7 @@ outliers = "/storage/bergid/outliers/outliers_in_orgs_ww2.tsv"
 
 
 
-# outliers in each sample
+# # outliers in each sample
 
 # # Read the data with 'TrueID' as the index
 # data = pd.read_csv(count_matrix, sep='\t', index_col='TrueID')
@@ -59,7 +59,6 @@ outliers = "/storage/bergid/outliers/outliers_in_orgs_ww2.tsv"
 #                 count_proportion = value / row_sum
 
 #                 if count_proportion > 0.1:
-#                     # Write SampleName, ColumnName, CountProportion
 #                     outfile.write(f"{index}\t{column}\t{count_proportion}\n")
 
 
@@ -68,24 +67,22 @@ outliers = "/storage/bergid/outliers/outliers_in_orgs_ww2.tsv"
 
 # outliers in each individual
 
-sums = []
 with open(count_matrix, "r") as infile, open(outliers, "w") as outfile:
-    next(infile)  
+    header = next(infile).strip().split("\t")
     
     for index, line in enumerate(infile):
         print(f"Processing row {index}")
 
         columns = line.strip().split("\t") 
-        identifier = columns[0]  
+        identifier = columns[0]  # Sample name 
         numeric_values = list(map(int, columns[1:]))  
         
-        row_sum = sum(numeric_values) 
+        row_sum = sum(numeric_values)
 
         if row_sum > 0:
-            for column in numeric_values:
-                count_proportion = column / row_sum
+            for col_name, value in zip(header[1:], numeric_values):  # Match values with column names
+                count_proportion = value / row_sum
 
                 if count_proportion > 0.1:
-                    
-                    outfile.write(f"{identifier}\t{count_proportion}\n")
+                    outfile.write(f"{col_name}\t{identifier}\t{count_proportion}\n")
 
