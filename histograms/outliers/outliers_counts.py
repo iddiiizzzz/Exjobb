@@ -18,9 +18,9 @@ import pandas as pd
 
 
 # Organisms
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+#count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+#count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
 
 
 # outliers = "/storage/bergid/outliers/outliers_in_samples_hg.tsv"
@@ -28,11 +28,11 @@ count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
 # outliers = "/storage/bergid/outliers/outliers_in_samples_ww2.tsv"
 
 
-# outliers = "/storage/bergid/outliers/outliers_in_orgs_hg.tsv"
-# outliers = "/storage/bergid/outliers/outliers_in_orgs_ww1.tsv"
-outliers = "/storage/bergid/outliers/outliers_in_orgs_ww2.tsv"
+#outliers = "/storage/bergid/outliers/outliers_in_orgs_hg.tsv"
+#outliers = "/storage/bergid/outliers/outliers_in_orgs_ww1.tsv"
+#outliers = "/storage/bergid/outliers/outliers_in_orgs_ww2.tsv"
 
-
+outliers = "/storage/bergid/outliers/unfiltered_outliers_in_orgs_hg.tsv"
 
 
 
@@ -83,6 +83,6 @@ with open(count_matrix, "r") as infile, open(outliers, "w") as outfile:
             for col_name, value in zip(header[1:], numeric_values):  # Match values with column names
                 count_proportion = value / row_sum
 
-                if count_proportion > 0.1:
-                    outfile.write(f"{col_name}\t{identifier}\t{count_proportion}\n")
+                # if count_proportion > 0.1:
+                outfile.write(f"{col_name}\t{identifier}\t{count_proportion}\n")
 
