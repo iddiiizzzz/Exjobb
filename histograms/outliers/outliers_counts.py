@@ -14,8 +14,9 @@ import pandas as pd
 # Genes
 # count_matrix = "/storage/koningen/count_matrix.tsv"
 # outliers = "/storage/bergid/outliers/outliers_gene"
-
-
+ERR2683205
+Enterobacteriaceae - 543
+outliers/outliers_in_orgs_hg.tsv
 
 # Organisms
 count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
