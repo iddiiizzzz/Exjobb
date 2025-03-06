@@ -73,7 +73,7 @@ calculate_zero_percentage <- function(mat) {
 zero_percentage_matrix <- calculate_zero_percentage(data_mat)
 
 # Convert to long format
-zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2"), value.name = "ZeroPercentage")
+zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2"), value.name = "DoubleZeroPercentage")
 
 # Merge with correlation and p-value results
 result_df <- merge(result_df, zero_long, by = c("Organism1", "Organism2"))

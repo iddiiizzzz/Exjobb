@@ -91,7 +91,7 @@ zero_percentage_matrix <- calculate_zero_percentage(data_mat)
 # Reshape matrices from wide to long format
 cor_long <- melt(cor_matrix, varnames = c("Organism1", "Organism2"), value.name = "CorrelationCoefficient")
 p_long <- melt(p_matrix, varnames = c("Organism1", "Organism2"), value.name = "pValue")
-zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2"), value.name = "ZeroPercentage")
+zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2"), value.name = "DoubleZeroPercentage")
 
 # Merge the data frames
 result_df <- merge(cor_long, p_long, by = c("Organism1", "Organism2"))
