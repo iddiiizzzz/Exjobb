@@ -42,10 +42,6 @@ with open(paths_to_genomes, "r") as file:
                 subject_length = float(fields[12])  # Subject length (slen)
                 scov = (alignment_length / subject_length) * 100
                 
-                # Filter
-                # identity = float(fields[2])
-
-                # if scov > 70 and identity > 90:
                 outfile.write("\t".join(fields[:13]) + "\t{:.2f}\n".format(scov))
                 
                 
