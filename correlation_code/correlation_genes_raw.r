@@ -8,22 +8,14 @@ library(Hmisc)
 library(reshape2)   
 
 count_matrix <- "test_files/rewritten_test_kraken1.tsv"
-results <- "test_files/results_org_correlation_ww1_test.tsv"
+results <- "test_files/gene_correlation_results_test.tsv"
 
+# count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
+# results = "/storage/bergid/correlation/genes/gene_correlation_results.tsv"
 
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww1_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww2_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_hg_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log.tsv"
-
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log_switchLogSum.tsv"
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-org_names <- data$TrueID
+org_names <- data$GeneNames
 rownames(data) <- org_names
 
 data <- data[, -1]  
@@ -37,7 +29,7 @@ data_mat <- matrix(as.numeric(data_mat),
                    ncol = ncol(data_mat),
                    dimnames = list(rownames(data), colnames(data)))
 
-res <- rcorr(t(data_mat), type = "pearson") # transpose bc default is correlation between columns, and organisms are rows
+res <- rcorr(t(data_mat), type = "pearson") # transpose bc default is correlation between columns, and genes are rows
 
 
 cor_matrix <- res$r
@@ -48,10 +40,10 @@ colnames(cor_matrix) <- rownames(data)
 rownames(p_matrix)   <- rownames(data)
 colnames(p_matrix)   <- rownames(data)
 
-cor_long <- melt(cor_matrix, varnames = c("Organism1", "Organism2"), value.name = "CorrelationCoefficient")
-p_long   <- melt(p_matrix,   varnames = c("Organism1", "Organism2"), value.name = "pValue")
+cor_long <- melt(cor_matrix, varnames = c("Gene1", "Gene2"), value.name = "CorrelationCoefficient")
+p_long   <- melt(p_matrix,   varnames = c("Gene1", "Gene2"), value.name = "pValue")
 
-result_df <- merge(cor_long, p_long, by = c("Organism1", "Organism2"))
+result_df <- merge(cor_long, p_long, by = c("Gene1", "Gene2"))
 
 
 
@@ -70,14 +62,10 @@ calculate_zero_percentage <- function(mat) {
   return(zero_percentage_matrix)
 }
 
-# Compute zero percentage matrix
 zero_percentage_matrix <- calculate_zero_percentage(data_mat)
-
-# Convert to long format
-zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2"), value.name = "DoubleZeroPercentage")
-
-# Merge with correlation and p-value results
-result_df <- merge(result_df, zero_long, by = c("Organism1", "Organism2"))
+zero_long <- melt(zero_percentage_matrix, varnames = c("Gene1", "Gen2"), value.name = "DoubleZeroPercentage") # Long format
+result_df <- merge(result_df, zero_long, by = c("Gene1", "Gene2")) # Merge correlation and p-values
 
 # Save the updated results
 write.table(result_df, file = results, sep = "\t", quote = FALSE, row.names = FALSE)
+

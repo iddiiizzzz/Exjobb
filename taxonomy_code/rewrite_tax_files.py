@@ -33,6 +33,3 @@ df_transposed = df_transposed[1:]
 df_transposed.insert(0, 'TrueID', df.columns[1:])
 df_transposed.to_csv(new_taxonomy_file, sep="\t", index=False, header=True)
 
-'''
-python histograms/organisms/rewrite_tax_files.py
-'''

@@ -12,13 +12,13 @@ count_matrix <- "test_files/rewritten_test_kraken1.tsv"
 results <- "test_files/results_org_correlation_ww1_test75.tsv"
 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_ww1_log75.tsv" 
+# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww1_log75.tsv" 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_ww2_log75.tsv" 
+# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww2_log75.tsv" 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_hg_log75.tsv" 
+# results = "/storage/bergid/correlation/organisms/results_org_correlation_hg_log75.tsv" 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/results_org_correlation_all_log75.tsv"
+# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log75.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)

@@ -9,6 +9,8 @@ Files:
 
 (Andra filer):
 - count_matrix.tsv - Abundans av resistensgener i metagenom
+       - omformatterad i /storage/koningen/count_matrix.tsv
+
 - genome_full_lineage.tsv - Komplett taxonomi för alla bakteriegenomen
 - taxonomy_metagenomes.csv - Taxonomi i de metagenomiska proverna genererade med Kraken2
        - taxonomy_wastewater_1.tsv --> omformaterade i /storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv
