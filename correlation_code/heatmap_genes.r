@@ -15,7 +15,7 @@ library(RColorBrewer)
 # file_path <- "test_files/gene_correlation_results_test.tsv"
 # png <- "test_files/heatmap_gene_test.png"
 file_path <- "test_files/gene_correlation_results_test75.tsv"
-png <- "test_files/heatmap_gene_test75.png"
+png <- "test_files/heatmaps/heatmap_gene_test75.png"
 
 
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)

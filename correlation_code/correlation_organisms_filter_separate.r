@@ -1,8 +1,8 @@
 
 # -------------------------------------------------
 # Calculate the correlation between orgnanisms
-#   filter 75% zeroes in all organism files separately
-#   save together if one fullfills the limit
+# filter 75% zeroes in all organism files separately
+# save together if one fullfills the limit
 # -------------------------------------------------
 
 library(Hmisc)      

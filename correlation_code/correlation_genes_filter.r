@@ -1,6 +1,6 @@
 
 # -------------------------------------------------
-# Calculate the correlation between genes
+# Calculate the correlation between genes, filter 75% zeros
 # -------------------------------------------------
 
 
