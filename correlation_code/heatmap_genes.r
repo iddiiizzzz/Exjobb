@@ -12,8 +12,8 @@ library(RColorBrewer)
 # file_path <- "/storage/bergid/correlation/results_gene_correlation.tsv"
 # png <- ""
 
-file_path <- "test_files/test_gene_correlation_results.tsv"
-png <- "test_files/heatmap_org_test.png"
+file_path <- "test_files/gene_correlation_results_test.tsv"
+png <- "test_files/heatmap_gene_test.png"
 
 
 
