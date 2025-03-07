@@ -1,3 +1,10 @@
+
+# -------------------------------------------------
+# Calculate the correlation between orgnanisms
+#   filter 75% zeroes in all organism files separately
+#   save together if one fullfills the limit
+# -------------------------------------------------
+
 library(Hmisc)      
 library(reshape2)
 
@@ -6,7 +13,7 @@ library(reshape2)
 # count_matrix_hg <- "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 # count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
 
-# results <- "/storage/bergid/correlation/organisms/results_org_correlation_all_log_sep75.tsv"
+# results <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"
 
 count_matrix_ww1 <- "test_files/rewritten_test_kraken1.tsv"
 count_matrix_ww2 <- "test_files/rewritten_test_kraken2.tsv"

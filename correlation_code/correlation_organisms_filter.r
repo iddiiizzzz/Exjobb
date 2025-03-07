@@ -1,6 +1,7 @@
 
 # -------------------------------------------------
-# Calculate the correlation between orgnanisms
+# Calculate the correlation between orgnanisms, filter 75% zeros
+#   one file at a time
 # -------------------------------------------------
 
 
@@ -9,16 +10,19 @@ library(reshape2)
 
 
 count_matrix <- "test_files/rewritten_test_kraken1.tsv"
-results <- "test_files/results_org_correlation_ww1_test75.tsv"
+results <- "test_files/org_correlation_filtered_test.tsv"
 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww1_log75.tsv" 
+# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_ww1.tsv" 
+
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww2_log75.tsv" 
+# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_ww2.tsv" 
+
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_hg_log75.tsv" 
+# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_hg.tsv" 
+
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log75.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_all.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)

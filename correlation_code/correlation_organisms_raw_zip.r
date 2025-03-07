@@ -1,8 +1,7 @@
-
 # -------------------------------------------------
-# Calculate the correlation between orgnanisms
+# Calculate the correlation between orgnanisms, zero inflation
+#   one file at a time
 # -------------------------------------------------
-
 
 library(Hmisc)      
 library(reshape2)   
@@ -10,19 +9,21 @@ library(reshape2)
 
 count_matrix <- "test_files/rewritten_test_kraken1.tsv"
 zip_prob_file <- "test_files/zip_probabilities.tsv"
-results <- "test_files/results_org_correlation_ww1_zip_test.tsv"
+results <- "test_files/org_correlation_ww1_zip_test.tsv"
 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww_log.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_zero_infl_ww.tsv"
 # zip_prob_file <- "/storage/bergid/zero_inflations/zip_probabilities_ww.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_hg_log.tsv"
-# zip_prob_file <- "/storage/bergid/zero_inflations/zip_probabilities_hg.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log.tsv"
-# zip_prob_file <- ""
 
-# results = "/storage/bergid/correlation/results_org_correlation_all_log_switchLogSum.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_zero_infl_hg.tsv"
+# zip_prob_file <- "/storage/bergid/zero_inflations/zip_probabilities_hg.tsv"
+
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_zero_infl_all.tsv"
+# zip_prob_file <- "/storage/bergid/zero_inflations/zip_probabilities_all.tsv"
+
+
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 org_names <- data$TrueID

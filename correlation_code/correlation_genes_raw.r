@@ -1,6 +1,6 @@
 
 # -------------------------------------------------
-# Calculate the correlation between orgnanisms
+# Calculate the correlation between genes, no filtering
 # -------------------------------------------------
 
 

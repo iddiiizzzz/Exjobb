@@ -1,6 +1,6 @@
 
 # -------------------------------------------------
-# Calculate the correlation between orgnanisms
+# Calculate the correlation between orgnanisms, no filtering
 # -------------------------------------------------
 
 
@@ -8,19 +8,21 @@ library(Hmisc)
 library(reshape2)   
 
 count_matrix <- "test_files/rewritten_test_kraken1.tsv"
-results <- "test_files/results_org_correlation_ww1_test.tsv"
+results <- "test_files/org_correlation_ww1_test.tsv"
 
 
 # count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww1_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_ww2_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_hg_log.tsv"
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_ww1.tsv"
 
-# results = "/storage/bergid/correlation/organisms/results_org_correlation_all_log_switchLogSum.tsv"
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_ww2.tsv"
+
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_hg.tsv"
+
+# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
+# results = "/storage/bergid/correlation/organisms/org_correlation_all.tsv"
+
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 org_names <- data$TrueID

@@ -4,7 +4,7 @@ import subprocess
 
 paths_to_genomes = "/storage/shared/data_for_master_students/ida_and_ellen/genome_filepaths.tsv" # "test_files/exempel_paths.tsv"
 database = "/storage/bergid/data_base/antibiotic_resistance_db"
-output_file = "/storage/bergid/blast_results.txt"
+output_file = "/storage/bergid/blast/blast_results.txt"
 
 with open(output_file, "w") as outfile:
     # header to output file
@@ -38,7 +38,7 @@ with open(paths_to_genomes, "r") as file:
         with open(temporary_output_file, "r") as infile, open(output_file, 'a') as outfile:
             for line in infile:
                 fields = line.strip().split("\t")
-                alignment_length = abs(float(fields[7]) - float(fields[6]))+1 # Alignment length
+                alignment_length = abs(float(fields[7]) - float(fields[6])) + 1 # Alignment length #####FEL
                 subject_length = float(fields[12])  # Subject length (slen)
                 scov = (alignment_length / subject_length) * 100
                 
