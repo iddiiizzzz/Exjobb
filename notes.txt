@@ -68,11 +68,13 @@ kolla hur många kolumner filen har: head -n 1 <file> | awk -F'\t' '{print NF}'
 
 --------------------------------------------------------------------------------------------------------
 
+dimensioner:
 
-bacteria: column 1805 in wastewater1, column 2322 in wastewater 2, column 440 in human gut
-dimensioner gener count: 30655 rader, 6665 kolumner = 204 315 575 counts
-dimensioner ww1 count: 859 rader(samples), 21585 kolumner(orgs) = 18 541 515 counts
-
+Gener count: 30655 rader(gener), 6665 kolumner(samples) = 204 315 575 counts
+ww1 count: 859 rader(samples), 21585 kolumner(orgs) = 18 541 515 counts
+ww2: 19297 orgs
+hg: 21318 orgs
+total orgs: 62200
 
 TO DO:
 
