@@ -1,7 +1,6 @@
-# -------------------------------------------------
-# Calculate the correlation between orgnanisms, zero inflation
-#   one file at a time
-# -------------------------------------------------
+# ------------------------------------------------------------------------
+# Calculate the correlation between genes using zero inflation as weights
+# ------------------------------------------------------------------------
 
 library(Hmisc)      
 library(reshape2)   

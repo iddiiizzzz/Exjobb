@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Calculate the correlation between genes using zero inflation with threshold
+# Calculate the correlation between genes usning zero inflations as probability
 # ------------------------------------------------------------------------------
 
 library(Hmisc)      
@@ -11,7 +11,7 @@ library(reshape2)
 
 count_matrix <- "test_files/test_double_zeros.tsv"
 zinb_prob_file <- "test_files/zinb_probabilities.tsv"
-results <- "test_files/correlation_zinb_threshold_test1.tsv"
+results <- "test_files/correlation_zinb_probabilities.tsv"
 
 
 
@@ -19,7 +19,7 @@ data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = F
 gene_names <- data$GeneNames
 rownames(data) <- gene_names
 data <- data[, -1]  
-data <- log(data + 1)
+# data <- log(data + 1)
 
 # Convert data to a numeric matrix while preserving row and column names.
 data_mat <- as.matrix(data)
@@ -35,7 +35,8 @@ zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFac
 rownames(zinb_probs) <- zinb_probs$GeneNames
 zinb_probs <- zinb_probs[, -1]  
 
-threshold = 0.5
+
+
 corr_result <- matrix(NA, nrow = nrow(data_mat), ncol = nrow(data_mat),
                               dimnames = list(rownames(data_mat), rownames(data_mat)))
 p_matrix <- matrix(NA, nrow = nrow(data_mat), ncol = nrow(data_mat),
@@ -49,6 +50,10 @@ for (i in 1:nrow(data_mat)) {
         new_temp_data <- matrix(NA, nrow = 2, ncol = ncol(data_mat))
 
         for (k in 1:ncol(temp_data)) {
+            r1 = runif(1)
+            r2 = runif(1)
+            print(r1)
+            print(r2)
             print(temp_data[,k])
             
             if (all(temp_data[,k] == 0)){
@@ -57,7 +62,7 @@ for (i in 1:nrow(data_mat)) {
                 prob2 = zinb_probs[j,k]
                 cat("hi\n")
             
-                if (prob1 < threshold && prob2 < threshold) {
+                if (prob1 < r1 && prob2 < r2) {
                     next
                 }
                 else {
