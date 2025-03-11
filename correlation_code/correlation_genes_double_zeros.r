@@ -28,7 +28,7 @@ library(reshape2)
 # results = "test_files/double_zeros_results.tsv"
 
 count_matrix <- "/storage/koningen/count_matrix.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_double_zeros.tsv"
+results <- "/storage/bergid/correlation/genes/genes_correlation_double_zeros_not_filtered.tsv"
 
 
 
@@ -39,7 +39,7 @@ gene_names <- data$GeneNames
 rownames(data) <- gene_names
 
 data <- data[, -1]  
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.75, ]
+# data <- data[(rowSums(data == 0) / ncol(data)) < 0.75, ]
 data <- log(data + 1)
 
 

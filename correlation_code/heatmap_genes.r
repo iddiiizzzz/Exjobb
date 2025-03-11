@@ -12,11 +12,13 @@ library(RColorBrewer)
 # file_path <- "test_files/gene_correlation_results_test.tsv"
 # png <- "test_files/heatmap_gene_test.png"
 
-file_path <- "/storage/bergid/correlation/genes/gene_correlation.tsv"
-png <- "correlation_code/heatmaps/genes/heatmap_genes_new2.png"
+# file_path <- "/storage/bergid/correlation/genes/gene_correlation.tsv"
+# png <- "correlation_code/heatmaps/genes/heatmap_genes.png"
 # file_path <- "/storage/bergid/correlation/genes/gene_correlation_filtered.tsv"
 # png <- "correlation_code/heatmaps/genes/heatmap_genes_filtered.png"
 
+file_path <- "/storage/bergid/correlation/genes/genes_correlation_double_zeros.tsv"
+png <- "correlation_code/heatmaps/genes/heatmap_genes_double_zeros.png"
 
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
 cor_matrix <- dcast(correlations, Gene1 ~ Gene2, value.var = "CorrelationCoefficient")
@@ -36,9 +38,9 @@ png(png, width = 32700, height = 32700, res = 6000)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between -1 and 1
-    main = "Resistant Gene Correlation Heatmap", 
-    fontsize_row = .07, 
-    fontsize_col = .07,
+    main = "Resistant Gene Correlation Heatmap (Without double zeros)", 
+    fontsize_row = 1, 
+    fontsize_col = 1,
     angle_col = 90)
 dev.off()
 
