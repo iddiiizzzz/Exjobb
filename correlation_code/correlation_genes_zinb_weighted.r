@@ -38,6 +38,8 @@ weight_matrix <- matrix(NA, nrow = nrow(data), ncol = ncol(data),
 
 
 for (i in 1:nrow(data)) {
+  cat("hi")
+  print(i)
   for (j in 1:ncol(data)) {
     if (data[i,j] != 0) {
       weight_matrix[i,j] <- 1
@@ -46,14 +48,12 @@ for (i in 1:nrow(data)) {
     if (data[i, j] == 0) {
       
       prob <- zip_probs[i, j]
-      print(prob)
       weight_matrix[i, j] <- (1 - prob) * 0.01  # Scale near-zero values for technical zeros
 
     
     }
   }
 }
-print(weight_matrix)
 
 
 
@@ -80,6 +80,8 @@ correlation_coefficient <- matrix(NA, nrow = nrow(data), ncol = nrow(data),
                               dimnames = list(rownames(data), rownames(data)))
 
 for (i in 1:nrow(data)) {
+  cat(hello)
+  print(i)
   for (j in 1:nrow(data)) {
     x <-data_mat[i, ]
     y <-data_mat[j, ]

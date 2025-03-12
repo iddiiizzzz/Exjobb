@@ -5,13 +5,13 @@
 library(Hmisc)      
 library(reshape2)   
 
-# count_matrix <- "/storage/koningen/count_matrix.tsv"
-# zip_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
+count_matrix <- "/storage/koningen/count_matrix.tsv"
+zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
 
-count_matrix <- "test_files/test_double_zeros.tsv"
-zinb_prob_file <- "test_files/zinb_probabilities.tsv"
-results <- "test_files/correlation_zinb_probabilities.tsv"
+# count_matrix <- "test_files/test_double_zeros.tsv"
+# zinb_prob_file <- "test_files/zinb_probabilities.tsv"
+# results <- "test_files/correlation_zinb_probabilities.tsv"
 
 
 
@@ -43,43 +43,40 @@ p_matrix <- matrix(NA, nrow = nrow(data_mat), ncol = nrow(data_mat),
                               dimnames = list(rownames(data_mat), rownames(data_mat)))
 
 for (i in 1:nrow(data_mat)) {
+    print(i)
     for (j in 1:nrow(data_mat)) {
         temp_data <- t(cbind(data_mat[i, ], data_mat[j, ]))
-        print(temp_data)
+        
 
         new_temp_data <- matrix(NA, nrow = 2, ncol = ncol(data_mat))
 
         for (k in 1:ncol(temp_data)) {
             r1 = runif(1)
             r2 = runif(1)
-            print(r1)
-            print(r2)
-            print(temp_data[,k])
             
             if (all(temp_data[,k] == 0)){
                 
                 prob1 = zinb_probs[i,k]
                 prob2 = zinb_probs[j,k]
-                cat("hi\n")
+                
             
                 if (prob1 < r1 && prob2 < r2) {
                     next
                 }
                 else {
                     new_temp_data[,k] <- temp_data[, k]
-                    cat("hej \n")
+                    
                 }
 
             }
             new_temp_data[,k] <- temp_data[, k]
 
         }
-        print(new_temp_data)
 
         result <- rcorr(t(new_temp_data), type = "pearson")
         corr_result[i, j] <- result$r[1,2] 
         p_matrix[i,j]   <- result$P[1,2]
-        cat("hello \n")
+        
         
 
         
