@@ -26,7 +26,6 @@ zinb_probabilities <- count_data  # Will store ZINB probabilities
 
 for (i in 1:nrow(count_data)) {
   counts <- as.numeric(count_data[i, ])
-  tax_id <- tax_ids[i]
 
   # Skip rows with all zeros (models won't work on zero-only data)
   if (all(counts == 0)) {
