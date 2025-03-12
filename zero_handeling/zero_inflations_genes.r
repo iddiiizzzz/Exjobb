@@ -11,7 +11,7 @@ output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
 
-gene_namess <- data$GeneNames
+gene_names <- data$GeneNames
 rownames(data) <- gene_names
 count_data <- data[, -1]  # Exclude the first column (TaxID)
 
