@@ -4,10 +4,10 @@ library(reshape2)
 
 
 
-input_file <- "/storage/koningen/count_matrix.tsv"
-output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# input_file <- "test_files/test_double_zeros.tsv"
-# output_file_zinb <- "test_files/zinb_probabilities.tsv"
+# input_file <- "/storage/koningen/count_matrix.tsv"
+# output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+input_file <- "test_files/test_gene_count_matrix.tsv"
+output_file_zinb <- "test_files/zinb_probabilities.tsv"
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
@@ -24,7 +24,7 @@ for (i in 1:nrow(count_data)) {
 
   # Skip rows with all zeros (models won't work on zero-only data)
   if (all(counts == 0)) {
-    zinb_probabilities[i, ] <- NA
+    zinb_probabilities[i, ] <- 1
     next
   }
 
@@ -40,7 +40,7 @@ for (i in 1:nrow(count_data)) {
     zinb_probs <- predict(zinb_model, type = "zero")
     zinb_probabilities[i, ] <- ifelse(counts == 0, zinb_probs, 0)  # Only assign probabilities to zeros
   } else {
-    zinb_probabilities[i, ] <- NA
+    zinb_probabilities[i, ] <- 0
   }
 }
 

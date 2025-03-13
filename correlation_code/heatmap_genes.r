@@ -9,16 +9,16 @@ library(pheatmap)
 library(gplots)
 library(RColorBrewer)
 
-# file_path <- "test_files/gene_correlation_results_test.tsv"
-# png <- "test_files/heatmap_gene_test.png"
+file_path <- "test_files/correlation_zinb_threshold_test.tsv"
+png <- "test_files/heatmap_gene_test_na.png"
 
 # file_path <- "/storage/bergid/correlation/genes/gene_correlation.tsv"
 # png <- "correlation_code/heatmaps/genes/heatmap_genes.png"
 # file_path <- "/storage/bergid/correlation/genes/gene_correlation_filtered.tsv"
 # png <- "correlation_code/heatmaps/genes/heatmap_genes_filtered.png"
 
-file_path <- "/storage/bergid/correlation/genes/genes_correlation_double_zeros.tsv"
-png <- "correlation_code/heatmaps/genes/heatmap_genes_double_zeros.png"
+# file_path <- "/storage/bergid/correlation/genes/genes_correlation_double_zeros.tsv"
+# png <- "correlation_code/heatmaps/genes/heatmap_genes_double_zeros.png"
 
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
 cor_matrix <- dcast(correlations, Gene1 ~ Gene2, value.var = "CorrelationCoefficient")

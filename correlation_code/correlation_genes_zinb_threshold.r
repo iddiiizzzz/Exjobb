@@ -5,13 +5,13 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix <- "/storage/koningen/count_matrix.tsv"
-zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
+# count_matrix <- "/storage/koningen/count_matrix.tsv"
+# zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+# results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
 
-# count_matrix <- "test_files/test_double_zeros.tsv"
-# zinb_prob_file <- "test_files/zinb_probabilities.tsv"
-# results <- "test_files/correlation_zinb_threshold_test.tsv"
+count_matrix <- "test_files/test_gene_count_matrix.tsv"
+zinb_prob_file <- "test_files/zinb_probabilities.tsv"
+results <- "test_files/correlation_zinb_threshold_test.tsv"
 
 
 
@@ -69,7 +69,7 @@ for (i in 1:nrow(data_mat)) {
             new_temp_data[,k] <- temp_data[, k]
 
         }
-        print(new_temp_data)
+        
 
         result <- rcorr(t(new_temp_data), type = "pearson")
         corr_result[i, j] <- result$r[1,2] 

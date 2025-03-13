@@ -7,21 +7,20 @@ library(reshape2)
 
 count_matrix <- "/storage/koningen/count_matrix.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
+results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv"
 
-# count_matrix <- "test_files/test_double_zeros.tsv"
+
+# count_matrix <- "test_files/test_gene_count_matrix.tsv"
 # zinb_prob_file <- "test_files/zinb_probabilities.tsv"
-# results <- "test_files/correlation_zinb_probabilities.tsv"
-
+# results <- "test_files/correlation_zinb_probabilities_utannollrad.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 gene_names <- data$GeneNames
 rownames(data) <- gene_names
 data <- data[, -1]  
-# data <- log(data + 1)
+data <- log(data + 1)
 
-# Convert data to a numeric matrix while preserving row and column names.
 data_mat <- as.matrix(data)
 data_mat <- matrix(as.numeric(data_mat), 
                    nrow = nrow(data_mat), 
@@ -58,8 +57,9 @@ for (i in 1:nrow(data_mat)) {
                 
                 prob1 = zinb_probs[i,k]
                 prob2 = zinb_probs[j,k]
-                
-            
+                print(prob1)
+                print(prob2)
+
                 if (prob1 < r1 && prob2 < r2) {
                     next
                 }
