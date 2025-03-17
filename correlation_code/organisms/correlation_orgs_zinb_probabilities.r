@@ -5,14 +5,12 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix <- "/storage/koningen/count_matrix.tsv"
-zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv" # 90%
+# count_matrix_ww1 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+# count_matrix_ww2 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+# count_matrix_hg <- "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
 
-
-# count_matrix <- "test_files/test_gene_count_matrix.tsv"
-# zinb_prob_file <- "test_files/zinb_probabilities.tsv"
-# results <- "test_files/correlation_zinb_probabilities_utannollrad.tsv"
+# results <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)

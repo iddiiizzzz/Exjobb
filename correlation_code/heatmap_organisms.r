@@ -37,6 +37,8 @@ cor_matrix[is.na(cor_matrix)] <- 0
 my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 breaks_list <- seq(-1, 1, length.out = 101)  # Ensures proper scaling from -1 to 1
 
+
+# 5000 width/height + res 900 bra för 181 st
 png(png, width = 30000, height = 30000, res = 4000)
 pheatmap(cor_matrix, 
     col = my_palette, 

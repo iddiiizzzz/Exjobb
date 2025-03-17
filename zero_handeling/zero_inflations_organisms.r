@@ -7,10 +7,10 @@ library(reshape2)
 # output_file_zinb <- "test_files/zinb_probabilities.tsv"
 
 # input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv" 
-# output_file_zinb <- "/storage/bergid/zero_inflations/zip_probabilities_ww.tsv"
+# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 
-# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# output_file_zinb <- "/storage/bergid/zero_inflations/zip_probabilities_hg.tsv"
+input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
 
 
 
@@ -19,13 +19,27 @@ data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FAL
 
 tax_ids <- data$TrueID
 rownames(data) <- tax_ids
-count_data <- data[, -1]  # Exclude the first column (TaxID)
+data <- data[, -1]  # Exclude the first column (TaxID)
 
-# Prepare output matrices for probabilities
-zinb_probabilities <- count_data  # Will store ZINB probabilities
+print(dim(data))
+data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
+print(dim(data))
 
-for (i in 1:nrow(count_data)) {
-  counts <- as.numeric(count_data[i, ])
+
+# Convert data to a numeric matrix while preserving row and column names.
+data_mat <- as.matrix(data)
+data_mat <- matrix(as.numeric(data_mat), 
+                   nrow = nrow(data_mat), 
+                   ncol = ncol(data_mat),
+                   dimnames = list(rownames(data), colnames(data)))
+
+
+zinb_probabilities <-  matrix(NA, nrow = nrow(data_mat), ncol = ncol(data_mat),
+                              dimnames = list(rownames(data_mat), colnames(data_mat)))  # Will store ZINB probabilities
+
+for (i in 1:nrow(data)) {
+  print(i)
+  counts <- as.numeric(data[i, ])
 
   # Skip rows with all zeros (models won't work on zero-only data)
   if (all(counts == 0)) {
@@ -33,7 +47,7 @@ for (i in 1:nrow(count_data)) {
     next
   }
 
-  row_df <- data.frame(Sample = colnames(count_data), Counts = counts)
+  row_df <- data.frame(Sample = colnames(data), Counts = counts)
 
   zinb_model <- tryCatch(
     zeroinfl(Counts ~ 1 | 1, data = row_df, dist = "negbin"),
@@ -49,6 +63,7 @@ for (i in 1:nrow(count_data)) {
   }
 }
 
-zinb_output <- cbind(TrueID = tax_ids, zinb_probabilities)
-write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE)
 
+# zinb_output <- cbind(GeneNames = gene_names, zinb_probabilities)
+zinb_output <- cbind(TrueID = rownames(zinb_probabilities), zinb_probabilities)
+write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
