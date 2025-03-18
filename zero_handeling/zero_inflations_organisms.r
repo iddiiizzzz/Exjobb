@@ -6,11 +6,11 @@ library(reshape2)
 # input_file <- "test_files/test_double_zeros.tsv"
 # output_file_zinb <- "test_files/zinb_probabilities.tsv"
 
-# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv" 
-# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
+input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv" 
+output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 
-input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
+# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
 
 
 
@@ -43,7 +43,7 @@ for (i in 1:nrow(data)) {
 
   # Skip rows with all zeros (models won't work on zero-only data)
   if (all(counts == 0)) {
-    zinb_probabilities[i, ] <- NA
+    zinb_probabilities[i, ] <- 1
     next
   }
 
@@ -59,7 +59,7 @@ for (i in 1:nrow(data)) {
     zinb_probs <- predict(zinb_model, type = "zero")
     zinb_probabilities[i, ] <- ifelse(counts == 0, zinb_probs, 0)  # Only assign probabilities to zeros
   } else {
-    zinb_probabilities[i, ] <- NA
+    zinb_probabilities[i, ] <- 0
   }
 }
 

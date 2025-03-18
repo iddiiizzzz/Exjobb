@@ -28,7 +28,7 @@ df_waste1 = pd.read_csv(wastewater1, sep="\t", index_col=0)
 # df_waste2 = pd.read_csv(wastewater2, sep="\t", index_col=0)
 
 merged_df = pd.concat([df_hgut, df_waste1], axis=1, join="outer")
-# merged_df = merged_df.fillna(0)
+merged_df = merged_df.fillna(1) # 1 for zinb, 0 for counts
 merged_df = merged_df.astype(int)
 merged_df.to_csv(outfile, sep="\t")
 

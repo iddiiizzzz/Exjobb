@@ -30,7 +30,7 @@ org_names <- data$TrueID
 rownames(data) <- org_names
 
 data <- data[, -1]  
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.75, ]
+data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
 data <- log(data + 1)
 
 

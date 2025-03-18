@@ -5,12 +5,9 @@
 library(Hmisc)      
 library(reshape2)   
 
-# count_matrix_ww1 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# count_matrix_ww2 <- "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# count_matrix_hg <- "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-
-# results <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
+zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
+results <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -33,7 +30,7 @@ data_mat <- matrix(as.numeric(data_mat),
 
 
 zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-rownames(zinb_probs) <- zinb_probs$GeneNames
+rownames(zinb_probs) <- zinb_probs$TrueID
 zinb_probs <- zinb_probs[, -1]  
 
 
@@ -71,8 +68,6 @@ for (i in 1:nrow(data_mat)) {
         result <- rcorr(t(new_temp_data), type = "pearson")
         corr_result[i, j] <- result$r[1,2] 
         p_matrix[i,j]   <- result$P[1,2]
-        
-
         
     }
 }
