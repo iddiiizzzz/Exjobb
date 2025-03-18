@@ -3,11 +3,11 @@ library(pscl)
 library(reshape2)   
 
 
-# input_file <- "test_files/test_double_zeros.tsv"
-# output_file_zinb <- "test_files/zinb_probabilities.tsv"
+input_file <- "test_files/rewritten_test_kraken1.tsv"
+output_file_zinb <- "test_files/zinb_probabilities.tsv"
 
-input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv" 
-output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
+# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv" 
+# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 
 # input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 # output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
