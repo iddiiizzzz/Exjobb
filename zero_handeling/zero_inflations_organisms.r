@@ -3,14 +3,14 @@ library(pscl)
 library(reshape2)   
 
 
-input_file <- "test_files/rewritten_test_kraken1.tsv"
-output_file_zinb <- "test_files/zinb_probabilities.tsv"
+# input_file <- "test_files/rewritten_test_kraken1.tsv"
+# output_file_zinb <- "test_files/zinb_probabilities.tsv"
 
-# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv" 
+# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv" 
 # output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 
-# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
+input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
 
 
 
@@ -20,10 +20,6 @@ data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FAL
 tax_ids <- data$TrueID
 rownames(data) <- tax_ids
 data <- data[, -1]  # Exclude the first column (TaxID)
-
-print(dim(data))
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-print(dim(data))
 
 
 # Convert data to a numeric matrix while preserving row and column names.
@@ -64,6 +60,5 @@ for (i in 1:nrow(data)) {
 }
 
 
-# zinb_output <- cbind(GeneNames = gene_names, zinb_probabilities)
 zinb_output <- cbind(TrueID = rownames(zinb_probabilities), zinb_probabilities)
 write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
