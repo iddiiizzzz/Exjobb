@@ -5,17 +5,14 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix <- "/storage/koningen/count_matrix.tsv"
-zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv" # 90%
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
+results <- "/storage/bergid/correlation/genes/orgs_correlation_zero_inflation_threshold.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-rownames(data) <- data$GeneNames
+rownames(data) <- data$TrueID
 data <- data[, -1]  
-
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-data <- log(data + 1)
 
 data_mat <- as.matrix(data)
 data_mat <- matrix(as.numeric(data_mat), 
@@ -26,15 +23,15 @@ data_mat <- matrix(as.numeric(data_mat),
 
 
 zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-rownames(zinb_probs) <- zinb_probs$GeneNames
+rownames(zinb_probs) <- zinb_probs$TrueID
 zinb_probs <- zinb_probs[, -1]  
 
-r <- matrix(runif(length(data_mat)),ncol=ncol(data_mat))
+threshold = 0.5
 new_data<-data_mat
 
 print(dim(new_data))
 print(dim(zinb_probs))
-new_data[new_data == 0 & zinb_probs<r]<-NA
+new_data[new_data == 0 & zinb_probs<threshold]<-NA
 
 
 result <- rcorr(t(new_data), type = "pearson")
@@ -42,10 +39,10 @@ corr_result <- result$r
 p_matrix  <- result$P
         
 
-cor_long <- melt(corr_result, varnames = c("Gene1", "Gene2"), value.name = "CorrelationCoefficient")
-p_long   <- melt(p_matrix,   varnames = c("Gene1", "Gene2"), value.name = "pValue")
+cor_long <- melt(corr_result, varnames = c("Organism1", "Organism2"), value.name = "CorrelationCoefficient")
+p_long   <- melt(p_matrix,   varnames = c("Organism1", "Organism2"), value.name = "pValue")
 
-result_df <- merge(cor_long, p_long, by = c("Gene1", "Gene2"))
+result_df <- merge(cor_long, p_long, by = c("Organism1", "Organism2"))
 
 
 

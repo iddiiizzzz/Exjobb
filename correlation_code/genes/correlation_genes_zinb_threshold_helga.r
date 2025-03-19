@@ -7,7 +7,7 @@ library(reshape2)
 
 count_matrix <- "/storage/koningen/count_matrix.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv" # 90%
+results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_threshold.tsv" #ellen tmux "correlation" - klar tisdag?
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -29,12 +29,12 @@ zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFac
 rownames(zinb_probs) <- zinb_probs$GeneNames
 zinb_probs <- zinb_probs[, -1]  
 
-r <- matrix(runif(length(data_mat)),ncol=ncol(data_mat))
+threshold = 0.5
 new_data<-data_mat
 
 print(dim(new_data))
 print(dim(zinb_probs))
-new_data[new_data == 0 & zinb_probs<r]<-NA
+new_data[new_data == 0 & zinb_probs<threshold]<-NA
 
 
 result <- rcorr(t(new_data), type = "pearson")

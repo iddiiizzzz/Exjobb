@@ -9,40 +9,21 @@ library(reshape2)
 
 
 # count_matrix <- "test_files/rewritten_test_kraken1.tsv"
-# results <- "test_files/org_correlation_filtered_test.tsv"
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_ww1.tsv" 
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_ww2.tsv" 
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_hg.tsv" 
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_all.tsv"
+# results <- "test_files/org_double_zeros_test.tsv"
 
 
-
-
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+results <- "/storage/bergid/correlation/organisms/org_correlation_double_zeros_all.tsv"
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-org_names <- data$TrueID
-rownames(data) <- org_names
-
+rownames(data) <- data$TrueID
 data <- data[, -1]  
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-data <- log(data + 1)
 
-
-# Convert data to a numeric matrix while preserving row and column names.
 data_mat <- as.matrix(data)
 data_mat <- matrix(as.numeric(data_mat), 
                    nrow = nrow(data_mat), 
                    ncol = ncol(data_mat),
                    dimnames = list(rownames(data), colnames(data)))
-
 
 
 filtered_cor_matrix <- matrix(NA, nrow = nrow(data_mat), ncol = nrow(data_mat),
@@ -88,6 +69,7 @@ calculate_zero_percentage <- function(mat) {
                                    dimnames = list(rownames(mat), rownames(mat)))
   
   for (i in 1:nrow(mat)) {
+    print(i)
     for (j in 1:nrow(mat)) {
       zero_count <- sum(mat[i, ] == 0 & mat[j, ] == 0)  # Count both zero
       zero_percentage_matrix[i, j] <- (zero_count / n) * 100  # Convert to percentage
