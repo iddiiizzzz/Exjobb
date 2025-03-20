@@ -23,11 +23,11 @@ library(RColorBrewer)
 
 
 
-# file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv" # 90%
-# png <- "correlation_code/heatmaps/genes/heatmap_genes_weighted.png"
+file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted_apply.tsv"
+png <- "correlation_code/heatmaps/genes/heatmap_genes_weighted.png"
 
-file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv"
-png <- "correlation_code/heatmaps/genes/heatmap_genes_probabilities_helga.png"
+# file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv"
+# png <- "correlation_code/heatmaps/genes/heatmap_genes_probabilities_helga.png"
 
 # file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_threshold.tsv"
 # png <- "correlation_code/heatmaps/genes/heatmap_genes_threshold_helga.png"
@@ -58,7 +58,7 @@ png(png, width = 5000, height = 5000, res = 900)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between -1 and 1
-    main = "Resistant Gene Correlation (probabilities, 90%)", 
+    main = "Resistant Gene Correlation (weighted, 90%)", 
     fontsize_row = 1, 
     fontsize_col = 1,
     angle_col = 90)

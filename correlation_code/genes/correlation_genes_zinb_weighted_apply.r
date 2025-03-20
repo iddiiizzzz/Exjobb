@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------
-# Calculate the correlation between organisms using zero inflation as weights
+# Calculate the correlation between organisms using zero inflation as weights 
 # ------------------------------------------------------------------------
 
 library(Hmisc)      
@@ -16,7 +16,7 @@ gene_names <- data$GeneNames
 rownames(data) <- gene_names
 
 
-data <- data[, -1]  
+data <- data[, -1] 
 data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
 data <- log(data + 1)
 
@@ -72,7 +72,8 @@ correlation_coefficient <- matrix(
     vectorized_correlation(i, j)
   }, indices[, 1], indices[, 2]),
   nrow = nrow(data),
-  ncol = nrow(data)
+  ncol = nrow(data),
+  dimnames = list(rownames(data_mat), rownames(data_mat))  # Add row and column names
 )
 
 cor_long <- melt(correlation_coefficient, varnames = c("Gene1", "Gene2"), value.name = "CorrelationCoefficient")
