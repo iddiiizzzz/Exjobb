@@ -7,7 +7,7 @@ library(reshape2)
 
 count_matrix <- "/storage/koningen/count_matrix.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv" # 90%
+results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)

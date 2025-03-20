@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Calculate the correlation between genes usning zero inflations as probability
+# Calculate the correlation between genes compairing zero inflations to a threshold
 # ------------------------------------------------------------------------------
 
 library(Hmisc)      
@@ -7,7 +7,7 @@ library(reshape2)
 
 count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
-results <- "/storage/bergid/correlation/genes/orgs_correlation_zero_inflation_threshold.tsv"
+results <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -26,7 +26,7 @@ zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFac
 rownames(zinb_probs) <- zinb_probs$TrueID
 zinb_probs <- zinb_probs[, -1]  
 
-threshold = 0.5
+threshold = 0.44
 new_data<-data_mat
 
 print(dim(new_data))

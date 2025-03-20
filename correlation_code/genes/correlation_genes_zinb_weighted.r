@@ -9,10 +9,6 @@ count_matrix <- "/storage/koningen/count_matrix.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
 results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
 
-# count_matrix <- "test_files/test_gene_count_matrix.tsv"
-# zinb_prob_file <- "test_files/zinb_probabilities.tsv"
-# results <- "test_files/correlation_zinb_weigths_test.tsv"
-
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 gene_names <- data$GeneNames
@@ -33,7 +29,7 @@ data_mat <- matrix(as.numeric(data_mat),
 
 
 zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-rownames(zinb_probs) <- zinb_probs$TrueID
+rownames(zinb_probs) <- zinb_probs$GeneNames
 zinb_probs <- zinb_probs[, -1]  
 
 weight_matrix <- matrix(NA, nrow = nrow(data), ncol = ncol(data),

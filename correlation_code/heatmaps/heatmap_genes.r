@@ -22,14 +22,15 @@ library(RColorBrewer)
 # png <- "correlation_code/heatmaps/genes/heatmap_genes_double_zeros_90.png"
 
 
-# file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_threshold.tsv" # 90%
-# png <- "correlation_code/heatmaps/genes/heatmap_genes_threshold.png"
 
 # file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv" # 90%
 # png <- "correlation_code/heatmaps/genes/heatmap_genes_weighted.png"
 
-file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_threshold.tsv" # 90%
-png <- "correlation_code/heatmaps/genes/heatmap_genes_probabilities.png"
+file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv"
+png <- "correlation_code/heatmaps/genes/heatmap_genes_probabilities_helga.png"
+
+# file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_threshold.tsv"
+# png <- "correlation_code/heatmaps/genes/heatmap_genes_threshold_helga.png"
 
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
 cor_matrix <- dcast(correlations, Gene1 ~ Gene2, value.var = "CorrelationCoefficient")
@@ -37,6 +38,12 @@ cor_matrix <- dcast(correlations, Gene1 ~ Gene2, value.var = "CorrelationCoeffic
 # Remove first column
 rownames(cor_matrix) <- cor_matrix$Gene1
 cor_matrix <- as.matrix(cor_matrix[,-1])
+
+
+sum(is.na(cor_matrix))      # Count of NAs
+sum(is.nan(cor_matrix))      # Count of NaNs
+sum(is.infinite(cor_matrix)) # Count of Infs
+
 
 # Handle missing values
 cor_matrix[is.na(cor_matrix)] <- 0
