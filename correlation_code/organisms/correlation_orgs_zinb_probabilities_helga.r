@@ -7,7 +7,7 @@ library(reshape2)
 
 count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
-results <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv"
+results <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv" #ellen tmux "correlation" - klar tisdag?d
 
 # count_matrix <- "test_files/rewritten_test_kraken1.tsv"
 # zinb_prob_file <- "test_files/zinb_probabilities.tsv"
