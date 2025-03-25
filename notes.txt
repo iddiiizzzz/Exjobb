@@ -21,6 +21,8 @@ Files:
 
 ----------------------------------------------------------------------------------------------
 i blast är query bakteriegenomen och subject är ARG-databasen
+
+blast-resultat har 101585755 rader
 ----------------------------------------------------------------------------------------------
 
 to work in conda: conda activate exjobb_env
