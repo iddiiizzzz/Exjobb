@@ -39,8 +39,6 @@ gene_names <- data$GeneNames
 rownames(data) <- gene_names
 
 data <- data[, -1]  
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-data <- log(data + 1)
 
 
 # Convert data to a numeric matrix while preserving row and column names.

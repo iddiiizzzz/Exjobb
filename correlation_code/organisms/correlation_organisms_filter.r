@@ -28,10 +28,8 @@ results <- "test_files/org_correlation_filtered_test.tsv"
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 org_names <- data$TrueID
 rownames(data) <- org_names
-
 data <- data[, -1]  
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-data <- log(data + 1)
+
 
 
 # Convert data to a numeric matrix while preserving row and column names.

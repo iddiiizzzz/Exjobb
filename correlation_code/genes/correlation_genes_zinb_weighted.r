@@ -16,8 +16,7 @@ rownames(data) <- gene_names
 
 
 data <- data[, -1]  
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-data <- log(data + 1)
+
 
 data_mat <- as.matrix(data)
 data_mat <- matrix(as.numeric(data_mat), 

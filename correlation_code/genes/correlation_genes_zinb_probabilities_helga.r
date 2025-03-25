@@ -14,8 +14,7 @@ data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = F
 rownames(data) <- data$GeneNames
 data <- data[, -1]  
 
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.90, ]
-data <- log(data + 1)
+
 
 data_mat <- as.matrix(data)
 data_mat <- matrix(as.numeric(data_mat), 
