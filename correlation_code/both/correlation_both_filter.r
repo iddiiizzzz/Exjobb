@@ -12,16 +12,16 @@ library(reshape2)
 # count_matrix_genes = "/storage/koningen/filtered_count_matrix.tsv"
 # count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
 # results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
-
 # blast_results = "/storage/bergid/blast/blast_results_corrected.txt"
+
+count_matrix_genes = "/home/bergid/Exjobb/test_files/test_gene_count_matrix_blast.tsv"
+count_matrix_orgs = "/home/bergid/Exjobb/test_files/count_matrix_orgs_test_blast.tsv"
+results = "test_files/correlation_both_test.tsv"
 blast_results = "/home/bergid/Exjobb/test_files/blast_with_true_names_fixed.txt"
-count_matrix_genes = "blast_code/blast_outputs/filtered_count_matrix.tsv"
-count_matrix_orgs = "/home/bergid/Exjobb/test_files/rewritten_test_kraken1.tsv"
-results = "test_files/correlation_both.tsv"
-matches_outfile = "test_files/matches_test.tsv"
+
 
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-
+cat("1\n")
 
 data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 gene_names <- data_gene$GeneNames
@@ -47,76 +47,37 @@ data_mat_org <- matrix(as.numeric(data_mat_org),
                    dimnames = list(rownames(data_org), colnames(data_org)))
 
 
+cat("2\n")
+
+blast_gene_names <- blast_table$qseqid
+blast_org_names <- blast_table$True_gene_names
 
 
-blast_gene_names <- matches$qseqid
-blast_org_names <- matches$True_gene_names
+correlations <- vector("numeric", length = length(blast_gene_names))
+p_values <- vector("numeric", length = length(blast_gene_names))
 
-
-correlations <- vector("numeric", length = length(gene_names_from_matches))
-p_values <- vector("numeric", length = length(gene_names_from_matches))
-
-for (i in 1:length(gene_names_from_matches)) {
+for (i in 1:length(blast_gene_names)) {
+  print(i)
   current_gene_name <- blast_gene_names[i]
   current_org_name <- blast_org_names[i]
   
-  
+
   gene_row <- data_mat_gene[current_gene_name, , drop = FALSE] # Find the corresponding row for the gene in the gene count matrix
   org_row <- data_mat_org[current_org_name, , drop = FALSE]
   
-    correlation_result <- rcorr(as.numeric(gene_row), as.numeric(org_row), type = "pearson")
-    correlations[i] <- correlation_result$r[1, 1] 
-    p_values[i] <- <- correlation_result$P[1, 1]
+  correlation_result <- rcorr(as.numeric(gene_row), as.numeric(org_row), type = "pearson")
+
+  correlations[i] <- correlation_result$r[1, 2] 
+  p_values[i] <- correlation_result$P[1, 2]
 
 }
 
 correlation_results <- data.frame(
-  Gene = gene_names_from_matches,
-  Organism = org_names_from_matches,
+  Gene = blast_gene_names,
+  Organism = blast_org_names,
   CorrelationCoefficient = correlations,
   p_values = p_values
 )
 
-# Write the results to a file
+cat("write")
 write.table(correlation_results, file = results, sep = "\t", row.names = FALSE, quote = FALSE)
-
-# res <- rcorr(t(data_mat_gene), t(data_mat_org), type = "pearson") 
-
-
-# cor_matrix <- res$r
-# p_matrix   <- res$P
-
-# rownames(cor_matrix) <- rownames(data_gene)
-# colnames(cor_matrix) <- rownames(data_org)
-# rownames(p_matrix)   <- rownames(data_gene)
-# colnames(p_matrix)   <- rownames(data_org)
-
-# cor_long <- melt(cor_matrix, varnames = c("Gene", "Organism"), value.name = "CorrelationCoefficient")
-# p_long   <- melt(p_matrix,   varnames = c("Gene", "Organism"), value.name = "pValue")
-
-# result_df <- merge(cor_long, p_long, by = c("Gene", "Organism"))
-
-
-
-# # # Function to calculate the percentage of zero-pairs
-# # calculate_zero_percentage <- function(mat) {
-# #   n <- ncol(mat)  # Number of samples/columns
-# #   zero_percentage_matrix <- matrix(0, nrow = nrow(mat), ncol = nrow(mat), 
-# #                                    dimnames = list(rownames(mat), rownames(mat)))
-  
-# #   for (i in 1:nrow(mat)) {
-# #     for (j in 1:nrow(mat)) {
-# #       zero_count <- sum(mat[i, ] == 0 & mat[j, ] == 0)  # Count when both zero
-# #       zero_percentage_matrix[i, j] <- (zero_count / n) * 100  # Percentage
-# #     }
-# #   }
-# #   return(zero_percentage_matrix)
-# # }
-
-# # zero_percentage_matrix <- calculate_zero_percentage(data_mat)
-# # zero_long <- melt(zero_percentage_matrix, varnames = c("Gene", "Organism"), value.name = "DoubleZeroPercentage") # Long format
-# # result_df <- merge(result_df, zero_long, by = c("Gene", "Organism")) # Merge correlation and p-values
-
-# # Save the updated results
-# write.table(result_df, file = results, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
-

@@ -1,13 +1,14 @@
 # ------------------------------------------------------------------------
-# Calculate the correlation between genes using zero inflation as weights
+# Calculate the correlation between organisms using zero inflation as weights 
 # ------------------------------------------------------------------------
 
 library(Hmisc)      
-library(reshape2)   
+library(reshape2)
+library(pbapply)
 
 count_matrix <- "/storage/koningen/count_matrix.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted.tsv"
+results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted_apply.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -15,7 +16,7 @@ gene_names <- data$GeneNames
 rownames(data) <- gene_names
 
 
-data <- data[, -1]  
+data <- data[, -1] 
 
 
 data_mat <- as.matrix(data)
@@ -29,82 +30,50 @@ data_mat <- matrix(as.numeric(data_mat),
 
 zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 rownames(zinb_probs) <- zinb_probs$GeneNames
-zinb_probs <- zinb_probs[, -1]  
-
-weight_matrix <- matrix(NA, nrow = nrow(data), ncol = ncol(data),
-                              dimnames = list(rownames(data), colnames(data)))
+zinb_probs <- zinb_probs[, -1]   
 
 
-for (i in 1:nrow(data)) {
-  cat("first loop\n")
-  print(i)
+weight_matrix <- matrix(0, nrow = nrow(data_mat), ncol = ncol(data_mat),
+                        dimnames = list(rownames(data_mat), colnames(data_mat)))
 
-  for (j in 1:ncol(data)) {
-    if (data[i,j] != 0) {
-      weight_matrix[i,j] <- 1
-      
-
-    } else {
-      
-      prob <- zinb_probs[i, j]
-      
-
-      if (prob != 1){
-        weight_matrix[i, j] <- (1 - prob) * 0.01  # Scale near-zero values for technical zeros
-        
-      } else {
-        weight_matrix[i, j] <- 10^(-15)
-      
-      }
-    }
-  }
-}
-
+weight_matrix[data_mat != 0] <- 1  # Where data is non-zero, weight is 1
+weight_matrix[data_mat == 0] <- (1 - as.matrix(zinb_probs)[data_mat == 0]) * 0.01
+weight_matrix[as.matrix(zinb_probs) == 1 & data_mat == 0] <- 10^(-15)
 
 
 weighted_correlation <- function(x, y, weight_x, weight_y) {
-
-
-  mean_x <- sum(weight_x * x)/sum(weight_x)
-  mean_y <- sum(weight_y * y)/sum(weight_y)
+  mean_x <- sum(weight_x * x) / sum(weight_x)
+  mean_y <- sum(weight_y * y) / sum(weight_y)
 
   cov <- (weight_x * (x - mean_x) * weight_y * (y - mean_y))
-
   var_x <- (weight_x * (x - mean_x))^2
   var_y <- (weight_y * (y - mean_y))^2
     
-
-  weighted_correlation_coefficient <- sum(cov)/sqrt(sum(var_x) * sum(var_y))
-  
-
+  weighted_correlation_coefficient <- sum(cov) / sqrt(sum(var_x) * sum(var_y))
   return(weighted_correlation_coefficient)
-
 }
 
 
-correlation_coefficient <- matrix(NA, nrow = nrow(data), ncol = nrow(data),
-                              dimnames = list(rownames(data), rownames(data)))
+vectorized_correlation <- Vectorize(function(i, j) {
+  x <- data_mat[i, ]
+  y <- data_mat[j, ]
+  weight_x <- weight_matrix[i, ]
+  weight_y <- weight_matrix[j, ]
+  
+  weighted_correlation(x, y, weight_x, weight_y)
+})
 
+indices <- expand.grid(1:nrow(data_mat), 1:nrow(data_mat))
 
-for (i in 1:nrow(data)) {
-  cat("Second loop\n")
-  print(i)
-  for (j in 1:nrow(data)) { 
-
-    x <-  as.numeric(data[i, ])
-    y <- as.numeric(data[j, ])
-    weight_x <- as.numeric(weight_matrix[i, ])
-    weight_y <- as.numeric(weight_matrix[j, ])
-
-
-    correlation_coefficient[i,j] <- weighted_correlation(x, y, weight_x, weight_y)
-  }
-}
-
-
-
+correlation_coefficient <- matrix(
+  mapply(function(i, j) {
+    cat(sprintf("Calculating row %d and row %d\n", i, j))
+    vectorized_correlation(i, j)
+  }, indices[, 1], indices[, 2]),
+  nrow = nrow(data),
+  ncol = nrow(data),
+  dimnames = list(rownames(data_mat), rownames(data_mat))  # Add row and column names
+)
 
 cor_long <- melt(correlation_coefficient, varnames = c("Gene1", "Gene2"), value.name = "CorrelationCoefficient")
-
-
 write.table(cor_long, file = results, sep = "\t", quote = FALSE, row.names = FALSE)
