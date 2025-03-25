@@ -67,7 +67,8 @@ correlation_coefficient <- matrix(
     vectorized_correlation(i, j)
   }, indices[, 1], indices[, 2]),
   nrow = nrow(data),
-  ncol = nrow(data)
+  ncol = nrow(data),
+  dimnames = list(rownames(data_mat), rownames(data_mat))
 )
 
 cor_long <- melt(correlation_coefficient, varnames = c("Organism1", "Organism2"), value.name = "CorrelationCoefficient")

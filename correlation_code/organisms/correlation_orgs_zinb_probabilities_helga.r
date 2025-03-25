@@ -8,7 +8,7 @@ library(tictoc)
 
 count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
-results <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv" #tmuc ellen "correlation"
+results <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv"
 
 tic()
 cat("read data \n")
