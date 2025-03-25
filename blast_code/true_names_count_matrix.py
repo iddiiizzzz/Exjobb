@@ -50,3 +50,6 @@ with open(count_matrix, "r") as infile, open(filtered_count_matrix, "w") as outf
         if genes_in_count_matrix in normalized_blast_genes:
             outfile.write(line + "\n")
 
+
+
+# ej relevant längre? matchar direkt i correlation för both

@@ -13,3 +13,5 @@ with open(filtered_count_matrix, "r") as infile, open(genes_in_original_hosts, "
         if any(0 < count_value <= 20 for count_value in count_values) and all(count_value <= 20 for count_value in count_values):
             outfile.write("\t".join(columns) + "\n")
                 
+
+# relevant ens?

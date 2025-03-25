@@ -1,7 +1,7 @@
 
 
-blast = "/storage/bergid/blast/blast_results.txt"
-filtered_blast = "/storage/bergid/blast/filtered_blast.txt"
+blast = "/storage/bergid/blast/blast_results_corrected.txt"
+filtered_blast = "/storage/bergid/blast/scov_pident_filtered_blast.txt"
 
 
 with open(blast, "r") as infile, open(filtered_blast, "w") as outfile:
@@ -9,6 +9,7 @@ with open(blast, "r") as infile, open(filtered_blast, "w") as outfile:
     outfile.write(header + "\n")
 
     for line in infile:
+        print(line)
         next(infile)
         fields = line.strip().split("\t")
 
