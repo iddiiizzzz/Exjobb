@@ -20,6 +20,8 @@ Files:
 /storage/shared/data_for_master_students/ida_and_ellen
 
 ----------------------------------------------------------------------------------------------
+i blast är query bakteriegenomen och subject är ARG-databasen
+----------------------------------------------------------------------------------------------
 
 to work in conda: conda activate exjobb_env
 to install in r: conda install -c conda-forge r-"package"
