@@ -10,7 +10,7 @@ library(reshape2)
 # count_matrix <- "test_files/test_gene_count_matrix.tsv"
 # results <- "test_files/gene_correlation_results_test75.tsv"
 
-count_matrix = "/storage/koningen/count_matrix.tsv"
+count_matrix = "/storage/koningen/count_matrix_filtered.tsv"
 results = "/storage/bergid/correlation/genes/gene_correlation_filtered_90.tsv"
 
 

@@ -15,3 +15,4 @@ with open(filtered_count_matrix, "r") as infile, open(genes_in_original_hosts, "
                 
 
 # relevant ens?
+# filter på höga counts, vi vil ha kvar dem

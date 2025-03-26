@@ -27,8 +27,8 @@ rownames(zinb_probs) <- zinb_probs$TrueID
 zinb_probs <- zinb_probs[, -1]  
 
 r <- matrix(runif(length(data_mat)),ncol=ncol(data_mat))
-new_data<-data_mat
-new_data[new_data == 0 & zinb_probs<r]<-NA
+new_data <- data_mat
+new_data[new_data == 0 & zinb_probs > r] <- NA
 
 result <- rcorr(t(new_data), type = "pearson")
 corr_result <- result$r

@@ -8,29 +8,8 @@ library(Hmisc)
 library(reshape2)   
 
 
-# count_matrix <- "test_files/rewritten_test_kraken1.tsv"
-# results <- "test_files/org_correlation_filtered_test.tsv"
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_ww1.tsv" 
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_ww2.tsv" 
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_hg.tsv" 
-
-# count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms.tsv"
-# results = "/storage/bergid/correlation/organisms/org_correlation_filtered_all.tsv"
-
-
-# count_matrix <- "test_files/test_double_zeros.tsv"
-# results = "test_files/double_zeros_results.tsv"
-
-count_matrix <- "/storage/koningen/count_matrix.tsv"
+count_matrix <- "/storage/koningen/count_matrix_filtered.tsv"
 results <- "/storage/bergid/correlation/genes/genes_correlation_double_zeros_90.tsv"
-
-
 
 
 

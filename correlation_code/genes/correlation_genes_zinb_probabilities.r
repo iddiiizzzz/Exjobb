@@ -5,9 +5,9 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix <- "/storage/koningen/count_matrix.tsv"
+count_matrix <- "/storage/koningen/count_matrix_filtered.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv"
+results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_probabilities.tsv" #tmux ida correlation_2
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -29,11 +29,11 @@ rownames(zinb_probs) <- zinb_probs$GeneNames
 zinb_probs <- zinb_probs[, -1]  
 
 r <- matrix(runif(length(data_mat)),ncol=ncol(data_mat))
-new_data<-data_mat
+new_data <- data_mat
 
 print(dim(new_data))
 print(dim(zinb_probs))
-new_data[new_data == 0 & zinb_probs<r]<-NA
+new_data[new_data == 0 & zinb_probs > r]<-NA
 
 
 result <- rcorr(t(new_data), type = "pearson")

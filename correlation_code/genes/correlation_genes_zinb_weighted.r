@@ -6,7 +6,7 @@ library(Hmisc)
 library(reshape2)
 library(pbapply)
 
-count_matrix <- "/storage/koningen/count_matrix.tsv"
+count_matrix <- "/storage/koningen/count_matrix_filtered.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
 results <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_weighted_apply.tsv"
 
@@ -72,7 +72,7 @@ correlation_coefficient <- matrix(
   }, indices[, 1], indices[, 2]),
   nrow = nrow(data),
   ncol = nrow(data),
-  dimnames = list(rownames(data_mat), rownames(data_mat))  # Add row and column names
+  dimnames = list(rownames(data_mat), rownames(data_mat)) 
 )
 
 cor_long <- melt(correlation_coefficient, varnames = c("Gene1", "Gene2"), value.name = "CorrelationCoefficient")
