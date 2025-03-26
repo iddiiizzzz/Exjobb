@@ -80,6 +80,8 @@ ww2: 19297 orgs
 hg: 21318 orgs
 total orgs: 62200
 
+efter att matchat provnamen har båda count matriserna 5155 kolumner kvar
+
 TO DO:
 
 Se om det går o göra för alla organismer tillsammans också på highest och lowest?
