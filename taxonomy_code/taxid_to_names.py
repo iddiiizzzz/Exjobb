@@ -41,3 +41,5 @@ for i in range(3):
             filtered_names = names_df[(names_df['taxid'] == taxid) & (names_df['name_class'] == 'scientific name')]
             result = filtered_names[['taxid', 'name']]
             result.to_csv(outfile, sep="\t", index=False, header=False, mode='a')
+
+# tmux ida correlation
