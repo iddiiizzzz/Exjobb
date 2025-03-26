@@ -70,4 +70,4 @@ with open(count_matrix, "r") as infile, open(highest_sum_counts, "w") as outfile
         identifier = columns[0]  
 
         if identifier in top_identifiers:  
-            outfile.write(line)  
+            outfile.write(line)
