@@ -14,10 +14,10 @@ library(reshape2)
 # results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 # blast_results = "/storage/bergid/blast/blast_results_corrected.txt"
 
-count_matrix_genes = "/home/bergid/Exjobb/test_files/test_gene_count_matrix_blast.tsv"
-count_matrix_orgs = "/home/bergid/Exjobb/test_files/count_matrix_orgs_test_blast.tsv"
+count_matrix_genes = "test_files/test_gene_count_matrix_blast.tsv"
+count_matrix_orgs = "test_files/count_matrix_orgs_test_blast.tsv"
 results = "test_files/correlation_both_test.tsv"
-blast_results = "/home/bergid/Exjobb/test_files/blast_with_true_names_fixed.txt"
+blast_results = "test_files/blast_with_true_names_fixed.txt"
 
 
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE)

@@ -17,7 +17,9 @@ Files:
        - taxonomy_wastewater_2.tsv --> omformaterade i /storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv
        - taxonomy_human_gut.csv --> omformatterade i /storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv
 
-/storage/shared/data_for_master_students/ida_and_ellen
+/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.csv
+/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv
+/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv
 
 ----------------------------------------------------------------------------------------------
 i blast är query bakteriegenomen och subject är ARG-databasen
