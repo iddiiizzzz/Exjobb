@@ -3,16 +3,17 @@ library(pscl)
 library(reshape2)   
 
 
-# input_file <- "test_files/rewritten_test_kraken1.tsv"
-# output_file_zinb <- "test_files/zinb_probabilities.tsv"
+input_file = "test_files/matching_samples_orgs.tsv"
+output_file_zinb <- "test_files/zinb_probabilities_orgs.tsv"
 
 # input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv" 
 # output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 
-input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
-output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
+# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
 
-
+# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+# output_file_zinb <- "/storage/bergid/zero_inflations/zinb_probabilities_orgs.tsv"
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
