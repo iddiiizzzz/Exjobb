@@ -7,40 +7,40 @@
 
 import pandas as pd
 
-# filtered_taxids_paths = [
-#     "/storage/koningen/humangut/bacteria_species_only_hg.tsv",
-#     "/storage/koningen/wastewater1/bacteria_species_only_ww1.tsv",
-#     "/storage/koningen/wastewater2/bacteria_species_only_ww2.tsv"
-# ]
-
-# taxonomy_files = [
-#     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.csv",
-#     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv",
-#     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv"
-# ]
-
-# filtered_tax_count_paths = [
-#     "/storage/koningen/humangut/filtered_tax_counts_hg.tsv",
-#     "/storage/koningen/wastewater1/filtered_tax_counts_ww1.tsv",
-#     "/storage/koningen/wastewater2/filtered_tax_counts_ww2.tsv"
-# ]
+filtered_taxids_paths = [
+    "/storage/koningen/humangut/bacteria_species_only_hg.tsv",
+    "/storage/koningen/wastewater1/bacteria_species_only_ww1.tsv",
+    "/storage/koningen/wastewater2/bacteria_species_only_ww2.tsv"
+]
 
 taxonomy_files = [
-    "test_files/test_kraken1.csv",
-    "test_files/test_kraken2.tsv",
-    "test_files/test_kraken3.tsv"
+    "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.csv",
+    "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv",
+    "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv"
 ]
 
-filtered_taxids_paths = [
-    "test_files/species_filtered_bacteria1.tsv",
-    "test_files/species_filtered_bacteria2.tsv",
-    "test_files/species_filtered_bacteria3.tsv"
-]
 filtered_tax_count_paths = [
-    "test_files/tax_counts_filtered1.tsv",
-    "test_files/tax_counts_filtered2.tsv",
-    "test_files/tax_counts_filtered3.tsv"
+    "/storage/koningen/humangut/filtered_tax_counts_hg.tsv",
+    "/storage/koningen/wastewater1/filtered_tax_counts_ww1.tsv",
+    "/storage/koningen/wastewater2/filtered_tax_counts_ww2.tsv"
 ]
+
+# taxonomy_files = [
+#     "test_files/test_kraken1.csv",
+#     "test_files/test_kraken2.tsv",
+#     "test_files/test_kraken3.tsv"
+# ]
+
+# filtered_taxids_paths = [
+#     "test_files/species_filtered_bacteria1.tsv",
+#     "test_files/species_filtered_bacteria2.tsv",
+#     "test_files/species_filtered_bacteria3.tsv"
+# ]
+# filtered_tax_count_paths = [
+#     "test_files/tax_counts_filtered1.tsv",
+#     "test_files/tax_counts_filtered2.tsv",
+#     "test_files/tax_counts_filtered3.tsv"
+# ]
 for i in range(3):
 
     kraken_with_zeros = pd.read_csv(taxonomy_files[i], sep="\s+", engine="python")
