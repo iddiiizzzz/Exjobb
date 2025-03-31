@@ -1,4 +1,5 @@
 import pandas as pd
+import subprocess
 
 ARG_names = "/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna"
 blast_results = "/storage/bergid/blast/scov_pident_filtered_blast.txt"
@@ -14,6 +15,7 @@ with open(ARG_names, "r") as infile:
             seq_ids.append(seq_id)  # Store the sequence id
 
 ARG_names_dataframe = pd.DataFrame({"seq_id": seq_ids})
+
 blast_results_dataframe = pd.read_csv(blast_results, sep="\t")
 
 print("hej")
@@ -27,5 +29,7 @@ print("hello")
 blast_results_dataframe["True_gene_names"] = name_index_column.map(lambda x: ARG_names_dataframe["seq_id"].iloc[x] if pd.notna(x) and x < len(ARG_names_dataframe) else None)
 
 print("hi")
+
+
 
 blast_results_dataframe.to_csv(results, sep="\t", index=False)
