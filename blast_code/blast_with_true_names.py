@@ -1,8 +1,8 @@
 import pandas as pd
 
 ARG_names = "/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna"
-blast_results = "/storage/bergid/blast/blast_results_corrected.txt"
-results = "/storage/bergid/blast/blast_results_true_names.txt"
+blast_results = "/storage/bergid/blast/scov_pident_filtered_blast.txt"
+results = "/storage/bergid/blast/blast_final.txt"
 
 seq_ids = []
 with open(ARG_names, "r") as infile:

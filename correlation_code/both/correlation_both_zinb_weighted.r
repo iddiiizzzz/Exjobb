@@ -6,22 +6,25 @@ library(Hmisc)
 library(reshape2)
 library(pbapply)
 
-count_matrix_genes = "test_files/matching_samples_genes.tsv"
-count_matrix_orgs = "test_files/matching_samples_orgs.tsv"
-results = "test_files/correlation_both_test.tsv"
-blast_results = "test_files/blast_with_true_names_fixed.txt"
-zinb_genes <- "test_files/zinb_probabilities_genes.tsv"
-zinb_orgs <- "test_files/zinb_probabilities_orgs.tsv"
+# count_matrix_genes = "test_files/matching_samples_genes.tsv"
+# count_matrix_orgs = "test_files/matching_samples_orgs.tsv"
+# results = "test_files/correlation_both_test.tsv"
+# blast_results = "test_files/blast_with_true_names_fixed.txt"
+# zinb_genes <- "test_files/zinb_probabilities_genes.tsv"
+# zinb_orgs <- "test_files/zinb_probabilities_orgs.tsv"
 
-# count_matrix_genes = "/storage/koningen/filtered_count_matrix.tsv"
-# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
 
-# blast_results = "/storage/bergid/blast/blast_results_corrected.txt"
 
-# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# zinb_orgs <- "/storage/bergid/zero_inflations/zinb_probabilities_orgs.tsv"
 
-# results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
+
+blast_results = "/storage/bergid/blast/blast_results_corrected.txt"
+
+zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+
+results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
 
 
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE)

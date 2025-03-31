@@ -6,8 +6,8 @@ orgs_infile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered
 genes_outfile = "/storage/koningen/final_count_matrix_genes.tsv"
 orgs_outfile = "/storage/koningen/final_count_matrix_orgs.tsv"
 
-# genes_infile = "test_files/test_gene_count_matrix_blast.tsv"
-# orgs_infile = "test_files/count_matrix_orgs_test_blast.tsv"
+# genes_infile = "test_files/count_matrix_genes _test_blast.tsv"
+# orgs_infile = "test_files/test_org_count_matrix_blast.tsv"
     
 # genes_outfile = "test_files/matching_samples_genes.tsv"
 # orgs_outfile = "test_files/matching_samples_orgs.tsv"
