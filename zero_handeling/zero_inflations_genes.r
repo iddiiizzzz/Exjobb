@@ -4,10 +4,10 @@ library(reshape2)
 
 
 
-# input_file <- "/storage/koningen/count_matrix.tsv"
-# output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-input_file <- "test_files/matching_samples_genes.tsv"
-output_file_zinb <- "test_files/zinb_probabilities_genes.tsv"
+input_file <- "/storage/koningen/count_matrix_filtered.tsv"
+output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+# input_file <- "test_files/matching_samples_genes.tsv"
+# output_file_zinb <- "test_files/zinb_probabilities_genes.tsv"
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
@@ -16,9 +16,6 @@ gene_names <- data$GeneNames
 rownames(data) <- gene_names
 data <- data[, -1]  # Exclude the first column (TaxID)
 
-print(dim(data))
-data <- data[(rowSums(data == 0) / ncol(data)) < 0.9, ]
-print(dim(data))
 
 # Convert data to a numeric matrix while preserving row and column names.
 data_mat <- as.matrix(data)
@@ -59,7 +56,8 @@ for (i in 1:nrow(data_mat)) {
   }
 }
 
-# zinb_output <- cbind(GeneNames = gene_names, zinb_probabilities)
 zinb_output <- cbind(GeneNames = rownames(zinb_probabilities), zinb_probabilities)
+zinb_output_global <<- zinb_output
+
 write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
 

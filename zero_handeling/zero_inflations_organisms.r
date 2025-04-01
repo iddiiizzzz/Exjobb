@@ -62,4 +62,6 @@ for (i in 1:nrow(data)) {
 
 
 zinb_output <- cbind(OrgNames = rownames(zinb_probabilities), zinb_probabilities)
+zinb_output_global <<- zinb_output
+
 write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)

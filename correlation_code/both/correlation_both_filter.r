@@ -8,22 +8,22 @@
 library(Hmisc)      
 library(reshape2)   
 
-
-# count_matrix_genes = "/storage/koningen/filtered_count_matrix.tsv"
-# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
-# results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
-# blast_results = "/storage/bergid/blast/blast_results_corrected.txt"
-
-count_matrix_genes = "test_files/test_gene_count_matrix_blast.tsv"
-count_matrix_orgs = "test_files/count_matrix_orgs_test_blast.tsv"
-results = "test_files/correlation_both_test.tsv"
-blast_results = "test_files/blast_with_true_names_fixed.txt"
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
+blast_results = "/storage/bergid/blast/blast_final.txt"
+results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 
 
-blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+# count_matrix_genes = "test_files/test_gene_count_matrix_'blast.tsv"
+# count_matrix_orgs = "test_files/count_matrix_orgs_test_blast.tsv"
+# results = "test_files/correlation_both_test.tsv"
+# blast_results = "test_files/blast_with_true_names_fixed'.txt"
+
+
+blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
 cat("1\n")
 
-data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
 gene_names <- data_gene$GeneNames
 rownames(data_gene) <- gene_names
 data_gene <- data_gene[, -1]  
@@ -35,8 +35,8 @@ data_mat_gene <- matrix(as.numeric(data_mat_gene),
                    dimnames = list(rownames(data_gene), colnames(data_gene)))
 
 
-data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-org_names <- data_org$TrueID
+data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
+org_names <- data_org$OrgNames
 rownames(data_org) <- org_names
 data_org <- data_org[, -1]  
 
@@ -50,7 +50,7 @@ data_mat_org <- matrix(as.numeric(data_mat_org),
 cat("2\n")
 
 blast_gene_names <- blast_table$qseqid
-blast_org_names <- blast_table$True_gene_names
+blast_org_names <- blast_table$Org_names
 
 
 correlations <- vector("numeric", length = length(blast_gene_names))
@@ -78,6 +78,8 @@ correlation_results <- data.frame(
   CorrelationCoefficient = correlations,
   p_values = p_values
 )
+
+global_correlation_results <<- correlation_results
 
 cat("write")
 write.table(correlation_results, file = results, sep = "\t", row.names = FALSE, quote = FALSE)
