@@ -3,8 +3,8 @@ library(pscl)
 library(reshape2)   
 
 
-input_file = "test_files/matching_samples_orgs.tsv"
-output_file_zinb <- "test_files/zinb_probabilities_orgs.tsv"
+# input_file = "test_files/matching_samples_orgs.tsv"
+# output_file_zinb <- "test_files/zinb_probabilities_orgs.tsv"
 
 # input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv" 
 # output_file_zinb <- "/storage/koningen/zero_inflations/zinb_probabilities_ww.tsv"
@@ -12,13 +12,13 @@ output_file_zinb <- "test_files/zinb_probabilities_orgs.tsv"
 # input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
 # output_file_zinb <- "/storage/koningen/zero_inflations/zinb_probabilities_hg.tsv"
 
-# input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
-# output_file_zinb <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+input_file = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+output_file_zinb <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv" # ida tmux correlation
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
 
 
-tax_ids <- data$TrueID
+tax_ids <- data$OrgNames
 rownames(data) <- tax_ids
 data <- data[, -1]  # Exclude the first column (TaxID)
 
@@ -61,5 +61,5 @@ for (i in 1:nrow(data)) {
 }
 
 
-zinb_output <- cbind(TrueID = rownames(zinb_probabilities), zinb_probabilities)
+zinb_output <- cbind(OrgNames = rownames(zinb_probabilities), zinb_probabilities)
 write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)

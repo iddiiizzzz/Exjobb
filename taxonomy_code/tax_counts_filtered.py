@@ -36,11 +36,13 @@ filtered_tax_count_paths = [
 #     "test_files/species_filtered_bacteria2.tsv",
 #     "test_files/species_filtered_bacteria3.tsv"
 # ]
+
 # filtered_tax_count_paths = [
 #     "test_files/tax_counts_filtered1.tsv",
 #     "test_files/tax_counts_filtered2.tsv",
 #     "test_files/tax_counts_filtered3.tsv"
 # ]
+
 
 for i in range(3):
 
@@ -48,24 +50,31 @@ for i in range(3):
     kraken_with_zeros = kraken_with_zeros.fillna(0)
 
     filtered_taxids = []
+    filtered_names = []
+
     with open(filtered_taxids_paths[i], "r") as file:
         for line in file:
             taxid, name = line.strip().split(maxsplit=1)  # Split taxid and name
             filtered_taxids.append(taxid.strip())  # Add stripped taxid to the list
+            filtered_names.append(name.strip())
 
 
     columns_to_keep = ["TrueID"]
+    
 
     for column in kraken_with_zeros.columns:
+        print(i)
         print(column)
         for taxid in filtered_taxids:
             if column == taxid:
                 columns_to_keep.append(column)
                 break # break when match found
 
-    # New dataframe with only the selected columns
+  
     filtered_df = kraken_with_zeros[columns_to_keep]
+    header_df = pd.read_csv(filtered_taxids_paths[i], sep="\t", header=None)
+    new_header = header_df.iloc[:,1].tolist()
+    filtered_df.columns = new_header
+    filtered_df.to_csv(filtered_tax_count_paths[i], sep="\t", index=False, header=True)
 
-    # Save to new file
-    filtered_df.to_csv(filtered_tax_count_paths[i], sep="\t", index=False)
 
