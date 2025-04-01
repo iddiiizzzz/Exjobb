@@ -1,6 +1,6 @@
 
 
-blast = "/storage/bergid/blast/blast_results_corrected.txt" #ellen tmux
+blast = "/storage/bergid/blast/blast_results_corrected.txt" 
 filtered_blast = "/storage/bergid/blast/scov_pident_filtered_blast.txt"
 
 

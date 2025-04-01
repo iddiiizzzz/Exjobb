@@ -3,7 +3,7 @@ import subprocess
 
 ARG_names = "/storage/shared/data_for_master_students/ida_and_ellen/antibiotic_resistance_genes.fna"
 blast_results = "/storage/bergid/blast/scov_pident_filtered_blast.txt"
-results = "/storage/bergid/blast/blast_final.txt"
+results = "/storage/bergid/blast/blast_gene_names.txt"
 
 seq_ids = []
 with open(ARG_names, "r") as infile:
