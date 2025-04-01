@@ -3,11 +3,11 @@ import pandas as pd
 
 genome_taxonomy = "/storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv"
 id_conversion = "/storage/shared/data_for_master_students/ida_and_ellen/id_conversion_table.tsv"
-blast_results = "/storage/bergid/blast/blast_gene_names.txt"
-results = "/storage/bergid/blast/blast_final.txt"
+# blast_results = "/storage/bergid/blast/blast_gene_names.txt"
+# results = "/storage/bergid/blast/blast_final.txt"
 
-# blast_results = "test_files/test_blast_filtered.txt"
-# results = "test_files/blast_org_names.txt"
+blast_results = "test_files/test_blast_gene_names.txt"
+results = "test_files/blast_org_names.txt"
 
 
 
@@ -48,8 +48,6 @@ with open(blast_results, "r") as blast:
 
 
 blast_results_dataframe = pd.read_csv(blast_results, sep="\t")
-# print(blast_results_dataframe)
-# print(genome_names)
 blast_results_dataframe["Org_names"] = genome_names
 
 

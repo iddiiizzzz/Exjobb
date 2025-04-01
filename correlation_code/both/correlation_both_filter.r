@@ -1,27 +1,26 @@
 
 # -------------------------------------------------
-# Calculate the correlation between genes, filter 75% zeros, 
-# NOT UPDATED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Calculate the correlation between genes ond organisms 
 # -------------------------------------------------
 
 
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv" # kolla om den första genen i listan finns i matrisen osv
 count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
-blast_results = "/storage/bergid/blast/blast_final.txt"
-results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
+
+# count_matrix_genes = "test_files/matching_samples_genes.tsv"
+# count_matrix_orgs = "test_files/matching_samples_orgs.tsv"
+blast_results = "test_files/blast_org_names.txt"
+results = "test_files/correlation_both_test.tsv"
 
 
-# count_matrix_genes = "test_files/test_gene_count_matrix_'blast.tsv"
-# count_matrix_orgs = "test_files/count_matrix_orgs_test_blast.tsv"
-# results = "test_files/correlation_both_test.tsv"
-# blast_results = "test_files/blast_with_true_names_fixed'.txt"
-
-
-blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
+blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE)
 cat("1\n")
+print(dim(blast_table))
 
 data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
 gene_names <- data_gene$GeneNames
@@ -45,25 +44,31 @@ data_mat_org <- matrix(as.numeric(data_mat_org),
                    nrow = nrow(data_mat_org), 
                    ncol = ncol(data_mat_org),
                    dimnames = list(rownames(data_org), colnames(data_org)))
-
+# print(dim(data_mat_gene))
 
 cat("2\n")
-
-blast_gene_names <- blast_table$qseqid
-blast_org_names <- blast_table$Org_names
-
+print(dim(blast_table))
+blast_gene_names <- blast_table[15]
+blast_org_names <- blast_table[16]
+print(dim(blast_gene_names))
+print(dim(blast_org_names))
 
 correlations <- vector("numeric", length = length(blast_gene_names))
 p_values <- vector("numeric", length = length(blast_gene_names))
 
-for (i in 1:length(blast_gene_names)) {
-  print(i)
-  current_gene_name <- blast_gene_names[i]
-  current_org_name <- blast_org_names[i]
-  
 
-  gene_row <- data_mat_gene[current_gene_name, , drop = FALSE] # Find the corresponding row for the gene in the gene count matrix
-  org_row <- data_mat_org[current_org_name, , drop = FALSE]
+for (i in 1:nrow(blast_gene_names)) {
+  print(i)
+  current_gene_name <- blast_gene_names[i, 1]  # Extract the gene name
+  current_org_name <- blast_org_names[i, 1]
+  print(current_gene_name)  # Print or use it for further analysis
+  print(current_org_name)
+
+  gene_row <- data_mat_gene[current_gene_name, ]  
+  org_row <- data_mat_org[current_org_name, ]
+
+  # gene_row <- data_mat_gene[current_gene_name, , drop = FALSE] # Find the corresponding row for the gene in the gene count matrix
+  # org_row <- data_mat_org[current_org_name, , drop = FALSE]
   
   correlation_result <- rcorr(as.numeric(gene_row), as.numeric(org_row), type = "pearson")
 
