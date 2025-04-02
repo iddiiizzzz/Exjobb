@@ -8,7 +8,7 @@
 library(Hmisc)      
 library(reshape2)
 
-count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv" ##ellen tmux correlation
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
 results <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"
 
 # count_matrix <- "test_files/test_all_organisms.tsv"

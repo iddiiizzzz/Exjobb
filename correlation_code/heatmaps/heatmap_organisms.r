@@ -9,8 +9,15 @@ library(pheatmap)
 library(gplots)
 library(RColorBrewer)
 
-file_path <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv"
-png <- "correlation_code/heatmaps/organisms/heatmap_orgs_probabilities.png" ##ellen tmux correlation2
+# file_path <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv"  ##ellen tmux correlation2
+# png <- "correlation_code/heatmaps/organisms/heatmap_orgs_probabilities.png" 
+
+# file_path <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"  ##ellen tmux correlation
+# png <- "correlation_code/heatmaps/organisms/heatmap_orgs_filtered.png" 
+
+file_path <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_06.tsv"  ##ellen tmux correlation3
+png <- "correlation_code/heatmaps/organisms/heatmap_orgs_threshold_0.6.png"
+
 # file_path <- "test_files/results_org_correlation_ww1_test.tsv"
 # png <- "test_files/heatmaps/heatmap_org_test.png"
 
@@ -34,9 +41,9 @@ png(png, width = 30000, height = 30000, res = 4000)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between -1 and 1
-    main = "Organisms Correlation (probabilities, 90%)", 
-    fontsize_row = 0.3, 
-    fontsize_col = 0.3, 
+    main = "Organisms Correlation (threshold 0.6, 90%)", 
+    fontsize_row = 0.2, 
+    fontsize_col = 0.2, 
     angle_col = 90)
 dev.off()
 
