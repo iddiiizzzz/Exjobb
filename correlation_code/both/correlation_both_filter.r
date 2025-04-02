@@ -18,7 +18,7 @@ results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 # results = "test_files/correlation_both_test.tsv"
 
 
-blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8")
+blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 cat("blast read\n")
 
 print(nrow(blast_table))
