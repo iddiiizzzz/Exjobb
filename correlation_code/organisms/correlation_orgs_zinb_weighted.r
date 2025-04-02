@@ -6,12 +6,12 @@ library(Hmisc)
 library(reshape2)
 library(pbapply)
 
-count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
-zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
-results <- "/storage/bergid/correlation/genes/orgs_correlation_zero_inflation_weighted.tsv" #ellen tmux correlation2
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv" ##ellen tmux correlation4
+zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+results <- "/storage/bergid/correlation/genes/orgs_correlation_zero_inflation_weighted.tsv"
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-org_names <- data$TrueID
+org_names <- data$OrgNames
 rownames(data) <- org_names
 data <- data[, -1]  
 
@@ -22,10 +22,10 @@ data_mat <- matrix(as.numeric(data_mat),
                    ncol = ncol(data_mat),
                    dimnames = list(rownames(data), colnames(data)))
 
-
+cat("reading data done\n")
 
 zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-rownames(zinb_probs) <- zinb_probs$TrueID
+rownames(zinb_probs) <- zinb_probs$OrgNames
 zinb_probs <- zinb_probs[, -1]  
 
 
@@ -49,7 +49,7 @@ weighted_correlation <- function(x, y, weight_x, weight_y) {
   return(weighted_correlation_coefficient)
 }
 
-
+cat("weighting done\n")
 vectorized_correlation <- Vectorize(function(i, j) {
   x <- data_mat[i, ]
   y <- data_mat[j, ]
@@ -70,6 +70,8 @@ correlation_coefficient <- matrix(
   ncol = nrow(data),
   dimnames = list(rownames(data_mat), rownames(data_mat))
 )
-
+cat("correlation done\n")
 cor_long <- melt(correlation_coefficient, varnames = c("Organism1", "Organism2"), value.name = "CorrelationCoefficient")
+
+cat("writing\n")
 write.table(cor_long, file = results, sep = "\t", quote = FALSE, row.names = FALSE)

@@ -8,16 +8,16 @@
 library(Hmisc)      
 library(reshape2)
 
-# count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
-# results <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"
+count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv" ##ellen tmux correlation
+results <- "/storage/bergid/correlation/organisms/org_correlation_separate_filtering.tsv"
 
-count_matrix <- "test_files/test_all_organisms.tsv"
-results <- "test_files/filter_75"
+# count_matrix <- "test_files/test_all_organisms.tsv"
+# results <- "test_files/filter_75"
 
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-rownames(data) <- data$TrueID
+rownames(data) <- data$OrgNames
 data <- data[, -1]  
 
 # Convert data to a numeric matrix while preserving row and column names
@@ -27,6 +27,7 @@ data_mat <- matrix(as.numeric(data_mat),
                    ncol = ncol(data_mat),
                    dimnames = list(rownames(data), colnames(data)))
 
+cat("reading data done\n")
 res <- rcorr(t(data_mat), type = "pearson")
 
 cor_matrix <- res$r
@@ -38,7 +39,7 @@ rownames(p_matrix) <- rownames(data)
 colnames(p_matrix) <- rownames(data)
 
 
-
+cat("correlation done\n")
 # Reshape matrices from wide to long format
 cor_long <- melt(cor_matrix, varnames = c("Organism1", "Organism2"), value.name = "CorrelationCoefficient")
 p_long <- melt(p_matrix, varnames = c("Organism1", "Organism2"), value.name = "pValue")
@@ -73,6 +74,6 @@ zero_long <- melt(zero_percentage_matrix, varnames = c("Organism1", "Organism2")
 # Merge the data frames
 result_df <- merge(cor_long, p_long, by = c("Organism1", "Organism2"))
 result_df <- merge(result_df, zero_long, by = c("Organism1", "Organism2"))
-
+cat("writing\n")
 # Write the final data frame to a tab-delimited file with a header 
 write.table(result_df, file = results, sep = "\t", quote = FALSE, row.names = FALSE)
