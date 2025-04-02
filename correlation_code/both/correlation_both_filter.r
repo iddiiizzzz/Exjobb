@@ -7,20 +7,20 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv" # kolla om den första genen i listan finns i matrisen osv
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv" 
 count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
-# blast_results = "/storage/bergid/blast/blast_final.txt"
-# results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
+blast_results = "/storage/bergid/blast/blast_final.txt"
+results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 
 # count_matrix_genes = "test_files/matching_samples_genes.tsv"
 # count_matrix_orgs = "test_files/matching_samples_orgs.tsv"
-blast_results = "test_files/blast_org_names.txt"
-results = "test_files/correlation_both_test.tsv"
+# blast_results = "test_files/blast_org_names.txt"
+# results = "test_files/correlation_both_test.tsv"
 
 
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE)
 cat("1\n")
-print(dim(blast_table))
+
 
 data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
 gene_names <- data_gene$GeneNames
@@ -47,41 +47,51 @@ data_mat_org <- matrix(as.numeric(data_mat_org),
 # print(dim(data_mat_gene))
 
 cat("2\n")
-print(dim(blast_table))
+
 blast_gene_names <- blast_table[15]
 blast_org_names <- blast_table[16]
-print(dim(blast_gene_names))
-print(dim(blast_org_names))
 
-correlations <- vector("numeric", length = length(blast_gene_names))
-p_values <- vector("numeric", length = length(blast_gene_names))
+
+relevant_gene_names <- c()
+relevant_org_names <- c()
+valid_correlations <- c()
+valid_p_values <- c()
 
 
 for (i in 1:nrow(blast_gene_names)) {
   print(i)
-  current_gene_name <- blast_gene_names[i, 1]  # Extract the gene name
-  current_org_name <- blast_org_names[i, 1]
-  print(current_gene_name)  # Print or use it for further analysis
-  print(current_org_name)
+  current_gene_name <- as.character(blast_gene_names[i, 1])  
+  current_org_name <- as.character(blast_org_names[i, 1])
+
+  # Check if the names exist in row names
+  if (!(current_gene_name %in% rownames(data_mat_gene))) {
+    # print(paste("Gene not found:", current_gene_name))
+    next  # Skip this iteration if the gene is missing
+  }
+  if (!(current_org_name %in% rownames(data_mat_org))) {
+    # print(paste("Organism not found:", current_org_name))
+    next  # Skip this iteration if the organism is missing
+  }
 
   gene_row <- data_mat_gene[current_gene_name, ]  
   org_row <- data_mat_org[current_org_name, ]
 
-  # gene_row <- data_mat_gene[current_gene_name, , drop = FALSE] # Find the corresponding row for the gene in the gene count matrix
-  # org_row <- data_mat_org[current_org_name, , drop = FALSE]
+  relevant_gene_names <- c(relevant_gene_names, current_gene_name)
+  relevant_org_names <- c(relevant_org_names, current_org_name)
   
   correlation_result <- rcorr(as.numeric(gene_row), as.numeric(org_row), type = "pearson")
 
-  correlations[i] <- correlation_result$r[1, 2] 
-  p_values[i] <- correlation_result$P[1, 2]
+  valid_correlations <- c(valid_correlations, correlation_result$r[1, 2])
+  valid_p_values <- c(valid_p_values, correlation_result$P[1, 2])
 
 }
 
+
 correlation_results <- data.frame(
-  Gene = blast_gene_names,
-  Organism = blast_org_names,
-  CorrelationCoefficient = correlations,
-  p_values = p_values
+  Gene = relevant_gene_names,
+  Organism = relevant_org_names,
+  CorrelationCoefficient = valid_correlations[1:length(relevant_gene_names)],  # Match correct length
+  p_values = valid_p_values[1:length(relevant_org_names)]
 )
 
 global_correlation_results <<- correlation_results
