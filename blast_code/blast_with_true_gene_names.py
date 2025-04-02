@@ -29,7 +29,7 @@ name_index_column = pd.to_numeric(name_index_column, errors='coerce')  # Coerce 
 
 print("hello")
 
-blast_results_dataframe["True_gene_names"] = name_index_column.map(lambda x: ARG_names_dataframe["seq_id"].iloc[x] if pd.notna(x) and x < len(ARG_names_dataframe) else None)
+blast_results_dataframe["True_gene_names"] = name_index_column.map(lambda x: ARG_names_dataframe["seq_id"].iloc[x] if pd.notna(x) and x < len(ARG_names_dataframe) else "Gene name not detected")
 
 print("hi")
 

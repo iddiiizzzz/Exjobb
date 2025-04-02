@@ -40,9 +40,9 @@ with open(blast_results, "r") as blast:
         print(f"Loop3: {line}")
         line = line.strip().split("\t")
         blast_id = line[0]
-        # assembly_present.append(conversion_dictionary.get(blast_id))
         assembly_present = conversion_dictionary.get(blast_id)
-        genome_names.append(tax_dictionary.get(assembly_present))
+        genome_names.append(tax_dictionary.get(assembly_present, "Organism name not detected"))
+
 
 
 

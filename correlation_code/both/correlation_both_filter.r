@@ -18,11 +18,12 @@ results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 # results = "test_files/correlation_both_test.tsv"
 
 
-blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE)
-cat("1\n")
+blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8")
+cat("blast read\n")
 
+print(nrow(blast_table))
 
-data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
+data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 gene_names <- data_gene$GeneNames
 rownames(data_gene) <- gene_names
 data_gene <- data_gene[, -1]  
@@ -34,7 +35,7 @@ data_mat_gene <- matrix(as.numeric(data_mat_gene),
                    dimnames = list(rownames(data_gene), colnames(data_gene)))
 
 
-data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
+data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 org_names <- data_org$OrgNames
 rownames(data_org) <- org_names
 data_org <- data_org[, -1]  
@@ -50,7 +51,7 @@ cat("2\n")
 
 blast_gene_names <- blast_table[15]
 blast_org_names <- blast_table[16]
-
+print(nrow(blast_gene_names))
 
 relevant_gene_names <- c()
 relevant_org_names <- c()
@@ -63,14 +64,21 @@ for (i in 1:nrow(blast_gene_names)) {
   current_gene_name <- as.character(blast_gene_names[i, 1])  
   current_org_name <- as.character(blast_org_names[i, 1])
 
+
+  if (!(current_org_name %in% rownames(data_mat_org))) {
+    # print(paste("Organism not found:", current_org_name))
+    next  # Skip this iteration if the organism is missing
+  }
   # Check if the names exist in row names
   if (!(current_gene_name %in% rownames(data_mat_gene))) {
     # print(paste("Gene not found:", current_gene_name))
     next  # Skip this iteration if the gene is missing
   }
-  if (!(current_org_name %in% rownames(data_mat_org))) {
-    # print(paste("Organism not found:", current_org_name))
-    next  # Skip this iteration if the organism is missing
+  if (current_org_name == "Organism not detected") {
+    next
+  }
+  if (current_org_name == "Gene not detected") {
+    next
   }
 
   gene_row <- data_mat_gene[current_gene_name, ]  
@@ -90,7 +98,7 @@ for (i in 1:nrow(blast_gene_names)) {
 correlation_results <- data.frame(
   Gene = relevant_gene_names,
   Organism = relevant_org_names,
-  CorrelationCoefficient = valid_correlations[1:length(relevant_gene_names)],  # Match correct length
+  CorrelationCoefficient = valid_correlations[1:length(relevant_gene_names)],  
   p_values = valid_p_values[1:length(relevant_org_names)]
 )
 
