@@ -18,7 +18,7 @@ results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 # results = "test_files/correlation_both_test.tsv"
 
 
-blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
+blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")d
 cat("blast read\n")
 
 print(nrow(blast_table))
@@ -66,18 +66,20 @@ for (i in 1:nrow(blast_gene_names)) {
 
 
   if (!(current_org_name %in% rownames(data_mat_org))) {
-    # print(paste("Organism not found:", current_org_name))
+    print(paste("Organism not found:", current_org_name))
     next  # Skip this iteration if the organism is missing
   }
   # Check if the names exist in row names
   if (!(current_gene_name %in% rownames(data_mat_gene))) {
-    # print(paste("Gene not found:", current_gene_name))
+    print(paste("Gene not found:", current_gene_name))
     next  # Skip this iteration if the gene is missing
   }
-  if (current_org_name == "Organism not detected") {
+  if (current_org_name == "Organism name not detected") {
+    print(paste("Organism name not detected:", current_org_name))
     next
   }
-  if (current_org_name == "Gene not detected") {
+  if (current_gene_name == "Gene name not detected") {
+    print(paste("Gene name not detected:", current_gene_name))
     next
   }
 
@@ -101,8 +103,6 @@ correlation_results <- data.frame(
   CorrelationCoefficient = valid_correlations[1:length(relevant_gene_names)],  
   p_values = valid_p_values[1:length(relevant_org_names)]
 )
-
-global_correlation_results <<- correlation_results
 
 cat("write")
 write.table(correlation_results, file = results, sep = "\t", row.names = FALSE, quote = FALSE)
