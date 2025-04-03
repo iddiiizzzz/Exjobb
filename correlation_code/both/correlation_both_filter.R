@@ -23,7 +23,7 @@ cat("blast read\n")
 
 print(nrow(blast_table))
 
-data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 gene_names <- data_gene$GeneNames
 rownames(data_gene) <- gene_names
 data_gene <- data_gene[, -1]  
@@ -35,7 +35,7 @@ data_mat_gene <- matrix(as.numeric(data_mat_gene),
                    dimnames = list(rownames(data_gene), colnames(data_gene)))
 
 
-data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 org_names <- data_org$OrgNames
 rownames(data_org) <- org_names
 data_org <- data_org[, -1]  

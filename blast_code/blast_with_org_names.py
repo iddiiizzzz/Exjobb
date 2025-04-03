@@ -17,8 +17,8 @@ with open(id_conversion, "r") as conversion:
     for row in conversion:
         print(f"Loop1: {row}")
         row = row.strip().split("\t")
-        assembly = row[0] # The name in the taxonomy lineage file
-        blast_id = row[1] # The name in the blast result file
+        assembly = row[0] # The id in the taxonomy lineage file
+        blast_id = row[1] # The id in the blast result file
         conversion_dictionary[blast_id] = assembly
 
 
@@ -27,7 +27,7 @@ with open(genome_taxonomy, "r") as taxonomy:
     for row in taxonomy:
         print(f"Loop2: {row}")
         row = row.strip().split("\t")
-        assembly_id = row[0] # The name in the taxonomy lineage file
+        assembly_id = row[0] # The id in the taxonomy lineage file
         genome_name = row[7] # The name of the organism
         tax_dictionary[assembly_id] = genome_name 
 
