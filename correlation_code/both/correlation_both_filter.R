@@ -18,7 +18,7 @@ results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 # results = "test_files/correlation_both_test.tsv"
 
 
-blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")d
+blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 cat("blast read\n")
 
 print(nrow(blast_table))
@@ -83,11 +83,12 @@ for (i in 1:nrow(blast_gene_names)) {
     next
   }
 
-  gene_row <- data_mat_gene[current_gene_name, ]  
-  org_row <- data_mat_org[current_org_name, ]
 
   relevant_gene_names <- c(relevant_gene_names, current_gene_name)
   relevant_org_names <- c(relevant_org_names, current_org_name)
+  
+  gene_row <- data_mat_gene[current_gene_name, ]  
+  org_row <- data_mat_org[current_org_name, ]
   
   correlation_result <- rcorr(as.numeric(gene_row), as.numeric(org_row), type = "pearson")
 
