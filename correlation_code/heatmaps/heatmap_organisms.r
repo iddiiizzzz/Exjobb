@@ -16,7 +16,7 @@ library(RColorBrewer)
 # png <- "correlation_code/heatmaps/organisms/heatmap_orgs_filtered.png" 
 
 file_path <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_06.tsv"  ##ellen tmux correlation3
-png <- "correlation_code/heatmaps/organisms/heatmap_orgs_threshold_0.6_lite_mindre_text.png"
+png <- "correlation_code/heatmaps/organisms/heatmap_orgs_threshold_0.6_resolution.png"
 
 # file_path <- "test_files/results_org_correlation_ww1_test.tsv"
 # png <- "test_files/heatmaps/heatmap_org_test.png"
@@ -37,13 +37,13 @@ my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 breaks_list <- seq(-1, 1, length.out = 101)  # Ensures proper scaling from -1 to 1
 
 # 5000 width/height + res 900 bra för 181 st
-png(png, width = 30000, height = 30000, res = 4000)
+png(png, width = 32700, height = 32700, res = 10000)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between -1 and 1
     main = "Organisms Correlation (threshold 0.6, 90%)", 
-    fontsize_row = 0.16, 
-    fontsize_col = 0.16, 
+    fontsize_row = 0.06, 
+    fontsize_col = 0.06, 
     angle_col = 90)
 dev.off()
 
