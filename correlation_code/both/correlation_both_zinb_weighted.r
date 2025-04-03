@@ -33,7 +33,7 @@ rownames(data_gene) <- gene_names
 data_gene <- data_gene[, -1]  
 
 data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
-org_names <- data_org$TrueID
+org_names <- data_org$OrgNames
 rownames(data_org) <- org_names
 data_org <- data_org[, -1]  
 
@@ -66,7 +66,7 @@ rownames(zinb_probs_genes) <- zinb_probs_genes$GeneNames
 zinb_probs_genes <- zinb_probs_genes[, -1]  
 
 zinb_probs_orgs <- read.table(zinb_orgs, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
-rownames(zinb_probs_orgs) <- zinb_probs_orgs$TrueID
+rownames(zinb_probs_orgs) <- zinb_probs_orgs$OrgNames
 zinb_probs_orgs <- zinb_probs_orgs[, -1]  
 
 
@@ -125,7 +125,6 @@ correlation_results <- data.frame(
   CorrelationCoefficient = correlation_coefficient
 )
 
-global_correlation_results <<- correlation_results
 
 cat("write")
 write.table(correlation_results, file = results, sep = "\t", row.names = FALSE, quote = FALSE)
