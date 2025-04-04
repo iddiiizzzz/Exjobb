@@ -4,10 +4,10 @@ library(reshape2)
 
 
 
-input_file <- "/storage/koningen/final_count_matrix_genes.tsv"
-output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# input_file <- "test_files/matching_samples_genes.tsv"
-# output_file_zinb <- "test_files/zinb_probabilities_genes.tsv"
+# input_file <- "/storage/koningen/final_count_matrix_genes.tsv"
+# output_file_zinb <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+input_file <- "test_files/final_count_matrix_genes.tsv"
+output_file_zinb <- "test_files/zinb_genes.tsv"
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
