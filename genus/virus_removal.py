@@ -5,9 +5,9 @@
 
 full_taxonomy = "/storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv"
 taxids_with_names = [
-    "/storage/koningen/genus/humangut_taxid_to_names.tsv",
-    "/storage/koningen/genus/wastewater1_taxid_to_names.tsv",
-    "/storage/koningen/genus/wastewater2_taxid_to_names.tsv"
+    "/storage/koningen/genus/humangut_taxid_to_names_without_duplicates.tsv",
+    "/storage/koningen/genus/wastewater1_taxid_to_names_without_duplicates.tsv",
+    "/storage/koningen/genus/wastewater2_taxid_to_names_without_duplicates.tsv"
 ]
 bacteria = [
     "/storage/koningen/genus/bacteria_hg.tsv",
