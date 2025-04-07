@@ -7,7 +7,7 @@ name_dict_file = "/storage/bergid/dictionaries/assembly_accession_to_org_names.t
 
 count_matrix = [
     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.csv",
-    "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv",
+    "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv", # skapa testfiler
     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv"
 ]
 output_files = [
@@ -25,8 +25,7 @@ with open(ncbi_file, "r") as conversion, open(ncbi_dict_file, "w") as outfile:
         # print(f"dictionary 1: {row}")
         row = row.strip().split("\t")
         assembly_accession = row[0] # The type of id in the taxonomy lineage file
-        taxid = row[6] # The type of id in countmatrix
-
+        taxid = row[5] # The type of id in countmatrix
         ncbi_dictionary[taxid] = assembly_accession
         outfile.write(f"{taxid}\t{assembly_accession}\n")
 
@@ -52,18 +51,32 @@ with open(genome_taxonomy, "r") as taxonomy, open(name_dict_file, "w") as outfil
 
 
 
+
 for i in range(3):
     
     with open(count_matrix[i], 'r') as infile, open(output_files[i], 'w') as outfile:
         header = infile.readline().strip()
 
-        for taxid in header.split()[1:]:
+        for taxid in header.split("\t")[1:]:
             print(taxid)
-            assembly_id = ncbi_dictionary.get(taxid, "Unkown ID")
+            assembly_id = ncbi_dictionary.get(taxid, "Unknown ID")
             print(assembly_id)
-            org_name = tax_dictionary.get(assembly_id, "Unknown organism name")
-            print(org_name)
+            # org_name = tax_dictionary.get(assembly_id, "Unknown organism name")
+            # outfile.write(f"{taxid}\t{org_name}\n")
 
-            outfile.write(f"{taxid}\t{org_name}\n")
 
+
+# for i in range(3):
+    
+#     with open(count_matrix[i], 'r') as infile, open(output_files[i], 'w') as outfile:
+#         header = infile.readline().strip()
+
+#         for taxid in header.split("\t")[1:]:
+#             print(taxid)
+#             assembly_id = ncbi_dictionary.get(taxid, "Unknown ID")
+#             print(assembly_id)
+#             org_name = tax_dictionary.get(assembly_id, "Unknown organism name")
+#             print(org_name)
+
+#             outfile.write(f"{taxid}\t{org_name}\n")
 

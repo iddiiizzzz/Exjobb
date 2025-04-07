@@ -106,7 +106,7 @@ relevant_org_names <- c()
 correlation_coefficient <- c()
 
 
-for (i in 1:nrow(blast_gene_names)) {
+for (i in 1:nrow(blast_gene_names)) { #nrow(blast_gene_names
   print(i)
   current_gene_name <- as.character(blast_gene_names[i, 1])  
   current_org_name <- as.character(blast_org_names[i, 1])
@@ -137,15 +137,19 @@ for (i in 1:nrow(blast_gene_names)) {
   gene_weight <- weight_matrix_genes[current_gene_name, ]
   org_weight <- weight_matrix_orgs[current_org_name, ]
 
-
-  correlation_coefficient[i] <- weighted_correlation(gene_row, org_row, gene_weight, org_weight)
+  print(gene_row)
+  print(org_row)
+  print(gene_weight)
+  print(org_weight)
+  correlation_coefficient <- c(correlation_coefficient, weighted_correlation(gene_row, org_row, gene_weight, org_weight))
+  print(correlation_coefficient)
 }
 
 
 correlation_results <- data.frame(
   Gene = relevant_gene_names,
   Organism = relevant_org_names,
-  CorrelationCoefficient = correlation_coefficient[1:length(relevant_gene_names)]
+  CorrelationCoefficient = correlation_coefficient
 )
 
 
