@@ -25,24 +25,6 @@ filtered_tax_count_paths = [
     "/storage/koningen/wastewater2/filtered_tax_counts_ww2.tsv"
 ]
 
-# taxonomy_files = [
-#     "test_files/test_kraken1.csv",
-#     "test_files/test_kraken2.tsv",
-#     "test_files/test_kraken3.tsv"
-# ]
-
-# filtered_taxids_paths = [
-#     "test_files/species_filtered_bacteria1.tsv",
-#     "test_files/species_filtered_bacteria2.tsv",
-#     "test_files/species_filtered_bacteria3.tsv"
-# ]
-
-# filtered_tax_count_paths = [
-#     "test_files/tax_counts_filtered1.tsv",
-#     "test_files/tax_counts_filtered2.tsv",
-#     "test_files/tax_counts_filtered3.tsv"
-# ]
-
 
 for i in range(3):
 
