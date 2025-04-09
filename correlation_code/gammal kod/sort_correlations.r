@@ -3,8 +3,11 @@
 # Order the rows in correlation results after coefficient value
 # ------------------------------------------------------------------
 
-file_path <- "/storage/bergid/correlation/both/final_correlation_weighted.tsv"
-outfile <- "/storage/bergid/correlation/both/final_correlation_weighted_sorted.tsv"
+# file_path <- "/storage/bergid/correlation/both/final_correlation_weighted.tsv"
+# outfile <- "/storage/bergid/correlation/both/final_correlation_weighted_sorted.tsv"
+
+file_path <- "/storage/bergid/correlation/both/correlation_filtered.tsv"
+outfile <- "/storage/bergid/correlation/both/final_correlation_filtered_sorted.tsv"
 
 df <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 

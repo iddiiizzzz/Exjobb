@@ -21,8 +21,6 @@ results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 cat("blast read\n")
 
-print(nrow(blast_table))
-
 data_gene <- read.table(count_matrix_genes, sep = "\t", header = TRUE, stringsAsFactors = FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 gene_names <- data_gene$GeneNames
 rownames(data_gene) <- gene_names
@@ -45,13 +43,10 @@ data_mat_org <- matrix(as.numeric(data_mat_org),
                    nrow = nrow(data_mat_org), 
                    ncol = ncol(data_mat_org),
                    dimnames = list(rownames(data_org), colnames(data_org)))
-# print(dim(data_mat_gene))
 
-cat("2\n")
 
 blast_gene_names <- blast_table[15]
 blast_org_names <- blast_table[16]
-print(nrow(blast_gene_names))
 
 relevant_gene_names <- c()
 relevant_org_names <- c()
@@ -66,20 +61,20 @@ for (i in 1:nrow(blast_gene_names)) {
 
 
   if (!(current_org_name %in% rownames(data_mat_org))) {
-    print(paste("Organism not found:", current_org_name))
+    # print(paste("Organism not found:", current_org_name))
     next  # Skip this iteration if the organism is missing
   }
   # Check if the names exist in row names
   if (!(current_gene_name %in% rownames(data_mat_gene))) {
-    print(paste("Gene not found:", current_gene_name))
+    # print(paste("Gene not found:", current_gene_name))
     next  # Skip this iteration if the gene is missing
   }
   if (current_org_name == "Organism name not detected") {
-    print(paste("Organism name not detected:", current_org_name))
+    # print(paste("Organism name not detected:", current_org_name))
     next
   }
   if (current_gene_name == "Gene name not detected") {
-    print(paste("Gene name not detected:", current_gene_name))
+    # print(paste("Gene name not detected:", current_gene_name))
     next
   }
 
@@ -101,8 +96,8 @@ for (i in 1:nrow(blast_gene_names)) {
 correlation_results <- data.frame(
   Gene = relevant_gene_names,
   Organism = relevant_org_names,
-  CorrelationCoefficient = valid_correlations[1:length(relevant_gene_names)],  
-  p_values = valid_p_values[1:length(relevant_org_names)]
+  CorrelationCoefficient = valid_correlations,  
+  p_values = valid_p_values
 )
 
 cat("write")
