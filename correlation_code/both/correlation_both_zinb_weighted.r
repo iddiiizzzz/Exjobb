@@ -6,22 +6,22 @@ library(Hmisc)
 library(reshape2)
 library(pbapply)
 
-count_matrix_genes = "test_files/final_count_matrix_genes.tsv"
-count_matrix_orgs = "test_files/final_count_matrix_orgs.tsv"
-zinb_genes <- "test_files/zinb_genes.tsv"
-zinb_orgs <- "test_files/zinb_orgs.tsv"
-blast_results = "test_files/blast_final.txt"
-results = "test_files/correlation_both_weighted.tsv"
+# count_matrix_genes = "test_files/final_count_matrix_genes.tsv"
+# count_matrix_orgs = "test_files/final_count_matrix_orgs.tsv"
+# zinb_genes <- "test_files/zinb_genes.tsv"
+# zinb_orgs <- "test_files/zinb_orgs.tsv"
+# blast_results = "test_files/blast_final.txt"
+# results = "test_files/correlation_both_weighted.tsv"
 
-# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
 
-# blast_results = "/storage/bergid/blast/blast_final.txt"
+blast_results = "/storage/bergid/blast/blast_final.txt"
 
-# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
 
-# results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
+results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
 
 
 # Read files
@@ -112,20 +112,20 @@ for (i in 1:nrow(blast_gene_names)) { #nrow(blast_gene_names
   current_org_name <- as.character(blast_org_names[i, 1])
   
   if (!(current_org_name %in% rownames(data_mat_orgs))) {
-    print(paste("Organism not found:", current_org_name))
+    # print(paste("Organism not found:", current_org_name))
     next  # Skip this iteration if the organism is missing
   }
   # Check if the names exist in row names
   if (!(current_gene_name %in% rownames(data_mat_genes))) {
-    print(paste("Gene not found:", current_gene_name))
+    # print(paste("Gene not found:", current_gene_name))
     next  # Skip this iteration if the gene is missing
   }
   if (current_org_name == "Organism name not detected") {
-    print(paste("Organism name not detected:", current_org_name))
+    # print(paste("Organism name not detected:", current_org_name))
     next
   }
   if (current_gene_name == "Gene name not detected") {
-    print(paste("Gene name not detected:", current_gene_name))
+    # print(paste("Gene name not detected:", current_gene_name))
     next
   }
   
@@ -137,12 +137,9 @@ for (i in 1:nrow(blast_gene_names)) { #nrow(blast_gene_names
   gene_weight <- weight_matrix_genes[current_gene_name, ]
   org_weight <- weight_matrix_orgs[current_org_name, ]
 
-  print(gene_row)
-  print(org_row)
-  print(gene_weight)
-  print(org_weight)
+
   correlation_coefficient <- c(correlation_coefficient, weighted_correlation(gene_row, org_row, gene_weight, org_weight))
-  print(correlation_coefficient)
+
 }
 
 

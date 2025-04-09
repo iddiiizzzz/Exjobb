@@ -1,7 +1,7 @@
 import pandas as pd
 
-# with_duplicates = "/storage/bergid/correlation/both/correlation_filtered.tsv"
-# without_duplicates = "/storage/bergid/correlation/both/final_correlation_filtered.tsv"
+with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
+without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted.tsv"
 
 # with_duplicates =[
 #     "/storage/koningen/humangut/humangut_names.tsv",
@@ -30,8 +30,8 @@ import pandas as pd
 
 
 
-with_duplicates = "/storage/bergid/filtered_taxids_felsok.tsv"
-without_duplicates = "/storage/bergid/filtered_taxids_felsok_utan_duplicates.tsv"
+# with_duplicates = "/storage/bergid/filtered_taxids_felsok.tsv"
+# without_duplicates = "/storage/bergid/filtered_taxids_felsok_utan_duplicates.tsv"
 
 # for i in range(3):
 df = pd.read_csv(with_duplicates, delimiter = "\t", header = None)
