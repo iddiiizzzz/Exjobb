@@ -9,25 +9,16 @@ library(pheatmap)
 library(gplots)
 library(RColorBrewer)
 
-# file_path <- "/storage/bergid/correlation/results_org_correlation_all_log75.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_hg_log75.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww2_log75.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww1_log75.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_all_log_sep75.tsv" 
-#file_path <- "/storage/bergid/correlation/results_org_correlation_hg_log.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww2_log.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_all_log.tsv"
-#file_path <- "/storage/bergid/correlation/results_org_correlation_ww1_log.tsv"
 
-file_path <- "test_files/results_org_correlation_ww1_test.tsv"
-png <- "test_files/heatmaps/heatmap_org_test.png"
+file_path <- "/storage/bergid/correlation/both/final_correlation_weighted.tsv"
+png <- "correlation_code/heatmaps/both/heatmap_both_weighted.png"
 
 
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
-cor_matrix <- dcast(correlations, Organism1 ~ Organism2, value.var = "CorrelationCoefficient")
+cor_matrix <- dcast(correlations, Gene ~ Organism, value.var = "CorrelationCoefficient")
 
 # Remove first column
-rownames(cor_matrix) <- cor_matrix$Organism1
+rownames(cor_matrix) <- cor_matrix$Gene
 cor_matrix <- as.matrix(cor_matrix[,-1])
 
 # Handle missing values
@@ -35,17 +26,16 @@ cor_matrix[is.na(cor_matrix)] <- 0
 
 
 my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
-breaks_list <- seq(-1, 1, length.out = 101)  # Ensures proper scaling from -1 to 1
-
+breaks_list <- seq(-0.1, 0.1, length.out = 101)  # Ensures proper scaling from -1 to 1
 
 # 5000 width/height + res 900 bra för 181 st
-png(png, width = 30000, height = 30000, res = 4000)
+png(png, width = 6000, height = 6000, res = 900)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between -1 and 1
-    main = "Waste Water Correlation Heatmap", 
-    fontsize_row = 0.3, 
-    fontsize_col = 0.3, 
+    main = "ARG-Host Correlation Heatmap (weighted)", 
+    fontsize_row = 1, 
+    fontsize_col = 1, 
     angle_col = 90)
 dev.off()
 

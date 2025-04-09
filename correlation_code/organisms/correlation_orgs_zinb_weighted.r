@@ -6,7 +6,7 @@ library(Hmisc)
 library(reshape2)
 library(pbapply)
 
-count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv" ##ellen tmux correlation4
+count_matrix <- "/storage/koningen/final_count_matrix_orgs.tsv" ##ellen tmux correlation
 zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
 results <- "/storage/bergid/correlation/genes/orgs_correlation_zero_inflation_weighted.tsv"
 

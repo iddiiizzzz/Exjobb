@@ -16,7 +16,7 @@ library(RColorBrewer)
 # png <- "correlation_code/heatmaps/organisms/heatmap_orgs_filtered.png" 
 
 file_path <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_06.tsv"  ##ellen tmux correlation
-png <- "correlation_code/heatmaps/organisms/heatmap_orgs_threshold_0.6_test.png"
+png <- "correlation_code/heatmaps/organisms/heatmap_orgs_threshold_0.6.png"
 
 
 
