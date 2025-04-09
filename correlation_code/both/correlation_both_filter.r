@@ -7,7 +7,7 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv" 
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
 count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
 blast_results = "/storage/bergid/blast/blast_final.txt"
 results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
@@ -51,7 +51,7 @@ blast_org_names <- blast_table[16]
 relevant_gene_names <- c()
 relevant_org_names <- c()
 valid_correlations <- c()
-valid_p_values <- c()
+# valid_p_values <- c()
 
 
 for (i in 1:nrow(blast_gene_names)) {
@@ -88,7 +88,7 @@ for (i in 1:nrow(blast_gene_names)) {
   correlation_result <- rcorr(as.numeric(gene_row), as.numeric(org_row), type = "pearson")
 
   valid_correlations <- c(valid_correlations, correlation_result$r[1, 2])
-  valid_p_values <- c(valid_p_values, correlation_result$P[1, 2])
+  # valid_p_values <- c(valid_p_values, correlation_result$P[1, 2])
 
 }
 
@@ -96,8 +96,7 @@ for (i in 1:nrow(blast_gene_names)) {
 correlation_results <- data.frame(
   Gene = relevant_gene_names,
   Organism = relevant_org_names,
-  CorrelationCoefficient = valid_correlations,  
-  p_values = valid_p_values
+  CorrelationCoefficient = valid_correlations
 )
 
 cat("write")
