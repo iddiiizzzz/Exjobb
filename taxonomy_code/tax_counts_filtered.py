@@ -42,7 +42,7 @@ for i in range(3):
 
 
     columns_to_keep = ["TrueID"]
-    
+
 
     for column in kraken_with_zeros.columns:
         print(i)
