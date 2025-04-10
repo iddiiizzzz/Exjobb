@@ -2,8 +2,8 @@
 
 library(ggplot2)
 
-count_data <- read.table("/storage/koningen/count_matrix.tsv", sep = "\t", header = TRUE, row.names = 1)
-output_file <- "checking_data/scatterplot_genes.png"
+count_data <- read.table("/storage/koningen/final_count_matrix_orgs.tsv", sep = "\t", header = TRUE, row.names = 1)
+output_file <- "checking_data/scatterplot_orgs.png"
 
 
 sampled_genes <- sample(rownames(count_data), 1000)  # Select 100 random genes
