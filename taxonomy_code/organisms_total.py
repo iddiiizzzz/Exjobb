@@ -1,6 +1,6 @@
 
 # ---------------------------------------------------------------
-# Adding the three taxonomy files together into one big file
+# Adding taxonomy files together
 # ---------------------------------------------------------------
 
 import pandas as pd
