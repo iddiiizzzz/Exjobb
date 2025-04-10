@@ -6,7 +6,7 @@ library(Hmisc)
 library(reshape2)
 library(tictoc) 
 
-count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+count_matrix <- "/storage/koningen/final_count_matrix_orgs.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
 results <- "/storage/bergid/correlation/organisms/org_correlation_zero_inflation_probabilities.tsv"
 

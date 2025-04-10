@@ -5,9 +5,11 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+count_matrix <- "/storage/koningen/final_count_matrix_orgs.tsv"
 zinb_prob_file <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
-results <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_09.tsv"
+#results <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_09.tsv"
+#results <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_07.tsv"
+results <- "/storage/bergid/correlation/organisms/orgs_correlation_zero_inflation_threshold_06.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -26,7 +28,7 @@ zinb_probs <- read.table(zinb_prob_file, sep = "\t", header = TRUE, stringsAsFac
 rownames(zinb_probs) <- zinb_probs$OrgNames
 zinb_probs <- zinb_probs[, -1]  
 
-threshold = 0.9
+threshold = 0.6
 new_data <- data_mat
 
 print(dim(new_data))
