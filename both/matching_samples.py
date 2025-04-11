@@ -1,3 +1,18 @@
+
+
+"""
+    Filters the count matrices for genes and organisms to only keep the samples that exists in both files.
+
+    Input:
+        - genes_infile: Path to the file with the count matrix for the genes.
+        - orgs_outfile: Path to the file with the counts matrix for the organisms.
+
+    Output:
+        - genes_outfile: Path to the output file stores the sample filtered count matrix for the genes.
+        - orgs_outfile: Path to the output file stores the sample filtered count matrix for the organisms.
+
+"""
+
 import pandas as pd
 
 genes_infile = "/storage/koningen/count_matrix_filtered.tsv"

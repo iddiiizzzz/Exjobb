@@ -1,3 +1,16 @@
+
+"""
+    Translates the organism IDs to their taxonomic names and adds them as a new column in the BLAST results table.
+
+    Input:
+        - blast: Path to the BLAST results.
+
+    Output:
+        - filtered_blast: Path to the output file that will store the filtered BLAST results table.
+
+"""
+
+
 import pandas as pd
 
 

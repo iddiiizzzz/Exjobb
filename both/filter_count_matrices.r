@@ -1,4 +1,22 @@
 
+# ------------------------------------------------------------------------------------------------------------
+
+# Filters the count matrices to remove genes org organisms with at least 90% zero counts. 
+# Transforms the data logarithmically.
+
+# Input:
+#     - count_matrix: Path to the count matrix file.
+
+# Output:
+#     - results: Path to the output file that stores filtered count matrix.
+
+# Notes:
+#     - Switch the out commented files and rows depending on which matrix to filter and transform.
+
+# ------------------------------------------------------------------------------------------------------------
+
+
+
 # Organisms
 # count_matrix <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv"
 # results <- "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
