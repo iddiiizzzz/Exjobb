@@ -8,11 +8,10 @@
 import pandas as pd
 
 filtered_taxids_paths = [
-    "/storage/koningen/humangut/bacteria_species_only_hg.tsv",
-    "/storage/koningen/wastewater1/bacteria_species_only_ww1.tsv",
-    "/storage/koningen/wastewater2/bacteria_species_only_ww2.tsv"
-]
-
+    "/storage/koningen/species/bacteria_final_hg.tsv",
+    "/storage/koningen/species/bacteria_final_ww1.tsv",
+    "/storage/koningen/species/bacteria_final_ww2.tsv"
+    ]
 taxonomy_files = [
     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.csv",
     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_1.tsv",
@@ -20,9 +19,9 @@ taxonomy_files = [
 ]
 
 filtered_tax_count_paths = [
-    "/storage/koningen/humangut/filtered_tax_counts_hg.tsv",
-    "/storage/koningen/wastewater1/filtered_tax_counts_ww1.tsv",
-    "/storage/koningen/wastewater2/filtered_tax_counts_ww2.tsv"
+    "/storage/koningen/species/filtered_tax_counts_hg.tsv",
+    "/storage/koningen/species/filtered_tax_counts_ww1.tsv",
+    "/storage/koningen/species/filtered_tax_counts_ww2.tsv"
 ]
 
 
@@ -42,7 +41,7 @@ for i in range(3):
 
 
     columns_to_keep = ["TrueID"]
-
+    
 
     for column in kraken_with_zeros.columns:
         print(i)

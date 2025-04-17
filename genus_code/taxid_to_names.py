@@ -48,13 +48,9 @@ with open(genome_taxonomy, "r") as taxonomy:
     for row in taxonomy:
         row = row.strip().split("\t")
         assembly_id = row[0] # The id in the taxonomy lineage file
-        species_name = row[7] # The species name of the organism
-        # genus_name = row[6] # The genus name of the organism
+        genus_name = row[6] # The genus name of the organism
 
-        # if species_name == "":
-        #     org_name = genus_name
-        # else:
-        org_name = species_name
+        org_name = genus_name
 
         tax_dictionary[assembly_id] = org_name 
 

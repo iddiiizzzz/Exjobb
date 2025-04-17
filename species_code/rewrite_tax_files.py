@@ -6,22 +6,16 @@
 import pandas as pd
 
 
-# taxonomy_file = "/storage/koningen/wastewater1/filtered_tax_counts_ww1.tsv"
+# taxonomy_file = "/storage/koningen/species/filtered_tax_counts_ww1.tsv"
 # new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
 # #
-# taxonomy_file = "/storage/koningen/wastewater2/filtered_tax_counts_ww2.tsv"
+# taxonomy_file = "/storage/koningen/species/filtered_tax_counts_ww2.tsv"
 # new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
 
-taxonomy_file = "/storage/koningen/humangut/filtered_tax_counts_hg.tsv"
+taxonomy_file = "/storage/koningen/species/filtered_tax_counts_hg.tsv"
 new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 
 
-# taxonomy_file = "test_files/tax_counts_filtered1.tsv"
-# taxonomy_file = "test_files/tax_counts_filtered2.tsv"
-# taxonomy_file = "test_files/tax_counts_filtered3.tsv"
-# new_taxonomy_file = "test_files/rewritten_test_kraken1.tsv"
-# new_taxonomy_file = "test_files/rewritten_test_kraken2.tsv"
-# new_taxonomy_file = "test_files/rewritten_test_kraken3.tsv"
 
 df = pd.read_csv(taxonomy_file, delimiter='\t', na_values=[""])
 df = df.fillna(0)
