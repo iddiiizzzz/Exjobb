@@ -7,16 +7,27 @@
 library(Hmisc)      
 library(reshape2)   
 
-count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
-blast_results = "/storage/bergid/blast/blast_final.txt"
-results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
+# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
 
 # count_matrix_genes = "test_files/matching_samples_genes.tsv"
 # count_matrix_orgs = "test_files/matching_samples_orgs.tsv"
 # blast_results = "test_files/blast_org_names.txt"
 # results = "test_files/correlation_both_test.tsv"
 
+
+
+# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/both/correlation_filtered_ww.tsv"
+
+count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+blast_results = "/storage/bergid/blast/blast_final.txt"
+results = "/storage/bergid/correlation/both/correlation_filtered_hg.tsv"
 
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 cat("blast read\n")

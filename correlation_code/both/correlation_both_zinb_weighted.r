@@ -13,15 +13,35 @@ library(pbapply)
 # blast_results = "test_files/blast_final.txt"
 # results = "test_files/correlation_both_weighted.tsv"
 
+# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+# results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
+
+
 count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
-
+count_matrix_orgs = "/storage/koningen/normalized_final_count_matrix_orgs.tsv"
 blast_results = "/storage/bergid/blast/blast_final.txt"
-
 zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
 zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+results = "/storage/bergid/correlation/both/correlation_zinb_weighted_normalized.tsv"
 
-results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
+
+# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+# results = "/storage/bergid/correlation/both/correlation_zinb_weighted_ww.tsv"
+
+# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
+# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
+# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
+# results = "/storage/bergid/correlation/both/correlation_zinb_weighted_hg.tsv"
 
 
 # Read files
@@ -70,14 +90,14 @@ cat("weight\n")
 weight_matrix_genes <- matrix(0, nrow = nrow(data_mat_genes), ncol = ncol(data_mat_genes),
                         dimnames = list(rownames(data_mat_genes), colnames(data_mat_genes)))
 weight_matrix_genes[data_mat_genes != 0] <- 1  # Where data is non-zero, weight is 1
-weight_matrix_genes[data_mat_genes == 0] <- (1 - as.matrix(zinb_probs_genes)[data_mat_genes == 0]) * 0.01
+weight_matrix_genes[data_mat_genes == 0] <- (1 - as.matrix(zinb_probs_genes)[data_mat_genes == 0]) * 0.1
 weight_matrix_genes[as.matrix(zinb_probs_genes) == 1 & data_mat_genes == 0] <- 10^(-15)
 
 weight_matrix_orgs <- matrix(0, nrow = nrow(data_mat_orgs), ncol = ncol(data_mat_orgs),
                         dimnames = list(rownames(data_mat_orgs), colnames(data_mat_orgs)))
 
 weight_matrix_orgs[data_mat_orgs != 0] <- 1  # Where data is non-zero, weight is 1
-weight_matrix_orgs[data_mat_orgs == 0] <- (1 - as.matrix(zinb_probs_orgs)[data_mat_orgs == 0]) * 0.01
+weight_matrix_orgs[data_mat_orgs == 0] <- (1 - as.matrix(zinb_probs_orgs)[data_mat_orgs == 0]) * 0.1
 weight_matrix_orgs[as.matrix(zinb_probs_orgs) == 1 & data_mat_orgs == 0] <- 10^(-15)
 
 

@@ -19,29 +19,17 @@ import pandas as pd
 
 
 # Correlation weighted
-# with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
-# without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted.tsv"
-
+with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_hg.tsv"
+without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_hg.tsv"
+# with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_ww.tsv"
 
 # Correlation filtered
-with_duplicates = "/storage/bergid/correlation/both/correlation_filtered.tsv"
-without_duplicates = "/storage/bergid/correlation/both/final_correlation_filtered.tsv"
+# with_duplicates = "/storage/bergid/correlation/both/correlation_filtered_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/both/final_correlation_filtered_ww.tsv"
+# with_duplicates = "/storage/bergid/correlation/both/correlation_filtered_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/both/final_correlation_filtered_hg.tsv"
 
-
-'''
-remove? -------------------------
-'''
-# Names of organisms
-# with_duplicates =[
-#     "/storage/koningen/humangut/humangut_names.tsv",
-#     "/storage/koningen/wastewater1/wastewater1_names.tsv",
-#     "/storage/koningen/wastewater2/wastewater2_names.tsv"
-# ]
-# without_duplicates = [
-#     "/storage/koningen/humangut/humangut_taxid_to_names_without_duplicates.tsv",
-#     "/storage/koningen/wastewater1/wastewater1_taxid_to_names_without_duplicates.tsv",
-#     "/storage/koningen/wastewater2/wastewater2_taxid_to_names_without_duplicates.tsv"
-# ]
 
 # Names of organisms
 # with_duplicates = [

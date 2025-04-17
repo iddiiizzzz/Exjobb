@@ -26,8 +26,8 @@
 
 
 # Genes
-count_matrix <- "/storage/koningen/count_matrix.tsv"
-results <- "/storage/koningen/count_matrix_filtered.tsv"
+# count_matrix <- "/storage/koningen/count_matrix.tsv"
+# results <- "/storage/koningen/count_matrix_filtered.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = TRUE)
