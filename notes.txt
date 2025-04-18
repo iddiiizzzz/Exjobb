@@ -105,3 +105,4 @@ kör heatmap på organismer
 
 Skriva om från spaced to tab separated: awk '{$1=$1}1' OFS='\t' /home/bergid/Exjobb/test_files/blast_with_true_names_test.tsv > /home/bergid/Exjobb/test_files/blast_with_true_names_fixed.tsv
 
+bacteria has column 440

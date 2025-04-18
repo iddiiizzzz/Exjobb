@@ -7,13 +7,13 @@ import pandas as pd
 
 
 # taxonomy_file = "/storage/koningen/genus/filtered_tax_counts_ww1.tsv"
-# new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
+# new_taxonomy_file = "/storage/koningen/genus/taxonomy_ww1.tsv"
 # #
 # taxonomy_file = "/storage/koningen/genus/filtered_tax_counts_ww2.tsv"
-# new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
+# new_taxonomy_file = "/storage/koningen/genus/taxonomy_ww2.tsv"
 
 taxonomy_file = "/storage/koningen/genus/filtered_tax_counts_hg.tsv"
-new_taxonomy_file = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
+new_taxonomy_file = "/storage/koningen/genus/taxonomy_hg.tsv"
 
 
 

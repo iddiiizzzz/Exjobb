@@ -6,14 +6,6 @@ library(Hmisc)
 library(reshape2)
 library(pbapply)
 
-# Test
-# count_matrix_genes = "test_files/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "test_files/final_count_matrix_orgs.tsv"
-# zinb_genes <- "test_files/zinb_genes.tsv"
-# zinb_orgs <- "test_files/zinb_orgs.tsv"
-# blast_results = "test_files/blast_final.txt"
-# results = "test_files/correlation_both_weighted.tsv"
-
 # Original
 # count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
 # count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
@@ -30,7 +22,7 @@ zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
 zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
 results = "/storage/bergid/correlation/both/correlation_zinb_weighted_normalized.tsv"
 
-# Separated human gut and waste water
+# Separated wastewater and human gut
 # count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
 # count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"

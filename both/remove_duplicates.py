@@ -19,10 +19,13 @@ import pandas as pd
 
 
 # Correlation weighted
-with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_hg.tsv"
-without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_hg.tsv"
+# with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_hg.tsv"
 # with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_ww.tsv"
 # without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_ww.tsv"
+
+with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_normalized.tsv"
+without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_normalized.tsv"
 
 # Correlation filtered
 # with_duplicates = "/storage/bergid/correlation/both/correlation_filtered_ww.tsv"

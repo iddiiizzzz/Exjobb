@@ -25,14 +25,20 @@
 # results <- "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
 
 
+count_matrix = "/storage/koningen/genus/taxonomy_hg.tsv"
+results <- "/storage/koningen/genus/taxonomy_hg_organisms_filtered.tsv"
+
+# count_matrix = "/storage/koningen/genus/taxonomy_all_ww_organisms.tsv"
+# results <- "/storage/koningen/genus/taxonomy_all_ww_organisms_filtered.tsv"
+
 # Genes
 # count_matrix <- "/storage/koningen/count_matrix.tsv"
 # results <- "/storage/koningen/count_matrix_filtered.tsv"
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = TRUE)
-# org_names <- data$OrgNames
-org_names <- data$GeneNames
+org_names <- data$OrgNames
+# org_names <- data$GeneNames
 rownames(data) <- org_names
 
 data <- data[, -1]  
@@ -45,6 +51,6 @@ data_mat <- matrix(as.numeric(data_mat),
                    ncol = ncol(data_mat),
                    dimnames = list(rownames(data), colnames(data)))
 
-# data_mat_df <- data.frame(OrgNames = rownames(data_mat), data_mat, check.names = FALSE)
-data_mat_df <- data.frame(GeneNames = rownames(data_mat), data_mat, check.names = FALSE)
+data_mat_df <- data.frame(OrgNames = rownames(data_mat), data_mat, check.names = FALSE)
+# data_mat_df <- data.frame(GeneNames = rownames(data_mat), data_mat, check.names = FALSE)
 write.table(data_mat_df, file = results, sep = "\t", quote = FALSE, row.names = FALSE)
