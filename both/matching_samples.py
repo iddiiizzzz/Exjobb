@@ -15,11 +15,11 @@
 
 import pandas as pd
 
-genes_infile = "/storage/koningen/count_matrix_filtered.tsv"
+genes_infile = "/storage/koningen/count_matrix.tsv"
 
 
 
-# Species separated
+## Species separated
 # orgs_infile = "/storage/koningen/species/taxonomy_code/taxonomy_ww1.tsv"
 # genes_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_ww1.tsv"
 # orgs_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_ww1.tsv"
@@ -28,13 +28,13 @@ genes_infile = "/storage/koningen/count_matrix_filtered.tsv"
 # genes_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_ww2.tsv"
 # orgs_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_ww2.tsv"
 
-# orgs_infile = "/storage/koningen/species/taxonomy_code/taxonomy_hg.tsv"
-# genes_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_hg.tsv"
-# orgs_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_hg.tsv"
+orgs_infile = "/storage/koningen/species/taxonomy_code/taxonomy_hg.tsv"
+genes_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_hg.tsv"
+orgs_outfile = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_hg.tsv"
 
 
 
-# Genus separated
+## Genus separated
 # orgs_infile = "/storage/koningen/genus/taxonomy_code/taxonomy_ww1.tsv"
 # genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_ww1.tsv"
 # orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_ww1.tsv"
@@ -43,9 +43,9 @@ genes_infile = "/storage/koningen/count_matrix_filtered.tsv"
 # genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_ww2.tsv"
 # orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_ww2.tsv"
 
-orgs_infile =  "/storage/koningen/genus/taxonomy_code/taxonomy_hg.tsv"
-genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
-orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_hg.tsv"
+# orgs_infile =  "/storage/koningen/genus/taxonomy_code/taxonomy_hg.tsv"
+# genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
+# orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_hg.tsv"
 
 
 # Test
