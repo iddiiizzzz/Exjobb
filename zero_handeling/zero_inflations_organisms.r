@@ -5,17 +5,33 @@ library(reshape2)
 # input_file = "test_files/final_count_matrix_orgs.tsv"
 # output_file_zinb <- "test_files/zinb_orgs.tsv"
 
+### Normalized
 ## all
-# input_file = "/storage/koningen/species/taxonomy_code/final_count_matrix_orgs.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_probabilities_orgs.tsv" 
+# input_file = "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_orgs.tsv" 
 
 ## ww
-# input_file = "/storage/koningen/species/taxonomy_code/final_count_matrix_orgs.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_probabilities_orgs.tsv" 
+# input_file = "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_hg.tsv" 
 
 ## hg
-# input_file = "/storage/koningen/species/taxonomy_code/final_count_matrix_orgs.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_probabilities_orgs.tsv" 
+# input_file = "/storage/koningen/species/normalize/normalized_count_matrix_ww.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_ww.tsv" 
+
+
+
+### Non-normalized
+## all
+# input_file = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_all_orgs.tsv" 
+
+## ww
+# input_file =  "/storage/koningen/species/filter_zeros/taxonomy_ww_organisms_filtered.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_hg.tsv" 
+
+## hg
+# input_file =  "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_ww.tsv" 
 
 
 
