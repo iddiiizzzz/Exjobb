@@ -6,9 +6,9 @@ import pandas as pd
 
 
 ## Species all organisms
-count_matrix = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
-summed_sample_counts = "/storage/bergid/dictionaries/bacterial_counts.tsv"
-normalized_count_matrix = "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
+# count_matrix = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
+# summed_sample_counts = "/storage/bergid/dictionaries/bacterial_counts.tsv"
+# normalized_count_matrix = "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
 
 ## Species all genes
 # count_matrix = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
@@ -65,12 +65,12 @@ normalized_count_matrix = "/storage/koningen/species/normalize/normalized_count_
 ## Genus ww organisms
 # count_matrix = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
 # summed_sample_counts = "/storage/bergid/dictionaries/bacterial_counts.tsv"
-# normalized_count_matrix = "/storage/koningen/v/normalize/normalized_count_matrix_ww.tsv"
+# normalized_count_matrix = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"
 
 ## Genus ww genes
-# count_matrix = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
-# summed_sample_counts = "/storage/bergid/dictionaries/normalisation_dictionary_genes.tsv"
-# normalized_count_matrix = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
+count_matrix = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+summed_sample_counts = "/storage/bergid/dictionaries/normalisation_dictionary_genes.tsv"
+normalized_count_matrix = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
 
 
 

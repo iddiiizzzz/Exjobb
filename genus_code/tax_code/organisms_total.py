@@ -5,7 +5,7 @@
 
 import pandas as pd
 
-# Zero inflations
+# Zero inflations - fel
 # wastewater1 = "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 # humangut = "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
 # outfile = "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
