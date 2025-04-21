@@ -21,14 +21,34 @@ genes_infile = "/storage/koningen/count_matrix_filtered.tsv"
 # genes_outfile = "/storage/koningen/genus/final_count_matrix_genes.tsv"
 # orgs_outfile = "/storage/koningen/genus/final_count_matrix_orgs.tsv"
 
-orgs_infile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
-genes_outfile = "/storage/koningen/final_count_matrix_genes.tsv"
-orgs_outfile = "/storage/koningen/final_count_matrix_orgs.tsv"
+# orgs_infile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
+# genes_outfile = "/storage/koningen/final_count_matrix_genes.tsv"
+# orgs_outfile = "/storage/koningen/final_count_matrix_orgs.tsv"
 
 
+# Species separated
+# orgs_infile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv"
+# genes_outfile = "/storage/koningen/final_count_matrix_genes_ww.tsv"
+# orgs_outfile = "/storage/koningen/final_count_matrix_orgs_ww.tsv"
+
+# orgs_infile = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+# genes_outfile = "/storage/koningen/final_count_matrix_genes_hg.tsv"
+# orgs_outfile = "/storage/koningen/final_count_matrix_orgs_hg.tsv"
+
+
+# Genus separated
+# orgs_infile = "/storage/koningen/genus/taxonomy_all_ww_organisms_filtered.tsv"
+# genes_outfile = "/storage/koningen/genus/final_count_matrix_genes_ww.tsv"
+# orgs_outfile = "/storage/koningen/genus/final_count_matrix_orgs_ww.tsv"
+
+orgs_infile = "/storage/koningen/genus/taxonomy_hg_organisms_filtered.tsv"
+genes_outfile = "/storage/koningen/genus/final_count_matrix_genes_hg.tsv"
+orgs_outfile = "/storage/koningen/genus/final_count_matrix_orgs_hg.tsv"
+
+
+# Test
 # genes_infile = "test_files/count_matrix_genes_test_blast.tsv"
 # orgs_infile = "test_files/test_org_count_matrix_blast.tsv"
-    
 # genes_outfile = "test_files/matching_samples_genes.tsv"
 # orgs_outfile = "test_files/matching_samples_orgs.tsv"
 
