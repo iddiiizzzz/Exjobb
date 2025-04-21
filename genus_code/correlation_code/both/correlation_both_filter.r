@@ -7,10 +7,7 @@
 library(Hmisc)      
 library(reshape2)   
 
-# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
-# blast_results = "/storage/bergid/blast/blast_final.txt"
-# results = "/storage/bergid/correlation/both/correlation_filtered.tsv"
+# Test
 
 # count_matrix_genes = "test_files/matching_samples_genes.tsv"
 # count_matrix_orgs = "test_files/matching_samples_orgs.tsv"
@@ -18,16 +15,45 @@ library(reshape2)
 # results = "test_files/correlation_both_test.tsv"
 
 
+# Non-normalized
 
-# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
+# count_matrix_genes = "/storage/koningen/genus/combined_matrices/taxonomy_all_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/combined_matrices/taxonomy_all_organisms.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
-# results = "/storage/bergid/correlation/both/correlation_filtered_ww.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_filtered.tsv" # tmux ida zinb
 
-count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+# count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/genus/both/correlation_filtered_ww.tsv" # tmux ida zinb2
+
+# count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/genus/both/correlation_filtered_hg.tsv" # tmux ida zinb3
+
+
+
+# Normalized
+
+# count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_all_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_all_orgs.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered.tsv" # tmux ida correlation
+
+# count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_hg.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww.tsv" # tmux ida correlation_2
+
+count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
+count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"
 blast_results = "/storage/bergid/blast/blast_final.txt"
-results = "/storage/bergid/correlation/both/correlation_filtered_hg.tsv"
+results = "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg.tsv" # tmux ida correlation_3
+
+
+
+
 
 blast_table <- read.table(blast_results, sep = "\t", header = TRUE, stringsAsFactors = FALSE, check.names=FALSE, fileEncoding = "UTF-8", comment = "", quote ="")
 cat("blast read\n")

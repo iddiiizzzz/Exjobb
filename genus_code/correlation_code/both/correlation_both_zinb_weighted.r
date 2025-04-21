@@ -7,35 +7,54 @@ library(reshape2)
 library(pbapply)
 
 # Original
-# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "/storage/koningen/final_count_matrix_orgs.tsv"
+
+# count_matrix_genes = "/storage/koningen/genus/combined_matrices/taxonomy_all_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/combined_matrices/taxonomy_all_organisms.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
-# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
-# results = "/storage/bergid/correlation/both/correlation_zinb_weighted.tsv"
+# zinb_genes <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_genes.tsv" 
+# zinb_orgs <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_orgs.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv"
+
+# count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# zinb_genes <- "/storage/koningen/genus/zero_inflations/zinb_matrix_genes_ww.tsv"
+# zinb_orgs <- "/storage/koningen/genus/zero_inflations/zinb_matrix_orgs_ww.tsv" 
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww.tsv" 
+
+# count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# zinb_genes <- "/storage/koningen/genus/zero_inflations/zinb_matrix_genes_hg.tsv" 
+# zinb_orgs <- "/storage/koningen/genus/zero_inflations/zinb_matrix_orgs_hg.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_hg.tsv" 
+
+
+
 
 # Normalized
-count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-count_matrix_orgs = "/storage/koningen/normalized_final_count_matrix_orgs.tsv"
+
+count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_all_genes.tsv"
+count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_all_orgs.tsv"
 blast_results = "/storage/bergid/blast/blast_final.txt"
-zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
-results = "/storage/bergid/correlation/both/correlation_zinb_weighted_normalized.tsv"
+zinb_genes <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
+zinb_orgs <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_orgs.tsv"
+results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_normalized.tsv" # ej körd -- NA?
 
-# Separated wastewater and human gut
-# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
+# count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
-# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
-# results = "/storage/bergid/correlation/both/correlation_zinb_weighted_ww.tsv"
+# zinb_genes <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_ww.tsv" 
+# zinb_orgs <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_ww.tsv" 
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww.tsv" 
 
-# count_matrix_genes = "/storage/koningen/final_count_matrix_genes.tsv"
-# count_matrix_orgs = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
+# count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_hg.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
-# zinb_genes <- "/storage/koningen/zero_inflations/zero_inflations_genes.tsv"
-# zinb_orgs <- "/storage/koningen/zero_inflations/zinb_probabilities_orgs.tsv"
-# results = "/storage/bergid/correlation/both/correlation_zinb_weighted_hg.tsv"
+# zinb_genes <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_hg.tsv"
+# zinb_orgs <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_hg.tsv" 
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_hg.tsv" # ej körd -- NA?
+
 
 
 # Read files
@@ -50,6 +69,8 @@ data_org <- read.table(count_matrix_orgs, sep = "\t", header = TRUE, stringsAsFa
 org_names <- data_org$OrgNames
 rownames(data_org) <- org_names
 data_org <- data_org[, -1]  
+
+
 
 # Convert to matrices
 data_mat_genes <- as.matrix(data_gene)
@@ -78,6 +99,9 @@ zinb_probs_orgs <- read.table(zinb_orgs, sep = "\t", header = TRUE, stringsAsFac
 rownames(zinb_probs_orgs) <- zinb_probs_orgs$OrgNames
 zinb_probs_orgs <- zinb_probs_orgs[, -1]  
 
+
+cat("Gene matrix dim: ", dim(data_mat_genes), "\n")
+cat("ZINB gene matrix dim: ", dim(zinb_probs_genes), "\n")
 
 # Create weight matrices
 cat("weight\n")

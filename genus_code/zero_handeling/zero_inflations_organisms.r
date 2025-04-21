@@ -16,10 +16,11 @@ library(reshape2)
 
 
 # # Normalized
-input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_all_orgs.tsv"
-output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_orgs.tsv" # tmux ida zinb2
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_all_orgs.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_orgs.tsv" 
 
-# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"d_orgs_ww.tsv" 
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_ww.tsv" 
 
 # input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_hg.tsv"
 # output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_hg.tsv" 

@@ -42,11 +42,11 @@
 
 
 # Genus genes
-# count_matrix <- "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_organisms_genes.tsv"
+# count_matrix <- "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_genes.tsv"
 # results <- "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
 
-# count_matrix <- "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
-# results <- "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+count_matrix <- "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
+results <- "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
 
 
 
