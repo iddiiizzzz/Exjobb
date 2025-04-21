@@ -2,26 +2,28 @@
 library(pscl)      
 library(reshape2)   
 
+
 # Non-normalized
-# input_file = "/storage/koningen/genus/final_count_matrix_orgs.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs.tsv" # tmux ida correlation
+# input_file = "/storage/koningen/genus/combined_matrices/taxonomy_all_organisms.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_orgs.tsv" # tmux ida correlation
 
-# input_file = "/storage/koningen/genus/final_count_matrix_orgs_ww.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs_ww.tsv" #tmux ida correlation_2
+# input_file = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_orgs_ww.tsv" #tmux ida correlation_2
 
-# input_file = "/storage/koningen/genus/final_count_matrix_orgs_hg.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs_hg.tsv" #tmux ida correlation_3
+# input_file = "/storage/koningen/genus/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_orgs_hg.tsv" #tmux ida correlation_3
+
 
 
 # # Normalized
-# input_file = "/storage/koningen/genus/normalize/normalized_final_count_matrix_orgs.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_probabilities_orgs.tsv" #tmux ida zinb
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_all_orgs.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_orgs.tsv" #tmux ida zinb
 
-# input_file = "/storage/koningen/genus/normalize/normalized_final_count_matrix_orgs_ww.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_probabilities_orgs_ww.tsv" # tmux ida zinb2
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_ww.tsv" # tmux ida zinb2
 
-input_file = "/storage/koningen/genus/normalize/normalized_final_count_matrix_orgs_hg.tsv"
-output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_probabilities_orgs_hg.tsv" 
+input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_hg.tsv"
+output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_hg.tsv" 
 
 
 

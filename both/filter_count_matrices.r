@@ -16,7 +16,7 @@
 # ------------------------------------------------------------------------------------------------------------
 
 
-## Species
+# Species organisms
 # count_matrix <- "/storage/koningen/species/combined_matrices/taxonomy_all_ww_organisms.tsv"
 # results <- "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
 
@@ -24,12 +24,32 @@
 # results <- "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
 
 
-## Genes species
+# Species genes
 # count_matrix <- "/storage/koningen/species/combined_matrices/taxonomy_all_ww_organisms_genes.tsv"
 # results <- "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
 
 # count_matrix <- "/storage/koningen/species/matching_samples/matching_count_matrix_genes_hg.tsv"
-# results <- "/storage/koningen/species/filter_zeros/taxonomy_all_hg_genes_filtered.tsv"
+# results <- "/storage/koningen/species/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+
+
+
+# Genus organisms
+# count_matrix <- "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_organisms.tsv"
+# results <- "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+
+# count_matrix <- "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_hg.tsv"
+# results <- "/storage/koningen/genus/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+
+
+# Genus genes
+# count_matrix <- "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_organisms_genes.tsv"
+# results <- "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+
+# count_matrix <- "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
+# results <- "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+
+
+
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = TRUE)
 org_names <- data$OrgNames

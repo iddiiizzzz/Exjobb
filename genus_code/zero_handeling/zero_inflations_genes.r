@@ -4,27 +4,26 @@ library(reshape2)
 
 
 # Non-normalized
-# input_file <- "/storage/koningen/genus/final_count_matrix_genes.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes.tsv"
+# input_file =  "/storage/koningen/genus/combined_matrices/taxonomy_all_genes.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_genes.tsv" # tmux ida correlation
 
-# input_file <- "/storage/koningen/genus/final_count_matrix_genes_ww.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes_ww.tsv"
+# input_file = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_genes_ww.tsv" #tmux ida correlation_2
 
-# input_file <- "/storage/koningen/genus/final_count_matrix_genes_hg.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes_hg.tsv"
-
-
-# # Non-normalized
-# input_file <- "/storage/koningen/genus/normalized_final_count_matrix_genes.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zero_inflations_genes.tsv"
-
-# input_file <- "/storage/koningen/genus/normalized_final_count_matrix_genes_ww.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zero_inflations_genes_ww.tsv"
-
-input_file <- "/storage/koningen/genus/normalized_final_count_matrix_genes_hg.tsv"
-output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zero_inflations_genes_hg.tsv"
+# input_file = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_genes_hg.tsv" #tmux ida correlation_3
 
 
+
+# # Normalized
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_all_genes.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_genes.tsv" #tmux ida zinb
+
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_ww.tsv" # tmux ida zinb2
+
+input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
+output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_hg.tsv" 
 
 
 

@@ -5,17 +5,32 @@
 
 import pandas as pd
 
+# Zero inflations
 # wastewater1 = "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
 # humangut = "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
 # outfile = "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
 
-# wastewater1 = "/storage/koningen/genus/taxonomy_code/taxonomy_ww1.tsv"
-# wastewater2 = "/storage/koningen/genus/taxonomy_code/taxonomy_ww2.tsv"
+
+# Organisms
+# wastewater1 = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_ww1.tsv"
+# wastewater2 = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_ww2.tsv"
 # outfile = "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_organisms.tsv"
 
-wastewater1 = "/storage/koningen/genus/taxonomy_code/taxonomy_all_ww_organisms_filtered.tsv"
-humangut = "/storage/koningen/genus/taxonomy_code/taxonomy_hg_organisms_filtered.tsv"
-outfile = "/storage/koningen/genus/combined_matrices/taxonomy_all_organisms_filtered.tsv"
+# wastewater1 = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# humangut = "/storage/koningen/genus/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# outfile = "/storage/koningen/genus/combined_matrices/taxonomy_all_organisms.tsv"
+
+
+# Genes
+# wastewater1 = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_ww1.tsv"
+# wastewater2 = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_ww2.tsv"
+# outfile = "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_genes.tsv"
+
+wastewater1 = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+humangut = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+outfile = "/storage/koningen/genus/combined_matrices/taxonomy_all_genes.tsv"
+
+
 
 df_hgut = pd.read_csv(humangut, sep="\t", index_col=0)
 df_waste1 = pd.read_csv(wastewater1, sep="\t", index_col=0)
