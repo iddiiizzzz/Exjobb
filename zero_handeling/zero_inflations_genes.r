@@ -9,16 +9,16 @@ library(reshape2)
 
 ### Normalized
 ## all genes
-# input_file = "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
+input_file = "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
+output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
 
 ## ww genes
 # input_file = "/storage/koningen/species/normalize/normalized_count_matrix_ww_genes.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_ww.tsv" 
+# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_ww_genes.tsv" 
 
 ## hg genes 
 # input_file = "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_hg.tsv" 
+# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_hg_genes.tsv" 
 
 
 ### Non-normalized
@@ -28,11 +28,11 @@ library(reshape2)
 
 ## ww genes
 # input_file = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_ww.tsv" 
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_ww_genes.tsv" 
 
 ## hg genes 
-# input_file = "/storage/koningen/species/filter_zeros/taxonomy_all_hg_genes_filtered.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_hg.tsv" 
+# input_file = "/storage/koningen/species/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_hg_genes.tsv" 
 
 
 
