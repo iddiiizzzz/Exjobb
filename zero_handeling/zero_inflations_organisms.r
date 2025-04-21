@@ -2,13 +2,21 @@
 library(pscl)      
 library(reshape2)   
 
-##test
 # input_file = "test_files/final_count_matrix_orgs.tsv"
 # output_file_zinb <- "test_files/zinb_orgs.tsv"
 
-##all
+## all
 # input_file = "/storage/koningen/species/taxonomy_code/final_count_matrix_orgs.tsv"
 # output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_probabilities_orgs.tsv" 
+
+## ww
+# input_file = "/storage/koningen/species/taxonomy_code/final_count_matrix_orgs.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_probabilities_orgs.tsv" 
+
+## hg
+# input_file = "/storage/koningen/species/taxonomy_code/final_count_matrix_orgs.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_probabilities_orgs.tsv" 
+
 
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")

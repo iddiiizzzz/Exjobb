@@ -5,15 +5,27 @@
 
 import pandas as pd
 
-##ww orgs
+## ww orgs
 # wastewater1 = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_ww1.tsv"
 # wastewater2 = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_ww2.tsv"
 # outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_ww_organisms.tsv"
 
-##ww genes
+## ww genes
 # wastewater1 = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_ww1.tsv"
 # wastewater2 = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_ww2.tsv"
 # outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_ww_organisms_genes.tsv"
+
+
+## all 
+# wastewater1 =  "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
+
+
+## all genes
+wastewater1 = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
 
 
 
