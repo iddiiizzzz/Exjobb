@@ -9,15 +9,10 @@ count_matrix = [
     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_wastewater_2.tsv"
 ]
 output_files = [
-    "/storage/koningen/genus/humangut_taxid_to_names.tsv",
-    "/storage/koningen/genus/wastewater1_taxid_to_names.tsv",
-    "/storage/koningen/genus/wastewater2_taxid_to_names.tsv"
+    "/storage/koningen/genus/taxonomy_code/humangut_taxid_to_names.tsv",
+    "/storage/koningen/genus/taxonomy_code/wastewater1_taxid_to_names.tsv",
+    "/storage/koningen/genus/taxonomy_code/wastewater2_taxid_to_names.tsv"
 ]
-# output_files = [
-#     "/storage/koningen/humangut/humangut_names.tsv",
-#     "/storage/koningen/wastewater1/wastewater1_names.tsv",
-#     "/storage/koningen/wastewater2/wastewater2_names.tsv"
-# ]
 
 # count_matrix = [
 #     "test_files/count_matrix_hg.csv",

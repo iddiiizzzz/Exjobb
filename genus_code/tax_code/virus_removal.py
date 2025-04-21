@@ -5,14 +5,14 @@
 
 full_taxonomy = "/storage/shared/data_for_master_students/ida_and_ellen/genome_full_lineage.tsv"
 taxids_with_names = [
-    "/storage/koningen/genus/humangut_taxid_to_names_without_duplicates.tsv",
-    "/storage/koningen/genus/wastewater1_taxid_to_names_without_duplicates.tsv",
-    "/storage/koningen/genus/wastewater2_taxid_to_names_without_duplicates.tsv"
+    "/storage/koningen/genus/taxonomy_code/humangut_taxid_to_names_without_duplicates.tsv",
+    "/storage/koningen/genus/taxonomy_code/wastewater1_taxid_to_names_without_duplicates.tsv",
+    "/storage/koningen/genus/taxonomy_code/wastewater2_taxid_to_names_without_duplicates.tsv"
 ]
 bacteria = [
-    "/storage/koningen/genus/bacteria_hg.tsv",
-    "/storage/koningen/genus/bacteria_ww1.tsv",
-    "/storage/koningen/genus/bacteria_ww2.tsv"
+    "/storage/koningen/genus/taxonomy_code/bacteria_hg.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_ww1.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_ww2.tsv"
     ]
 
 

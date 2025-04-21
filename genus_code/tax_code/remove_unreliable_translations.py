@@ -7,15 +7,15 @@ from collections import defaultdict
 
 
 infiles = [
-    "/storage/koningen/genus/bacteria_species_only_hg.tsv",
-    "/storage/koningen/genus/bacteria_species_only_ww1.tsv",
-    "/storage/koningen/genus/bacteria_species_only_ww2.tsv"
+    "/storage/koningen/genus/taxonomy_code/bacteria_species_only_hg.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_species_only_ww1.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_species_only_ww2.tsv"
     ]
 
 outfile = [
-    "/storage/koningen/genus/bacteria_final_hg.tsv",
-    "/storage/koningen/genus/bacteria_final_ww1.tsv",
-    "/storage/koningen/genus/bacteria_final_ww2.tsv"
+    "/storage/koningen/genus/taxonomy_code/bacteria_final_hg.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_final_ww1.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_final_ww2.tsv"
     ]
 
 

@@ -17,13 +17,6 @@ import pandas as pd
 
 genes_infile = "/storage/koningen/count_matrix_filtered.tsv"
 
-# orgs_infile = "/storage/koningen/genus/taxonomy_all_organisms_filtered.tsv" 
-# genes_outfile = "/storage/koningen/genus/final_count_matrix_genes.tsv"
-# orgs_outfile = "/storage/koningen/genus/final_count_matrix_orgs.tsv"
-
-# orgs_infile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
-# genes_outfile = "/storage/koningen/final_count_matrix_genes.tsv"
-# orgs_outfile = "/storage/koningen/final_count_matrix_orgs.tsv"
 
 
 # Species separated
@@ -37,13 +30,17 @@ genes_infile = "/storage/koningen/count_matrix_filtered.tsv"
 
 
 # Genus separated
-# orgs_infile = "/storage/koningen/genus/taxonomy_all_ww_organisms_filtered.tsv"
-# genes_outfile = "/storage/koningen/genus/final_count_matrix_genes_ww.tsv"
-# orgs_outfile = "/storage/koningen/genus/final_count_matrix_orgs_ww.tsv"
+# orgs_infile = "/storage/koningen/genus/taxonomy_code/taxonomy_ww1.tsv"
+# genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_ww1.tsv"
+# orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_ww1.tsv"
 
-orgs_infile = "/storage/koningen/genus/taxonomy_hg_organisms_filtered.tsv"
-genes_outfile = "/storage/koningen/genus/final_count_matrix_genes_hg.tsv"
-orgs_outfile = "/storage/koningen/genus/final_count_matrix_orgs_hg.tsv"
+# orgs_infile = "/storage/koningen/genus/taxonomy_code/taxonomy_ww2.tsv"
+# genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_ww2.tsv"
+# orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_ww2.tsv"
+
+orgs_infile =  "/storage/koningen/genus/taxonomy_code/taxonomy_hg.tsv"
+genes_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
+orgs_outfile = "/storage/koningen/genus/matching_samples/matching_count_matrix_orgs_hg.tsv"
 
 
 # Test

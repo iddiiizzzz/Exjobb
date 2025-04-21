@@ -3,9 +3,29 @@ library(pscl)
 library(reshape2)   
 
 
+# Non-normalized
+# input_file <- "/storage/koningen/genus/final_count_matrix_genes.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes.tsv"
 
-input_file <- "/storage/koningen/genus/final_count_matrix_genes.tsv"
-output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes.tsv"
+# input_file <- "/storage/koningen/genus/final_count_matrix_genes_ww.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes_ww.tsv"
+
+# input_file <- "/storage/koningen/genus/final_count_matrix_genes_hg.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zero_inflations_genes_hg.tsv"
+
+
+# # Non-normalized
+# input_file <- "/storage/koningen/genus/normalized_final_count_matrix_genes.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zero_inflations_genes.tsv"
+
+# input_file <- "/storage/koningen/genus/normalized_final_count_matrix_genes_ww.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zero_inflations_genes_ww.tsv"
+
+input_file <- "/storage/koningen/genus/normalized_final_count_matrix_genes_hg.tsv"
+output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zero_inflations_genes_hg.tsv"
+
+
+
 
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -58,3 +78,4 @@ for (i in 1:nrow(data_mat)) {
 zinb_output <- cbind(GeneNames = rownames(zinb_probabilities), zinb_probabilities)
 write.table(zinb_output, file = output_file_zinb, sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
 
+# GCA_031627275.1_ASM3162727v1_JANFIY010000056.1_seq1...tet_efflux

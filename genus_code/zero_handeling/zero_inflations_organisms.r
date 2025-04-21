@@ -2,9 +2,29 @@
 library(pscl)      
 library(reshape2)   
 
+# Non-normalized
+# input_file = "/storage/koningen/genus/final_count_matrix_orgs.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs.tsv" # tmux ida correlation
 
-input_file = "/storage/koningen/genus/final_count_matrix_orgs.tsv"
-output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs.tsv" 
+# input_file = "/storage/koningen/genus/final_count_matrix_orgs_ww.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs_ww.tsv" #tmux ida correlation_2
+
+# input_file = "/storage/koningen/genus/final_count_matrix_orgs_hg.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_probabilities_orgs_hg.tsv" #tmux ida correlation_3
+
+
+# # Normalized
+# input_file = "/storage/koningen/genus/normalize/normalized_final_count_matrix_orgs.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_probabilities_orgs.tsv" #tmux ida zinb
+
+# input_file = "/storage/koningen/genus/normalize/normalized_final_count_matrix_orgs_ww.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_probabilities_orgs_ww.tsv" # tmux ida zinb2
+
+input_file = "/storage/koningen/genus/normalize/normalized_final_count_matrix_orgs_hg.tsv"
+output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_probabilities_orgs_hg.tsv" 
+
+
+
 
 data <- read.table(input_file, sep = "\t", header = TRUE, stringsAsFactors = FALSE, encoding="utf-8")
 

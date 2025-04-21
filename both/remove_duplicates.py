@@ -36,23 +36,28 @@ without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighte
 
 # Names of organisms
 # with_duplicates = [
-#     "/storage/koningen/genus/humangut_taxid_to_names.tsv",
-#     "/storage/koningen/genus/wastewater1_taxid_to_names.tsv",
-#     "/storage/koningen/genus/wastewater2_taxid_to_names.tsv"
+#     "/storage/koningen/genus/taxonomy_code/humangut_taxid_to_names.tsv",
+#     "/storage/koningen/genus/taxonomy_code/wastewater1_taxid_to_names.tsv",
+#     "/storage/koningen/genus/taxonomy_code/wastewater2_taxid_to_names.tsv"
 # ]
 # without_duplicates = [
-#     "/storage/koningen/genus/humangut_taxid_to_names_without_duplicates.tsv",
-#     "/storage/koningen/genus/wastewater1_taxid_to_names_without_duplicates.tsv",
-#     "/storage/koningen/genus/wastewater2_taxid_to_names_without_duplicates.tsv"
+#     "/storage/koningen/genus/taxonomy_code/humangut_taxid_to_names_without_duplicates.tsv",
+#     "/storage/koningen/genus/taxonomy_code/wastewater1_taxid_to_names_without_duplicates.tsv",
+#     "/storage/koningen/genus/taxonomy_code/wastewater2_taxid_to_names_without_duplicates.tsv"
 # ]
 
 
-'''
-remove? ---------------------
-'''
-# with_duplicates = "/storage/bergid/filtered_taxids_felsok.tsv"
-# without_duplicates = "/storage/bergid/filtered_taxids_felsok_utan_duplicates.tsv"
-
+# Names of organisms
+# with_duplicates = [
+#     "/storage/koningen/species/taxonomy_code/humangut_taxid_to_names.tsv",
+#     "/storage/koningen/species/taxonomy_code/wastewater1_taxid_to_names.tsv",
+#     "/storage/koningen/species/taxonomy_code/wastewater2_taxid_to_names.tsv"
+# ]
+# without_duplicates = [
+#     "/storage/koningen/species/taxonomy_code/humangut_taxid_to_names_without_duplicates.tsv",
+#     "/storage/koningen/species/taxonomy_code/wastewater1_taxid_to_names_without_duplicates.tsv",
+#     "/storage/koningen/species/taxonomy_code/wastewater2_taxid_to_names_without_duplicates.tsv"
+# ]
 
 
 # for i in range(3): 

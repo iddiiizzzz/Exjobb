@@ -5,15 +5,15 @@
 
 
 bacteria =  [
-    "/storage/koningen/genus/bacteria_hg.tsv",
-    "/storage/koningen/genus/bacteria_ww1.tsv",
-    "/storage/koningen/genus/bacteria_ww2.tsv"
+    "/storage/koningen/genus/taxonomy_code/bacteria_hg.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_ww1.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_ww2.tsv"
     ]
 
 without_sp = [
-    "/storage/koningen/genus/bacteria_species_only_hg.tsv",
-    "/storage/koningen/genus/bacteria_species_only_ww1.tsv",
-    "/storage/koningen/genus/bacteria_species_only_ww2.tsv"
+    "/storage/koningen/genus/taxonomy_code/bacteria_species_only_hg.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_species_only_ww1.tsv",
+    "/storage/koningen/genus/taxonomy_code/bacteria_species_only_ww2.tsv"
     ]
 
 
