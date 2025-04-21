@@ -8,9 +8,9 @@
 import pandas as pd
 
 filtered_taxids_paths = [
-    "/storage/koningen/species/bacteria_final_hg.tsv",
-    "/storage/koningen/species/bacteria_final_ww1.tsv",
-    "/storage/koningen/species/bacteria_final_ww2.tsv"
+    "/storage/koningen/species/taxonomy_code/bacteria_final_hg.tsv",
+    "/storage/koningen/species/taxonomy_code/bacteria_final_ww1.tsv",
+    "/storage/koningen/species/taxonomy_code/bacteria_final_ww2.tsv"
     ]
 taxonomy_files = [
     "/storage/shared/data_for_master_students/ida_and_ellen/taxonomy_human_gut.csv",
@@ -19,9 +19,9 @@ taxonomy_files = [
 ]
 
 filtered_tax_count_paths = [
-    "/storage/koningen/species/filtered_tax_counts_hg.tsv",
-    "/storage/koningen/species/filtered_tax_counts_ww1.tsv",
-    "/storage/koningen/species/filtered_tax_counts_ww2.tsv"
+    "/storage/koningen/species/taxonomy_code/filtered_tax_counts_hg.tsv",
+    "/storage/koningen/species/taxonomy_code/filtered_tax_counts_ww1.tsv",
+    "/storage/koningen/species/taxonomy_code/filtered_tax_counts_ww2.tsv"
 ]
 
 

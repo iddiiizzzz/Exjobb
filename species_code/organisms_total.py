@@ -5,17 +5,16 @@
 
 import pandas as pd
 
-# wastewater1 = "/storage/bergid/zero_inflations/zinb_probabilities_ww.tsv"
-# humangut = "/storage/bergid/zero_inflations/zinb_probabilities_hg.tsv"
-# outfile = "/storage/koningen/zero_inflations/zinb_probabilities_all_organisms.tsv"
+##ww orgs
+# wastewater1 = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_ww1.tsv"
+# wastewater2 = "/storage/koningen/species/matching_samples/matching_count_matrix_orgs_ww2.tsv"
+# outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_ww_organisms.tsv"
 
-# wastewater1 = "/storage/bergid/taxonomy_rewrites/taxonomy_ww1.tsv"
-# wastewater2 = "/storage/bergid/taxonomy_rewrites/taxonomy_ww2.tsv"
-# outfile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms.tsv"
+##ww genes
+# wastewater1 = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_ww1.tsv"
+# wastewater2 = "/storage/koningen/species/matching_samples/matching_count_matrix_genes_ww2.tsv"
+# outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_ww_organisms_genes.tsv"
 
-wastewater1 = "/storage/bergid/taxonomy_rewrites/taxonomy_all_ww_organisms_filtered.tsv"
-humangut = "/storage/bergid/taxonomy_rewrites/taxonomy_hg_organisms_filtered.tsv"
-outfile = "/storage/bergid/taxonomy_rewrites/taxonomy_all_organisms_filtered.tsv"
 
 
 df_hgut = pd.read_csv(humangut, sep="\t", index_col=0)
