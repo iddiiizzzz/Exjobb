@@ -11,7 +11,7 @@ library(RColorBrewer)
 
 
 file_path <- "/storage/bergid/correlation/both/final_correlation_filtered.tsv"
-png <- "correlation_code/heatmaps/both/heatmap_species_filtered_all.png"
+png <- "correlation_code/heatmaps/both/species/heatmap_species_filtered_all.png"
 
 
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
