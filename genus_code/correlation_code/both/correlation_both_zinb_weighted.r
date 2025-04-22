@@ -13,14 +13,14 @@ count_matrix_orgs = "/storage/koningen/genus/combined_matrices/taxonomy_all_orga
 blast_results = "/storage/bergid/blast/blast_final.txt"
 zinb_genes <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_genes.tsv" 
 zinb_orgs <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_orgs.tsv"
-results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv" # tmux run1
+results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv" 
 
 # count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
 # count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
 # zinb_genes <- "/storage/koningen/genus/zero_inflations/zinb_matrix_genes_ww.tsv"
 # zinb_orgs <- "/storage/koningen/genus/zero_inflations/zinb_matrix_orgs_ww.tsv" 
-# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww.tsv" # tmux zinb2
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww.tsv" 
 
 # count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
 # count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
@@ -39,14 +39,14 @@ results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
 # zinb_genes <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
 # zinb_orgs <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_orgs.tsv"
-# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv" # tmux correlation
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv" 
 
 # count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
 # count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_ww.tsv"
 # blast_results = "/storage/bergid/blast/blast_final.txt"
 # zinb_genes <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_ww.tsv" 
 # zinb_orgs <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_orgs_ww.tsv" 
-# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww.tsv" # tmux correlation_2
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww.tsv" 
 
 # count_matrix_genes = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
 # count_matrix_orgs = "/storage/koningen/genus/normalize/normalized_count_matrix_hg.tsv"
