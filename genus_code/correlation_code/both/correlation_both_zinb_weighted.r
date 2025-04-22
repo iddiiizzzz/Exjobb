@@ -136,7 +136,7 @@ weighted_correlation <- function(x, y, weight_x, weight_y) {
 # Calculate correlations
 cat("Start loop\n")
 blast_gene_names <- blast_table[15]
-blast_org_names <- blast_table[16]
+blast_org_names <- blast_table[17]
 print(nrow(blast_gene_names))
 
 relevant_gene_names <- c()

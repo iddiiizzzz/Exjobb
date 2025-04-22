@@ -1,7 +1,7 @@
 
 # ------------------------------------------------------------------------------------------------------------
 
-# Filters the count matrices to remove genes org organisms with at least 90% zero counts. 
+# Filters the count matrices to remove genes or organisms with at least 90% zero counts. 
 # Transforms the data logarithmically.
 
 # Input:
@@ -42,18 +42,18 @@
 
 
 # Genus genes
-# count_matrix <- "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_genes.tsv"
-# results <- "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+count_matrix <- "/storage/koningen/genus/combined_matrices/taxonomy_all_ww_genes.tsv"
+results <- "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
 
-count_matrix <- "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
-results <- "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+# count_matrix <- "/storage/koningen/genus/matching_samples/matching_count_matrix_genes_hg.tsv"
+# results <- "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
 
 
 
 
 data <- read.table(count_matrix, sep = "\t", header = TRUE, stringsAsFactors = TRUE)
-org_names <- data$OrgNames
-# org_names <- data$GeneNames
+# org_names <- data$OrgNames
+org_names <- data$GeneNames
 rownames(data) <- org_names
 
 data <- data[, -1]  
@@ -66,6 +66,6 @@ data_mat <- matrix(as.numeric(data_mat),
                    ncol = ncol(data_mat),
                    dimnames = list(rownames(data), colnames(data)))
 
-data_mat_df <- data.frame(OrgNames = rownames(data_mat), data_mat, check.names = FALSE)
-# data_mat_df <- data.frame(GeneNames = rownames(data_mat), data_mat, check.names = FALSE)
+# data_mat_df <- data.frame(OrgNames = rownames(data_mat), data_mat, check.names = FALSE)
+data_mat_df <- data.frame(GeneNames = rownames(data_mat), data_mat, check.names = FALSE)
 write.table(data_mat_df, file = results, sep = "\t", quote = FALSE, row.names = FALSE)
