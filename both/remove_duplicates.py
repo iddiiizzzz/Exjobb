@@ -17,24 +17,7 @@
 
 import pandas as pd
 
-
-# Correlation weighted
-# with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_hg.tsv"
-# without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_hg.tsv"
-# with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_ww.tsv"
-# without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_ww.tsv"
-
-with_duplicates = "/storage/bergid/correlation/both/correlation_zinb_weighted_normalized.tsv"
-without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighted_normalized.tsv"
-
-# Correlation filtered
-# with_duplicates = "/storage/bergid/correlation/both/correlation_filtered_ww.tsv"
-# without_duplicates = "/storage/bergid/correlation/both/final_correlation_filtered_ww.tsv"
-# with_duplicates = "/storage/bergid/correlation/both/correlation_filtered_hg.tsv"
-# without_duplicates = "/storage/bergid/correlation/both/final_correlation_filtered_hg.tsv"
-
-
-# Names of organisms
+## Names of organisms (genus)
 # with_duplicates = [
 #     "/storage/koningen/genus/taxonomy_code/humangut_taxid_to_names.tsv",
 #     "/storage/koningen/genus/taxonomy_code/wastewater1_taxid_to_names.tsv",
@@ -47,7 +30,7 @@ without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighte
 # ]
 
 
-# Names of organisms
+## Names of organisms (species)
 # with_duplicates = [
 #     "/storage/koningen/species/taxonomy_code/humangut_taxid_to_names.tsv",
 #     "/storage/koningen/species/taxonomy_code/wastewater1_taxid_to_names.tsv",
@@ -58,6 +41,67 @@ without_duplicates = "/storage/bergid/correlation/both/final_correlation_weighte
 #     "/storage/koningen/species/taxonomy_code/wastewater1_taxid_to_names_without_duplicates.tsv",
 #     "/storage/koningen/species/taxonomy_code/wastewater2_taxid_to_names_without_duplicates.tsv"
 # ]
+
+
+
+### Correlation weighted
+## Normalized
+# all (species)
+with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all.tsv"
+without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_final.tsv"
+
+# #ww (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_final.tsv"
+
+# #hg (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_final.tsv"
+
+
+## Non-normalized
+# all (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all_final.tsv"
+
+# # ww (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_ww_final.tsv"
+
+# # hg (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_hg_final.tsv"
+
+
+
+### Correlation filtered
+## Normalized
+# all (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_all.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_all_final.tsv"
+
+# ww (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww_final.tsv"
+
+# hg (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg_final.tsv"
+
+## Non-normalized
+# all (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_final.tsv"
+
+# ww (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww_final.tsv"
+
+# hg (species)
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_hg_final.tsv"
+
+
 
 
 # for i in range(3): 
