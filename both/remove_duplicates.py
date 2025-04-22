@@ -90,10 +90,10 @@ import pandas as pd
 
 ## Non-normalized
 # all (species)
-# with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv"
+with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
+without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv"  
 
-# ww (species)
+# # ww (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww.tsv"
 # without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww_without_duplicates.tsv"
 
@@ -109,8 +109,8 @@ import pandas as pd
 ### Correlation weighted
 ## Normalized
 # all 
-with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv"
-without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
+# with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
 
 # #ww 
 # with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww.tsv"

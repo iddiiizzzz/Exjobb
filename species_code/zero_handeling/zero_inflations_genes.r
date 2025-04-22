@@ -9,8 +9,8 @@ library(reshape2)
 
 ### Normalized
 ## all genes
-# input_file = "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
-# output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
+input_file = "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
+output_file_zinb = "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
 
 ## ww genes
 # input_file = "/storage/koningen/species/normalize/normalized_count_matrix_ww_genes.tsv"
@@ -23,8 +23,8 @@ library(reshape2)
 
 ### Non-normalized
 ## all genes
-input_file = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
-output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_all_genes.tsv"
+# input_file = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
+# output_file_zinb = "/storage/koningen/species/zero_inflations/zinb_matrix_all_genes.tsv"
 
 ## ww genes
 # input_file = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"

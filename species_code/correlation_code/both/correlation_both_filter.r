@@ -27,18 +27,18 @@ library(reshape2)
 # results = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww.tsv"
 
 ## hg
-count_matrix_genes = "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
-count_matrix_orgs = "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
-blast_results = "/storage/bergid/blast/blast_final.txt"
-results = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg.tsv"
+# count_matrix_genes = "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
+# count_matrix_orgs = "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
+# blast_results = "/storage/bergid/blast/blast_final.txt"
+# results = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg.tsv"
 
 
 ### Non-normalized
 ## all
-# count_matrix_genes = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
-# count_matrix_orgs = "/storage/koningen/species/filter_zeros/taxonomy_all_organisms_filtered.tsv"
-# blast_results = "/storage/bergid/blast/blast_final.txt"
-# results = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
+count_matrix_genes = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
+count_matrix_orgs = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
+blast_results = "/storage/bergid/blast/blast_final.txt"
+results = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
 
 ## ww
 # count_matrix_genes = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
