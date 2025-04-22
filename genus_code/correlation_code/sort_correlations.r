@@ -5,8 +5,8 @@
 
 # Weighted correlation (non-normalized)
 
-file_path <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_without_duplicates.tsv" 
-outfile <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_sorted.tsv"
+# file_path <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_without_duplicates.tsv" 
+# outfile <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_sorted.tsv"
 
 # file_path <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww_without_duplicates.tsv"
 # outfile <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww_sorted.tsv"
@@ -17,8 +17,8 @@ outfile <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_sor
 
 # Weighted correlation (normalized)
 
-# file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
-# outfile <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_sorted.tsv"
+file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
+outfile <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_sorted.tsv"
 
 # file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww_without_duplicates.tsv"
 # outfile <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww_sorted.tsv"

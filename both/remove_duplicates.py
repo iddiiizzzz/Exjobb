@@ -90,8 +90,8 @@ import pandas as pd
 
 ## Non-normalized
 # all (species)
-with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
-without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv"  
+# with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv"  
 
 # # ww (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww.tsv"
@@ -109,8 +109,8 @@ without_duplicates = "/storage/bergid/correlation/species/both/correlation_filte
 ### Correlation weighted
 ## Normalized
 # all 
-# with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv"
-# without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
+with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv"
+without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
 
 # #ww 
 # with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww.tsv"
@@ -170,7 +170,8 @@ without_duplicates = "/storage/bergid/correlation/species/both/correlation_filte
 df = pd.read_csv(with_duplicates, delimiter = "\t", header = None)
 
 print(f"Before: {df.shape[0]} rows")
-df.drop_duplicates(inplace=True)
+# df.drop_duplicates(inplace=True)
+df.drop_duplicates(subset=[0, 1], inplace=True)  
 print(f"After: {df.shape[0]} rows")
 
 df.to_csv(without_duplicates, sep="\t", index=False, header = False)
