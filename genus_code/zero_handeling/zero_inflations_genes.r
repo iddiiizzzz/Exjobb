@@ -7,7 +7,7 @@ library(reshape2)
 # input_file =  "/storage/koningen/genus/combined_matrices/taxonomy_all_genes.tsv"
 # output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_genes.tsv" 
 
-# input_file = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+# input_file = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv" 
 # output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_genes_ww.tsv" 
 
 # input_file = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
@@ -16,14 +16,14 @@ library(reshape2)
 
 
 # Normalized
-input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_all_genes.tsv"
-output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
+# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_all_genes.tsv"
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
 
 # input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_ww_genes.tsv"
 # output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_ww.tsv" 
 
-# input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_hg.tsv" 
+input_file = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
+output_file_zinb <- "/storage/koningen/genus/zero_inflations/normalized_zinb_matrix_genes_hg.tsv" 
 
 
 
