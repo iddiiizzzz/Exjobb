@@ -13,7 +13,7 @@ library(RColorBrewer)
 
 # Weighted correlation (non-normalized)
 
-# file_path <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_sorted.tsv" # tmux correlation
+# file_path <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_sorted.tsv" 
 # png <- "heatmaps/both/genus/heatmap_genus_weighted_all.png"
 
 # file_path <- "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww_sorted.tsv"
@@ -25,8 +25,8 @@ library(RColorBrewer)
 
 # Weighted correlation (normalized)
 
-file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_sorted.tsv"
-png <- "heatmaps/both/genus/normalized_heatmap_genus_weighted_all.png"
+# file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_sorted.tsv"
+# png <- "heatmaps/both/genus/normalized_heatmap_genus_weighted_all.png"
 
 # file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww_sorted.tsv"
 # png <- "heatmaps/both/genus/normalized_heatmap_genus_weighted_ww.png"
@@ -57,8 +57,8 @@ png <- "heatmaps/both/genus/normalized_heatmap_genus_weighted_all.png"
 # file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww_sorted.tsv"
 # png <- "heatmaps/both/genus/normalized_heatmap_genus_filtered_ww.png"
 
-# file_path <- "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_sorted.tsv"
-# png <- "heatmaps/both/genus/normalized_heatmap_genus_filtered_hg.png"
+file_path <- "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_sorted.tsv"
+png <- "heatmaps/both/genus/normalized_heatmap_genus_filtered_hg.png"
 
 
 
@@ -88,11 +88,4 @@ pheatmap(cor_matrix,
 dev.off()
 
 
-
-
-# tmux correlation_2
-# tmux correlation_3
-# tmux zinb
-# tmux zinb2
-# tmux zinb3
 
