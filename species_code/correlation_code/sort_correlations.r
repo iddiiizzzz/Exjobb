@@ -50,16 +50,16 @@
 
 ## Non-normalized
 # all 
-file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv" 
-outfile <- "/storage/bergid/correlation/species/both/correlation_filtered_all_sorted.tsv"
+# file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv" 
+# outfile <- "/storage/bergid/correlation/species/both/correlation_filtered_all_sorted.tsv"
 
 # ww
 # file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_ww_without_duplicates.tsv"
 # outfile <- "/storage/bergid/correlation/species/both/correlation_filtered_ww_sorted.tsv"
 
 #hg
-# file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_without_duplicates.tsv"
-# outfile <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_sorted.tsv"
+file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_without_duplicates.tsv"
+outfile <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_sorted.tsv"
 
 
 
