@@ -13,7 +13,7 @@ count_matrix_orgs = "/storage/koningen/genus/combined_matrices/taxonomy_all_orga
 blast_results = "/storage/bergid/blast/blast_final.txt"
 zinb_genes <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_genes.tsv" 
 zinb_orgs <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_orgs.tsv"
-results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv" # ej körd än
+results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv" # tmux run1
 
 # count_matrix_genes = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
 # count_matrix_orgs = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"

@@ -5,7 +5,7 @@ library(reshape2)
 
 # # Non-normalized
 # input_file = "/storage/koningen/genus/combined_matrices/taxonomy_all_organisms.tsv"
-# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_orgs.tsv" # tmux ida run1
+# output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_all_orgs.tsv"
 
 # input_file = "/storage/koningen/genus/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
 # output_file_zinb <- "/storage/koningen/genus/zero_inflations/zinb_matrix_orgs_ww.tsv" 

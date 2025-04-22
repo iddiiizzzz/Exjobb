@@ -47,30 +47,30 @@ import pandas as pd
 ### Correlation weighted
 ## Normalized
 # all (species)
-with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all.tsv"
-without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_final.tsv"
+# with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_without_duplicates.tsv"
 
 # #ww (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_without_duplicates.tsv"
 
 # #hg (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_without_duplicates.tsv"
 
 
 ## Non-normalized
 # all (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all_without_duplicates.tsv"
 
 # # ww (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_ww.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_ww_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_ww_without_duplicates.tsv"
 
 # # hg (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_hg.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_hg_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_zinb_weighted_hg_without_duplicates.tsv"
 
 
 
@@ -78,28 +78,90 @@ without_duplicates = "/storage/bergid/correlation/species/both/normalized_correl
 ## Normalized
 # all (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_all.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_all_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_all_without_duplicates.tsv"
 
 # ww (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww_without_duplicates.tsv"
 
 # hg (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg_without_duplicates.tsv"
 
 ## Non-normalized
 # all (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_all_without_duplicates.tsv"
 
 # ww (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_ww_without_duplicates.tsv"
 
 # hg (species)
 # with_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_hg.tsv"
-# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_hg_final.tsv"
+# without_duplicates = "/storage/bergid/correlation/species/both/correlation_filtered_hg_without_duplicates.tsv"
+
+
+
+
+# Genus
+
+### Correlation weighted
+## Normalized
+# all 
+with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted.tsv"
+without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_without_duplicates.tsv"
+
+# #ww 
+# with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww_without_duplicates.tsv"
+
+# #hg 
+# with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_hg_without_duplicates.tsv"
+
+
+## Non-normalized
+# all 
+# with_duplicates = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted.tsv" # ej körd än
+# without_duplicates = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_without_duplicates.tsv"
+
+# # ww 
+# with_duplicates = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww_without_duplicates.tsv"
+
+# # hg 
+# with_duplicates = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_hg.tsv"  
+# without_duplicates = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_hg_without_duplicates.tsv"  
+
+
+
+### Correlation filtered
+## Normalized
+# all 
+# with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered.tsv" 
+# without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_without_duplicates.tsv" 
+
+# ww
+# with_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww_without_duplicates.tsv"
+
+# hg 
+# with_duplicates = "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_without_duplicates.tsv"
+
+## Non-normalized
+# all 
+# with_duplicates = "/storage/bergid/correlation/genus/both/correlation_filtered.tsv" 
+# without_duplicates = "/storage/bergid/correlation/genus/both/correlation_filtered_without_duplicates.tsv" 
+
+# ww
+# with_duplicates = "/storage/bergid/correlation/genus/both/correlation_filtered_ww.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/correlation_filtered_ww_without_duplicates.tsv"
+
+# hg 
+# with_duplicates = "/storage/bergid/correlation/genus/both/correlation_filtered_hg.tsv"
+# without_duplicates = "/storage/bergid/correlation/genus/both/correlation_filtered_hg_without_duplicates.tsv"
 
 
 
