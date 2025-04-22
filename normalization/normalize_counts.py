@@ -83,12 +83,17 @@ summed_sample_counts_df = pd.read_csv(summed_sample_counts, sep = "\t")
 summed_sample_counts_df.set_index("Sample", inplace=True)
 normalized_count = count_matrix_df.copy()
 
+
 for sample in count_matrix_df.columns[1:]:
     print(sample)
     if sample in summed_sample_counts_df.index:
         total_count = summed_sample_counts_df.loc[sample, "Counts"]
 
-        normalized_count[sample] = count_matrix_df[sample] / total_count
+        if total_count == 0 or pd.isnull(total_count):
+            normalized_count[sample] = 0
+
+        else:
+            normalized_count[sample] = count_matrix_df[sample] / total_count
     
 print("hej")
 

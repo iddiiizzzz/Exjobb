@@ -17,12 +17,12 @@ library(pbapply)
 
 ### Normalized
 ## all
-count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv" 
-count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
-blast_results <- "/storage/bergid/blast/blast_final.txt"
-zinb_genes <- "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
-zinb_orgs <- "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_orgs.tsv"
-results <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all.tsv"
+# count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
+# count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
+# blast_results <- "/storage/bergid/blast/blast_final.txt"
+# zinb_genes <- "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_genes.tsv" 
+# zinb_orgs <- "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_all_orgs.tsv"
+# results <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all.tsv"
 
 ## ww
 # count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_ww_genes.tsv"
@@ -34,7 +34,7 @@ results <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb
 
 
 ## hg
-# count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
+# count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv" 
 # count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
 # blast_results <- "/storage/bergid/blast/blast_final.txt"
 # zinb_genes <- "/storage/koningen/species/zero_inflations/normalized_zinb_matrix_hg_genes.tsv" 
@@ -44,14 +44,14 @@ results <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb
 
 ### Non-normalized
 ## all
-# count_matrix_genes <- "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
-# count_matrix_orgs <- "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
-# blast_results <- "/storage/bergid/blast/blast_final.txt"
-# zinb_genes <- "/storage/koningen/species/zero_inflations/zinb_matrix_all_genes.tsv" 
-# zinb_orgs <- "/storage/koningen/species/zero_inflations/zinb_matrix_all_orgs.tsv" 
-# results <- "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all.tsv"
+count_matrix_genes <- "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
+count_matrix_orgs <- "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
+blast_results <- "/storage/bergid/blast/blast_final.txt"
+zinb_genes <- "/storage/koningen/species/zero_inflations/zinb_matrix_all_genes.tsv" 
+zinb_orgs <- "/storage/koningen/species/zero_inflations/zinb_matrix_all_orgs.tsv" 
+results <- "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all.tsv"
 
-## ww
+# ww
 # count_matrix_genes <- "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
 # count_matrix_orgs <- "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
 # blast_results <- "/storage/bergid/blast/blast_final.txt"
@@ -117,8 +117,6 @@ weight_matrix_genes <- matrix(0, nrow = nrow(data_mat_genes), ncol = ncol(data_m
 weight_matrix_genes[data_mat_genes != 0] <- 1  # Where data is non-zero, weight is 1
 weight_matrix_genes[data_mat_genes == 0] <- (1 - as.matrix(zinb_probs_genes)[data_mat_genes == 0]) * 0.01
 
-# zero_indices <- which(data_mat_genes == 0, arr.ind = TRUE)
-# weight_matrix_genes[zero_indices] <- (1 - zinb_probs_genes[zero_indices]) * 0.01
 
 weight_matrix_genes[as.matrix(zinb_probs_genes) == 1 & data_mat_genes == 0] <- 10^(-15)
 
