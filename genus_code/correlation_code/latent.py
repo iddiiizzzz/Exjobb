@@ -1,8 +1,59 @@
 import pandas as pd
 
-correlation_list = ""
 latent_list = "/storage/bergid/dictionaries/args_latent_established.tsv"
-results = ""
+
+
+# Weighted correlation (non-normalized)
+
+correlation_list = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_sorted.tsv" 
+results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_status.tsv" 
+
+# correlation_list = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_ww_status.tsv"
+
+# correlation_list = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_hg_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_zinb_weighted_hg_status.tsv"
+
+
+# Weighted correlation (normalized)
+
+# correlation_list = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_status.tsv"
+
+# correlation_list = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_ww_status.tsv"
+
+# correlation_list = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_hg_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_zinb_weighted_hg_status.tsv"
+
+
+
+
+# Filtered correlation (non-normalized)
+
+# correlation_list = "/storage/bergid/correlation/genus/both/correlation_filtered_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_filtered_status.tsv"
+
+# correlation_list = "/storage/bergid/correlation/genus/both/correlation_filtered_ww_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_filtered_ww_status.tsv"
+
+# correlation_list = "/storage/bergid/correlation/genus/both/correlation_filtered_hg_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/correlation_filtered_hg_status.tsv"
+
+
+# Filtered correlation (normalized)
+
+# correlation_list = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_sorted.tsv"  
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_status.tsv" 
+
+# correlation_list = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww_status.tsv"
+
+# correlation_list = "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_sorted.tsv"
+# results = "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_status.tsv"
+
+
+
 
 print("dictionary")
 latent_dictionary = {}
