@@ -9,63 +9,18 @@ library(pheatmap)
 library(gplots)
 library(RColorBrewer)
 
-### Correlation weighted
-## Normalized
-# all 
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_status.tsv"
+
+## all 
+# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
 
-# ww
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_status.tsv"
+## ww
+# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_ww.png"
 
-# hg
-file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_status.tsv"
+## hg
+file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_appearences.tsv"
 png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
-
-
-## Non-normalized
-# all 
-# file_path <- "/storage/bergid/correlation/species/both/correlation_zinb_weighted_all_status.tsv"
-# png <- "heatmaps/both/species/heatmap_species_weighted_all.png"
-
-# ww
-# file_path <- "/storage/bergid/correlation/species/both/correlation_zinb_weighted_ww_status.tsv"
-# png <- "heatmaps/both/species/heatmap_species_weighted_ww.png"
-
-#hg
-# file_path <- "/storage/bergid/correlation/species/both/correlation_zinb_weighted_hg_status.tsv"
-# png <- "heatmaps/both/species/heatmap_species_weighted_hg.png"
-
-
-
-### Correlation filtered
-## Normalized
-# all 
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_filtered_all_status.tsv"
-# png <- "heatmaps/both/species/normalized_heatmap_species_filtered_all.png"
-
-# ww
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_filtered_ww_status.tsv"
-# png <- "heatmaps/both/species/normalized_heatmap_species_filtered_ww.png"
-
-# hg
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_filtered_hg_status.tsv"
-# png <- "heatmaps/both/species/normalized_heatmap_species_filtered_hg.png"
-
-
-## Non-normalized
-# all 
-# file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_all_status.tsv"
-# png <- "heatmaps/both/species/heatmap_species_filtered_all.png"
-
-# ww
-# file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_ww_status.tsv"
-# png <- "heatmaps/both/species/heatmap_species_filtered_ww.png"
-
-#hg
-# file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_status.tsv"
-# png <- "heatmaps/both/species/heatmap_species_filtered_hg.png"
 
 
 
@@ -92,16 +47,26 @@ my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 vals <- seq(-1, 1, length.out = 101)  # use full correlation range
 breaks_list <- sign(vals) * (abs(vals)^2) * 0.7  # scale to match your limits
 
-display_vals <- ifelse(cor_matrix != 0, "*", "")
+
+# Printing the number of org and gene appearances on the boxes that have a correlation value
+appearances_matrix <- dcast(correlations, Gene ~ Organism, value.var = "Appearances")
+
+rownames(appearances_matrix) <- appearances_matrix$Gene
+appearances_matrix <- as.matrix(appearances_matrix[,-1])
+
+appearances_matrix[is.na(appearances_matrix)] <- ""
+
+display_vals <- ifelse(cor_matrix != 0, appearances_matrix, "")
+
 
 # 5000 width/height + res 900 bra för 181 st
-png(png, width = 6000, height = 6000, res = 900)
+png(png, width = 12000, height = 12000, res = 1500)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between chosen values
     # main = "ARG-Host Correlation Heatmap ", 
     display_numbers = display_vals,
-    fontsize_number = 4, # storlek på *
+    fontsize_number = 0.5, # storlek på display_vals
     fontsize_row = 1, 
     fontsize_col = 1, 
     angle_col = 90)
