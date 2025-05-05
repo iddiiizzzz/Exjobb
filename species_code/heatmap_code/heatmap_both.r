@@ -20,8 +20,8 @@ library(RColorBrewer)
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_ww.png"
 
 # hg
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_status.tsv"
-# png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
+file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_status.tsv"
+png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
 
 
 ## Non-normalized
@@ -64,9 +64,9 @@ library(RColorBrewer)
 # png <- "heatmaps/both/species/heatmap_species_filtered_ww.png"
 
 #hg
-file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_status.tsv"
+# file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_status.tsv"
 # png <- "heatmaps/both/species/heatmap_species_filtered_hg.png"
-png <- "heatmaps/test2.png"
+
 
 
 
