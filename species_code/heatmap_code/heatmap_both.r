@@ -11,16 +11,16 @@ library(RColorBrewer)
 
 
 ## all 
-# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
-# png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
+file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
+png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
 
 ## ww
 # file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_ww.png"
 
 ## hg
-file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_appearences.tsv"
-png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
+# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_appearences.tsv"
+# png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
 
 
 
