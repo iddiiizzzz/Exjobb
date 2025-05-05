@@ -17,15 +17,15 @@ import pandas as pd
 
 
 ## all orgs
-# wastewater1 =  "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
-# humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
-# outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
+wastewater1 =  "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
 
 
 ## all genes
-wastewater1 = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
-humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_genes_filtered.tsv"
-outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
+# wastewater1 = "/storage/koningen/species/filter_zeros/taxonomy_all_ww_genes_filtered.tsv"
+# humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_genes_filtered.tsv"
+# outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_genes.tsv"
 
 
 

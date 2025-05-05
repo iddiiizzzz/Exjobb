@@ -15,6 +15,7 @@
 
 
 import pandas as pd
+import numpy as np
 
 # count_matrix = "/home/bergid/Exjobb/test_files/final_count_matrix_orgs.tsv"
 # normalized_count_matrix = "test_files/normalized_counts.tsv"
@@ -71,7 +72,7 @@ import pandas as pd
 # summed_sample_counts = "/storage/bergid/dictionaries/bacterial_counts.tsv"
 # normalized_count_matrix = "/storage/koningen/genus/normalize/normalized_count_matrix_hg.tsv"
 
-## Genus hg genes
+# Genus hg genes
 # count_matrix = "/storage/koningen/genus/filter_zeros/taxonomy_hg_genes_filtered.tsv"
 # summed_sample_counts = "/storage/bergid/dictionaries/normalisation_dictionary_genes.tsv"
 # normalized_count_matrix = "/storage/koningen/genus/normalize/normalized_count_matrix_hg_genes.tsv"
@@ -97,7 +98,7 @@ summed_sample_counts_df = pd.read_csv(summed_sample_counts, sep = "\t")
 
 summed_sample_counts_df.set_index("Sample", inplace=True)
 normalized_count = count_matrix_df.copy()
-
+normalized_count_log = count_matrix_df.copy()
 
 for sample in count_matrix_df.columns[1:]:
     print(sample)
@@ -111,4 +112,11 @@ for sample in count_matrix_df.columns[1:]:
             normalized_count[sample] = count_matrix_df[sample] / total_count
     
 
+# Convert count values to float to ensure correct data type
+normalized_count.iloc[:, 1:] = normalized_count.iloc[:, 1:].astype(float)
+
+# Apply log normalization
+normalized_count.iloc[:, 1:] = np.log1p(normalized_count.iloc[:, 1:])
+
 normalized_count.to_csv(normalized_count_matrix, sep="\t", index=False)
+print("hey")

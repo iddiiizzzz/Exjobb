@@ -16,7 +16,7 @@
 import pandas as pd
 
 count_matrix = "/storage/shared/data_for_master_students/ida_and_ellen/count_matrix.tsv"
-normalization_dictionary = "/storage/bergid/normalisation_dictionary_genes.tsv"
+normalization_dictionary = "/storage/bergid/dictionaries/normalisation_dictionary_genes.tsv"
 
 summed_counts = []
 sample_names = []
