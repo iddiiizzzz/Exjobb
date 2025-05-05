@@ -65,8 +65,8 @@ library(RColorBrewer)
 
 #hg
 file_path <- "/storage/bergid/correlation/species/both/correlation_filtered_hg_sorted.tsv"
-png <- "heatmaps/both/species/heatmap_species_filtered_hg.png"
-
+# png <- "heatmaps/both/species/heatmap_species_filtered_hg.png"
+png <- "heatmaps/test2.png"
 
 
 
@@ -83,6 +83,7 @@ cor_matrix[is.na(cor_matrix)] <- 0
 
 my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 breaks_list <- seq(-0.7, 0.7, length.out = 101)  # Ensures proper scaling from -1 to 1
+display_vals <- ifelse(cor_matrix != 0, "*", "")
 
 # 5000 width/height + res 900 bra för 181 st
 png(png, width = 6000, height = 6000, res = 900)
@@ -90,6 +91,8 @@ pheatmap(cor_matrix,
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between -1 and 1
     # main = "ARG-Host Correlation Heatmap ", 
+    display_numbers = display_vals,
+    fontsize_number = 4, # storlek på *
     fontsize_row = 1, 
     fontsize_col = 1, 
     angle_col = 90)
