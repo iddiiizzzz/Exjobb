@@ -57,8 +57,8 @@ library(RColorBrewer)
 # file_path <- "/storage/bergid/correlation/genus/both/normalized_correlation_filtered_ww_status.tsv"
 # png <- "heatmaps/both/genus/normalized_heatmap_genus_filtered_ww.png"
 
-file_path <- "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_status.tsv"
-png <- "heatmaps/both/genus/test.png"
+# file_path <- "/storage/bergid/correlation/genus/both/noremalized_correlation_filtered_hg_status.tsv"
+# png <- "heatmaps/both/genus/test.png"
 # png <- "heatmaps/both/genus/normalized_heatmap_genus_filtered_hg.png"
 
 
