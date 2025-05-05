@@ -50,8 +50,11 @@ cor_matrix[is.na(cor_matrix)] <- 0
 
 
 my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
-breaks_list <- seq(-1, 1, length.out = 101)  # Ensures proper scaling from -1 to 1
+# breaks_list <- seq(-1, 1, length.out = 101)  # Ensures proper scaling from -1 to 1
 
+# Define a nonlinear (squared) color scale
+vals <- seq(-1, 1, length.out = 101)  # use full correlation range
+breaks_list <- sign(vals) * (abs(vals)^2) * 0.7  # scale to match your limits
 
 # 5000 width/height + res 900 bra för 181 st
 png(png, width = 5000, height = 5000, res = 900)
