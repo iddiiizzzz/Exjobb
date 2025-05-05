@@ -8,8 +8,11 @@
         - orgs_outfile: Path to the file with the counts matrix for the organisms.
 
     Output:
-        - genes_outfile: Path to the output file stores the sample filtered count matrix for the genes.
-        - orgs_outfile: Path to the output file stores the sample filtered count matrix for the organisms.
+        - genes_outfile: Path to the output file that stores the sample filtered count matrix for the genes.
+        - orgs_outfile: Path to the output file that stores the sample filtered count matrix for the organisms.
+
+    Notes:
+        - Switch the out commented files and rows depending on which matrix to filter and transform.
 
 """
 

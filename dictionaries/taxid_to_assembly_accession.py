@@ -17,3 +17,4 @@ with open(ncbi_file, "r") as conversion, open(dictionary, "w") as outfile:
 
 
 
+# Remove?

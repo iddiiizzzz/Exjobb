@@ -1,17 +1,16 @@
 
 """
-    Filters the count matrices for genes and organisms to only keep the samples that exists in both files.
+    Removes rows in the file that are the exact same.
 
     Input:
-        - genes_infile: Path to the file with the count matrix for the genes.
-        - orgs_outfile: Path to the file with the counts matrix for the organisms.
+        - with_duplicates: Path to the file that contains duplicates of rows.
 
     Output:
-        - genes_outfile: Path to the output file stores the sample filtered count matrix for the genes.
-        - orgs_outfile: Path to the output file stores the sample filtered count matrix for the organisms.
+        - without_duplicates: Path to the outputfile that stores the duplicate filtered file.
 
     Notes:
         - For running multiple files, add the for loop and indent the rest of the code.
+        - Switch the out commented files and rows depending on which matrix to filter and transform.
 
 """
 
@@ -170,7 +169,6 @@ without_duplicates = "/storage/bergid/correlation/genus/both/normalized_correlat
 df = pd.read_csv(with_duplicates, delimiter = "\t", header = None)
 
 print(f"Before: {df.shape[0]} rows")
-# df.drop_duplicates(inplace=True)
 df.drop_duplicates(subset=[0, 1], inplace=True)  
 print(f"After: {df.shape[0]} rows")
 

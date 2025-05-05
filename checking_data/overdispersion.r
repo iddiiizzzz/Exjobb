@@ -1,12 +1,28 @@
 
+# ------------------------------------------------------------------------------------------------------------
+
+# Creates a scatterplot of the dispersion of the data.
+
+# Input:
+#     - count_matrix: Path to the count matrix.
+
+# Output:
+#     - output_file: Path to where the scatter plot is stored.
+
+# ------------------------------------------------------------------------------------------------------------
+
+
 
 library(ggplot2)
 
-count_data <- read.table("/storage/koningen/final_count_matrix_orgs.tsv", sep = "\t", header = TRUE, row.names = 1)
+
+count_matrix <- "/storage/koningen/final_count_matrix_orgs.tsv"
 output_file <- "checking_data/scatterplot_orgs.png"
 
 
-sampled_genes <- sample(rownames(count_data), 1000)  # Select 100 random genes
+count_data <- read.table(count_matrix, sep = "\t", header = TRUE, row.names = 1)
+
+sampled_genes <- sample(rownames(count_data), 1000)  # Select random genes
 sampled_data <- count_data[sampled_genes, ]
 
 

@@ -1,4 +1,19 @@
 
+"""
+    Normalizes the count valuies in the count matrices by dividing them of the total count values for the sample.
+
+    Input:
+        - count_matrix: Path to the count matrix that should be normalized.
+        - summed_sample_counts: Path to a list of all samples and their total count value.
+
+    Output:
+        - normalized_count_matrix: Path to the output file with the normalized count matrix.
+
+    Notes:
+        - Change the out commented file paths depending on which files to normalize.
+"""
+
+
 import pandas as pd
 
 # count_matrix = "/home/bergid/Exjobb/test_files/final_count_matrix_orgs.tsv"
@@ -95,6 +110,5 @@ for sample in count_matrix_df.columns[1:]:
         else:
             normalized_count[sample] = count_matrix_df[sample] / total_count
     
-print("hej")
 
 normalized_count.to_csv(normalized_count_matrix, sep="\t", index=False)

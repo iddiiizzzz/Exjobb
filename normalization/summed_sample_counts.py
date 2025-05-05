@@ -1,4 +1,17 @@
 
+"""
+    Sums all count values in a sample and stores it in a list with their respective sample names.
+
+    Input:
+        - count_matrix: Path to the count matrix for the genes.
+
+    Output:
+        - normalization_dictionary: Path to the output file with the summed count list.
+
+    Notes:
+        - This only needs to be done for the genes, the organisms had a complete list aldready.
+"""
+
 
 import pandas as pd
 

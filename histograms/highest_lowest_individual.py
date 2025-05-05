@@ -1,14 +1,24 @@
 
-# -------------------------------------------------------------------
-# Finding the N genes with the highest and lowest individual count
-# -------------------------------------------------------------------
+"""
+    Finds the N genes or organisms with the highest and lowest individual counts in the count matrix.
 
-'''
-Changes for switching between highest or lowest:
-- Output file
-- "extreme_value" = min/max
-- True/False in sort
-'''
+    Input:
+        - count_matrix: Path to the count matrix that is examined.
+
+    Output:
+        - highest_individual_counts: Path to the outfile that stores a new count matrix with only the genes or 
+          organisms that had the highest individual counts.
+        - lowest_individual_counts: Path to the outfile that stores a new count matrix with only the genes or 
+          organisms that had the lowest individual counts.
+
+    Notes:
+        - Changes to do between finding highest and lowest counts:
+            - Change the outputfile.
+            - Change "extreme_value" to min or max.
+            - Change to True or False in sort.
+"""
+
+
 
 import numpy as np
 import pandas as pd
@@ -46,14 +56,14 @@ with open(count_matrix, "r") as infile:
         identifier = columns[0]  
         numeric_values = list(map(int, columns[1:])) 
         
-        # Calculate the number of zeroes in the row
+        
         num_zeroes = numeric_values.count(0)
         zero_percentage = num_zeroes / len(numeric_values)
 
         # Only include rows with more than 75% non-zero
         if zero_percentage <= max_zero_percentage:
-        #    extreme_value = max(numeric_values)  # Find the maximum value in the row
-           extreme_value = min(numeric_values) # Find the minimum value in the row
+        #    extreme_value = max(numeric_values)  
+           extreme_value = min(numeric_values) 
            values.append((identifier, extreme_value))  
 
 

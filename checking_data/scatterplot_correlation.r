@@ -1,4 +1,21 @@
 
+# ------------------------------------------------------------------------------------------------------------
+
+# Creates a scatterplot of the count values for one gene and one organism.
+
+# Input:
+#     - count_matrix_genes: Path to the count matrix for genes.
+#     - count_matrix_orgs: Path to the count matrix for organisms.
+
+# Output:
+#     - output_file: Path to where the scatter plot is stored.
+
+# Notes:
+#     - Change the gene and organism names depending on which pair to examine.
+#     - Change the out commented paths depending on which matrices to examine.
+
+# ------------------------------------------------------------------------------------------------------------
+
 
 library(ggplot2)
 library(reshape2)

@@ -3,10 +3,12 @@
     Translates the organism IDs to their taxonomic genus names and adds them as a new column in the BLAST results table.
 
     Input:
-        - blast: Path to the BLAST results.
+        - genome_taxonomy: Path to a file with Assembly IDs and their taxonomic lineage.
+        - blast_results: Path to the BLAST results.
+        - id_conversion: Path to a conversion table between assembly ID and conting ID.
 
     Output:
-        - filtered_blast: Path to the output file that will store the filtered BLAST results table.
+        - filtered_blast: Path to the output file that will store the BLAST results table.
 
 """
 

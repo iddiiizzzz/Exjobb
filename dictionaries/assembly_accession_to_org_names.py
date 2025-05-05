@@ -22,3 +22,4 @@ with open(taxonomy_lineage, "r") as taxonomy, open(dictionary, "w") as outfile:
 
 
 
+# Remove?
