@@ -93,13 +93,15 @@ my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 # Define a nonlinear (squared) color scale
 vals <- seq(-1, 1, length.out = 101)  # use full correlation range
 breaks_list <- sign(vals) * (abs(vals)^2) * 0.7  # scale to match your limits
-
+display_vals <- ifelse(cor_matrix != 0, "*", "")
 
 # 5000 width/height + res 900 bra för 181 st
 png(png, width = 6000, height = 6000, res = 900)
 pheatmap(cor_matrix, 
     col = my_palette, 
     breaks = breaks_list,  # Fix scale between chosen values
+    display_numbers = display_vals,
+    fontsize_number = 4, # storlek på *
     # main = "ARG-Host Correlation Heatmap (filtered)", 
     fontsize_row = 1, 
     fontsize_col = 1, 
