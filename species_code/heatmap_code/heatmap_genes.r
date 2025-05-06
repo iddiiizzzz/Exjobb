@@ -1,7 +1,20 @@
 
-# ---------------------------------------------------------
-# Create a heatmap for correlation over gene vs gene
-# ---------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
+
+# Create a heatmap for correlations over gene vs gene.
+
+# Input:
+#     - file_path: Path to the correlation list file.
+
+# Output:
+#     - png: Path to the created image in png format.
+
+# Notes:
+#     - Change the out commented files depending on which data to use.
+#     - Change the title depending on the data.
+
+# ------------------------------------------------------------------------------------------------------------
+
 
 library(ggplot2)
 library(reshape2)  
@@ -9,8 +22,7 @@ library(pheatmap)
 library(gplots)
 library(RColorBrewer)
 
-# file_path <- "test_files/correlation_zinb_threshold_test.tsv"
-# png <- "test_files/heatmap_gene_test_na.png"
+
 
 # file_path <- "/storage/bergid/correlation/genes/gene_correlation.tsv"
 # png <- "correlation_code/heatmaps/genes/heatmap_genes.png"
@@ -32,29 +44,23 @@ library(RColorBrewer)
 file_path <- "/storage/bergid/correlation/genes/genes_correlation_zero_inflation_threshold.tsv"
 png <- "correlation_code/heatmaps/genes/heatmap_genes_threshold.png"
 
+
+
+
+
 correlations <- read.table(file_path, sep = "\t", header = TRUE, stringsAsFactors = FALSE, strip.white = TRUE)
 cor_matrix <- dcast(correlations, Gene1 ~ Gene2, value.var = "CorrelationCoefficient")
 
-# Remove first column
+
 rownames(cor_matrix) <- cor_matrix$Gene1
 cor_matrix <- as.matrix(cor_matrix[,-1])
-
-
-sum(is.na(cor_matrix))      # Count of NAs
-sum(is.nan(cor_matrix))      # Count of NaNs
-sum(is.infinite(cor_matrix)) # Count of Infs
-
-
-# Handle missing values
 cor_matrix[is.na(cor_matrix)] <- 0
 
 
-my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
-# breaks_list <- seq(-1, 1, length.out = 101)  # Ensures proper scaling from -1 to 1
+vals <- seq(-1, 1, length.out = 101)  
+breaks_list <- sign(vals) * (abs(vals)^2) * 0.7  
 
-# Define a nonlinear (squared) color scale
-vals <- seq(-1, 1, length.out = 101)  # use full correlation range
-breaks_list <- sign(vals) * (abs(vals)^2) * 0.7  # scale to match your limits
+my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 
 # 5000 width/height + res 900 bra för 181 st
 png(png, width = 5000, height = 5000, res = 900)

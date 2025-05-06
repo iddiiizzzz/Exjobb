@@ -12,6 +12,7 @@
           organisms that had the lowest individual counts.
 
     Notes:
+        - Change input and output files depending on if you want genes or organisms.
         - Changes to do between finding highest and lowest counts:
             - Change the outputfile.
             - Change "extreme_value" to min or max.
@@ -20,14 +21,11 @@
 
 
 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 
 
-# # Genes
+# Genes
 # count_matrix = "/storage/koningen/count_matrix.tsv"
-# # highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_gene.tsv"
+# highest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_gene.tsv"
 # lowest_individual_counts = "/storage/koningen/ranked_counts/individual_counts/lowest_individual_counts_gene.tsv"
 
 

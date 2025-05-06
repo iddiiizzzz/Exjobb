@@ -1,17 +1,27 @@
 
-# -------------------------------------------------
-# Create histogram for values in one  file
-# -------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
+
+# Create histogram for count values.
+
+# Input:
+#     - infile: Path to the count matrix of the genes or organisms with the highest or lowest counts.
+
+# Output:
+#     - outfile: Path to the created image in png format.
+
+# Notes:
+#     - Add the line for limit the y-axis if it get too high to see the rest of the data.
+#     - Change the out commented input files and ggsave lines depending on which data to use.
+#     - Change transformation depending on which one you want to use.
+#     - Change the title depending on the data.
+
+# ------------------------------------------------------------------------------------------------------------
 
 
 library(ggplot2)
 
-# Full data counts
-# data <- read.table("/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
-# data <- read.table("/storage/koningen/count_matrix.tsv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
 
-
-# # Gene counts
+# Gene counts
 # infile = "/storage/koningen/count_matrix.tsv"
 
 infile = "/storage/koningen/ranked_counts/individual_counts/highest_individual_counts_gene.tsv"
@@ -37,9 +47,9 @@ outfile = "histograms/bilder/genes/one_gene_histograms/highest_individual_count_
 # outfile = "histograms/bilder/genes/one_gene_histograms/lowest_mean_count_gene_sqrt.jpg"
 
 
-
 # # Organism counts
 # data <- read.table("/storage/koningen/ranked_counts/sum_counts/lowest_sum_counts_org_hg.tsv", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+
 
 
 data <- read.table(infile, sep = "\t", header = TRUE, stringsAsFactors = FALSE)
@@ -52,7 +62,7 @@ values <- log(values+1)
 df <- data.frame(values = values)
 
 
-# change binwidth depending on highest count. 1000 for 44 000 000. 1 for 1000(?)
+# change binwidth depending on highest count. 1000 for 44 000 000. 1 for 1000
 ggplot(df, aes(x = values)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black", boundary = 0.5) +
   labs(title = "Log-transformed histogram of gene with highest individual count", x = "Count Value", y = "Number of counts") +
@@ -62,6 +72,4 @@ ggplot(df, aes(x = values)) +
 
 ggsave(outfile, bg = "white")
 
-
-# Rscript histograms/histogram_one_file.r
 

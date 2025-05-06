@@ -1,17 +1,26 @@
 
-# --------------------------------------------------------------------
-# Finding the N genes with the highest and lowest summed counts
-# --------------------------------------------------------------------
 
-'''
-Changes for switching between highest or lowest:
-- Output file
-- True/False in sort
-'''
+"""
+    Finds the N genes or organisms with the highest and lowest summed counts in the count matrix.
 
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+    Input:
+        - count_matrix: Path to the count matrix that is examined.
+
+    Output:
+        - highest_individual_counts: Path to the outfile that stores a new count matrix with only the genes or 
+          organisms that had the highest summed counts.
+        - lowest_individual_counts: Path to the outfile that stores a new count matrix with only the genes or 
+          organisms that had the lowest summed counts.
+
+    Notes:
+        - Change input and output files depending on if you want genes or organisms.
+        - Changes to do between finding highest and lowest counts:
+            - Change the outputfile.
+            - Change to True or False in sort.
+"""
+
+
+
 
 # Genes
 # count_matrix = "/storage/koningen/count_matrix.tsv"
@@ -44,7 +53,7 @@ with open(count_matrix, "r") as infile:
         identifier = columns[0]  
         numeric_values = list(map(int, columns[1:]))  
 
-        # Calculate the number of zeroes in the row
+
         num_zeroes = numeric_values.count(0)
         zero_percentage = num_zeroes / len(numeric_values)
 

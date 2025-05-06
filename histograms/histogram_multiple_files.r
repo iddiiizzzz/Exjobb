@@ -1,7 +1,22 @@
 
-# ---------------------------------------------------
-# Create histogram for values in multiple files
-# ---------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
+
+# Create histogram for values gathered in multiple files.
+
+# Input:
+#     - count_matrix: Path to the count matrices to do a histogram on.
+
+# Output:
+#     - An image in png format.
+
+# Notes:
+#     - Add the line for limit the y-axis if it get too high to see the rest of the data.
+#     - Change the out commented input files and ggsave lines depending on which data to use.
+#     - Change transformation depending on which one you want to use.
+#     - Change the title depending on the data.
+
+# ------------------------------------------------------------------------------------------------------------
+
 
 library(ggplot2)
 
@@ -29,11 +44,11 @@ for (i in count_matrix) {
   all_values <- c(all_values,values)
 }
 
-## Transformation
+# Transformation
 # values <- log(all_values+1) 
 values <- sqrt(all_values)
 
-# change binwidth depending on highest count. 1000 for 44 000 000. 1 for 1000(?)
+# Change binwidth depending on highest count. 1000 for 44 000 000. 1 for 1000(?)
 df <- data.frame(values = values)
   
 ggplot(df, aes(x = values)) +
@@ -69,3 +84,4 @@ theme_bw()
 # ggsave("histograms/bilder/organisms/organisms_sum_counts/histogram_org_highest_sum_sqrt.jpg", bg = "white")
 # ggsave("histograms/bilder/organisms/organisms_sum_counts/histogram_org_lowest_sum_sqrt.jpg", bg = "white")
 ggsave("histograms/bilder/organisms/organisms_all/histogram_org_all_sqrt.jpg", bg = "white")
+

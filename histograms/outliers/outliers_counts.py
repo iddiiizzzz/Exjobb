@@ -1,19 +1,28 @@
 
+"""
+    Counts the sum of count values for each organism or sample in a counts matrix and checks each individual count against 
+    its repective total value, and saves it in a list.
 
-# count sum for each individual
-# check each count against the sum
-# save if higher than 10%
+    Input:
+        - count_matrix: Path to the count matrix of interest.
+
+    Output:
+        - outliers: Path to the outputfile that stores the outlier sample names, taxid and proportions.
+
+    Notes:
+        - Change the out commented files depending on which data set to examine.
+        - Change the out commented code snippets depending on if the data looks at rows (organisms) or columns (samples).
+
+"""
 
 
 import pandas as pd
 
-# Test
-# count_matrix = "test_files/rewritten_test_kraken3.tsv"
-# outliers = "test_files/test_outliers.tsv"
 
 # Genes
 # count_matrix = "/storage/koningen/count_matrix.tsv"
 # outliers = "/storage/bergid/outliers/outliers_gene"
+
 
 # Organisms
 count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
@@ -24,7 +33,6 @@ count_matrix = "/storage/bergid/taxonomy_rewrites/taxonomy_hg.tsv"
 # outliers = "/storage/bergid/outliers/outliers_in_samples_hg.tsv"
 # outliers = "/storage/bergid/outliers/outliers_in_samples_ww1.tsv"
 # outliers = "/storage/bergid/outliers/outliers_in_samples_ww2.tsv"
-
 
 #outliers = "/storage/bergid/outliers/outliers_in_orgs_hg.tsv"
 #outliers = "/storage/bergid/outliers/outliers_in_orgs_ww1.tsv"
@@ -37,7 +45,7 @@ outliers = "/storage/bergid/outliers/unfiltered_outliers_in_orgs_hg.tsv"
 
 
 
-# # outliers in each sample
+# # Outliers in each sample
 
 # # Read the data with 'TrueID' as the index
 # data = pd.read_csv(count_matrix, sep='\t', index_col='TrueID')

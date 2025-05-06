@@ -1,7 +1,20 @@
 
-# ---------------------------------------------------------
-# Create a heatmap for correlations over organism vs organism
-# ---------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------
+
+# Create a heatmap for correlations over gene vs organism.
+
+# Input:
+#     - file_path: Path to the correlation list file.
+
+# Output:
+#     - png: Path to the created image in png format.
+
+# Notes:
+#     - Change the out commented input files depending on which data to use.
+#     - Change the title depending on the data.
+
+# ------------------------------------------------------------------------------------------------------------
+
 
 library(ggplot2)
 library(reshape2)  
@@ -10,15 +23,13 @@ library(gplots)
 library(RColorBrewer)
 
 
-## all 
+
 file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
 png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
 
-## ww
 # file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_ww.png"
 
-## hg
 # file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
 
@@ -36,27 +47,23 @@ cor_matrix <- dcast(correlations, Gene ~ Organism, value.var = "CorrelationCoeff
 
 rownames(cor_matrix) <- cor_matrix$Gene
 cor_matrix <- as.matrix(cor_matrix[,-1])
-
 cor_matrix[is.na(cor_matrix)] <- 0
 
 
-my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
-# breaks_list <- seq(-0.7, 0.7, length.out = 101)  # Ensures proper scaling from -1 to 1
-
 # Define a nonlinear (squared) color scale
-vals <- seq(-1, 1, length.out = 101)  # use full correlation range
-breaks_list <- sign(vals) * (abs(vals)^2) * 0.7  # scale to match your limits
+vals <- seq(-1, 1, length.out = 101) 
+breaks_list <- sign(vals) * (abs(vals)^2) * 0.7 
 
 
 # Printing the number of org and gene appearances on the boxes that have a correlation value
 appearances_matrix <- dcast(correlations, Gene ~ Organism, value.var = "Appearances")
-
 rownames(appearances_matrix) <- appearances_matrix$Gene
 appearances_matrix <- as.matrix(appearances_matrix[,-1])
-
 appearances_matrix[is.na(appearances_matrix)] <- ""
-
 display_vals <- ifelse(cor_matrix != 0, appearances_matrix, "")
+
+
+my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 
 
 # 5000 width/height + res 900 bra för 181 st
