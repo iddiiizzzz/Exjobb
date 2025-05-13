@@ -35,24 +35,26 @@ library(reshape2)
 
 
 # Species
-# count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
-# count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
-# output_file <- "checking_data/scatterplot_gene_vs_org_species.png"
+count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
+count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
+output_file <- "checking_data/scatterplot_gene_vs_org_species_low.png"
 
 # count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
 # count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
 # output_file <- "checking_data/scatterplot_gene_vs_org_species_hg.png"
 
-count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_ww_genes.tsv"
-count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_ww.tsv"
-output_file <- "checking_data/scatterplot_gene_vs_org_species_ww.png"
+# count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_ww_genes.tsv"
+# count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_ww.tsv"
+# output_file <- "checking_data/scatterplot_gene_vs_org_species_ww.png"
 
 
 
 
-gene <- "GCA_945987735.1_ERR2020023_bin.17_metaWRAP_v1.3_MAG_CAMFTF010000038.1_seq1...erm_typeF"
-organism <- "Aerococcus urinaeequi"
+# gene <- "GCA_000203195.1_ASM20319v1_FR824044.1_seq1...tet_rpg" # High correlation
+# organism <- "Faecalibacillus intestinalis"
 
+gene <- "GCA_001670625.2_ASM167062v2_CP121209.1_seq1...class_A" # Low correlation
+organism <- "Croceicoccus marinus"
 
 
 count_data_genes <- read.table(count_matrix_genes, sep = "\t", header = TRUE, row.names = 1)
@@ -74,6 +76,7 @@ ggplot(df, aes(x = GeneCounts, y = OrgCounts)) +
        x = "Gene Count Value",
        y = "Organism Count Value") + 
   theme_bw() +
-  ylim(0, 0.04)
+  ylim(0, 0.02) +
+  xlim(0, 0.02)
 
 ggsave(output_file, bg = "white", width = 12, height = 8, dpi = 900)

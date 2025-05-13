@@ -24,8 +24,8 @@ library(RColorBrewer)
 
 
 
-file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
-png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
+# file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
+# png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
 
 # file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_ww.png"
@@ -33,6 +33,9 @@ png <- "heatmaps/both/species/normalized_heatmap_species_weighted_all.png"
 # file_path <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_appearences.tsv"
 # png <- "heatmaps/both/species/normalized_heatmap_species_weighted_hg.png"
 
+
+file_path <- "/storage/bergid/correlation/species/both/chosen_correlations_for_report_heatmap.tsv"
+png <- "heatmaps/both/species/normalized_heatmap_species_weighted__report.png"
 
 
 
@@ -56,17 +59,21 @@ breaks_list <- sign(vals) * (abs(vals)^2) * 0.7
 
 
 # Printing the number of org and gene appearances on the boxes that have a correlation value
-appearances_matrix <- dcast(correlations, Gene ~ Organism, value.var = "Appearances")
-rownames(appearances_matrix) <- appearances_matrix$Gene
-appearances_matrix <- as.matrix(appearances_matrix[,-1])
-appearances_matrix[is.na(appearances_matrix)] <- ""
-display_vals <- ifelse(cor_matrix != 0, appearances_matrix, "")
+# appearances_matrix <- dcast(correlations, Gene ~ Organism, value.var = "Appearances")
+# rownames(appearances_matrix) <- appearances_matrix$Gene
+# appearances_matrix <- as.matrix(appearances_matrix[,-1])
+# appearances_matrix[is.na(appearances_matrix)] <- ""
+# display_vals <- ifelse(cor_matrix != 0, appearances_matrix, "")
+
+# Add '*' on the boxes that have a correlation value
+display_vals <- ifelse(cor_matrix != 0, "*", "")
 
 
 my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 
 
 # 5000 width/height + res 900 bra för 181 st
+# For report image:  width = 8000, height = 5000, res = 900
 png(png, width = 12000, height = 12000, res = 1500)
 pheatmap(cor_matrix, 
     col = my_palette, 
