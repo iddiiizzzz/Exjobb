@@ -2,8 +2,8 @@ import pandas as pd
 
 
 # all 
-correlation_matrix= "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_status.tsv"
-results = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
+# correlation_matrix= "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_status.tsv"
+# results = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
 
 ## ww
 # correlation_matrix = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_ww_status.tsv"
@@ -13,7 +13,8 @@ results = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_
 # correlation_matrix = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_status.tsv"
 # results = "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_hg_appearences.tsv"
 
-
+correlation_matrix = "/storage/bergid/correlation/species/both/chosen_correlations_for_report_heatmap_new.tsv"
+results = "/storage/bergid/correlation/species/both/chosen_correlations_for_report_heatmap_appearences.tsv"
 
 df = pd.read_csv(correlation_matrix, sep = "\t")
 

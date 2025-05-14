@@ -7,8 +7,8 @@
 
 
 
-full_correlation <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_appearences.tsv"
-chosen_correlations <- "/storage/bergid/correlation/species/both/chosen_correlations_for_report_heatmap.tsv"
+full_correlation <- "/storage/bergid/correlation/species/both/normalized_correlation_zinb_weighted_all_status.tsv"
+chosen_correlations <- "/storage/bergid/correlation/species/both/chosen_correlations_for_report_heatmap_new.tsv"
 
 
 
