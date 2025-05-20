@@ -37,7 +37,7 @@ library(reshape2)
 # Species
 count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
 count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
-output_file <- "checking_data/scatterplot_gene_vs_org_species_low.png"
+output_file <- "checking_data/scatterplot_gene_vs_org_species_low_new_res_big_dots.png"
 
 # count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
 # count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
@@ -71,12 +71,11 @@ df <- data.frame(GeneCounts = gene_counts,
 
 
 ggplot(df, aes(x = GeneCounts, y = OrgCounts)) +
-  geom_point(alpha = 0.6, size = 0.1) +
-  labs(title = paste(gene, "and", organism),
-       x = "Gene Count Value",
-       y = "Organism Count Value") + 
+  geom_point(alpha = 0.6, size = 1) +
+  labs(x = paste("Count Values for", gene),
+       y = paste("Count Values for", organism)) + 
   theme_bw() +
   ylim(0, 0.02) +
   xlim(0, 0.02)
 
-ggsave(output_file, bg = "white", width = 12, height = 8, dpi = 900)
+ggsave(output_file, bg = "white", width = 7, height = 6, dpi = 300)
