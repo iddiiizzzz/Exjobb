@@ -74,13 +74,26 @@ my_palette <- colorRampPalette(c("blue", "white", "red"))(100)
 
 # 5000 width/height + res 900 bra för 181 st
 # For report image:  width = 8000, height = 5000, res = 900
-png(png, width = 8000, height = 5000, res = 900)
+# png(png, width = 8000, height = 5000, res = 900)
+# pheatmap(cor_matrix, 
+#     col = my_palette, 
+#     breaks = breaks_list,  # Fix scale between chosen values
+#     # main = "ARG-Host Correlation Heatmap ", 
+#     display_numbers = display_vals,
+#     fontsize_number = 4, # storlek på display_vals
+#     fontsize_row = 8, 
+#     fontsize_col = 8, 
+#     angle_col = 90)
+# dev.off()
+
+
+postscript("heatmaps/both/species/normalized_heatmap_species_weighted__report_appearances.eps",
+           width = 11, height = 7, horizontal = FALSE, paper = "special")
 pheatmap(cor_matrix, 
     col = my_palette, 
-    breaks = breaks_list,  # Fix scale between chosen values
-    # main = "ARG-Host Correlation Heatmap ", 
+    breaks = breaks_list, # Fix scale between chosen values
     display_numbers = display_vals,
-    fontsize_number = 4, # storlek på display_vals
+    fontsize_number = 7, # storlek på display_vals
     fontsize_row = 8, 
     fontsize_col = 8, 
     angle_col = 90)

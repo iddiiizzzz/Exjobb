@@ -17,9 +17,9 @@ import pandas as pd
 
 
 ## all orgs
-wastewater1 =  "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
-humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
-outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
+# wastewater1 =  "/storage/koningen/species/filter_zeros/taxonomy_all_ww_organisms_filtered.tsv"
+# humangut = "/storage/koningen/species/filter_zeros/taxonomy_hg_organisms_filtered.tsv"
+# outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.tsv"
 
 
 ## all genes
@@ -29,12 +29,20 @@ outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_organisms.ts
 
 
 
+# All orgs unfiltered
+wastewater1 = "/storage/koningen/species/taxonomy_code/taxonomy_ww1.tsv"
+wastewater2 = "/storage/koningen/species/taxonomy_code/taxonomy_ww2.tsv"
+humangut = "/storage/koningen/species/taxonomy_code/taxonomy_hg.tsv"
+outfile = "/storage/koningen/species/combined_matrices/taxonomy_all_orgs_unfiltered.tsv"
+
+
+
 df_hgut = pd.read_csv(humangut, sep="\t", index_col=0)
 df_waste1 = pd.read_csv(wastewater1, sep="\t", index_col=0)
-# df_waste2 = pd.read_csv(wastewater2, sep="\t", index_col=0)
+df_waste2 = pd.read_csv(wastewater2, sep="\t", index_col=0)
 
 # merged_df = pd.concat([df_waste1, df_waste2], axis=1, join="outer")
-merged_df = pd.concat([df_waste1, df_hgut], axis=1, join="outer")
+merged_df = pd.concat([df_waste1, df_waste2, df_hgut], axis=1, join="outer")
 merged_df = merged_df.fillna(0) # 1 for zinb, 0 for counts
 merged_df = merged_df.astype(int)
 merged_df.to_csv(outfile, sep="\t")

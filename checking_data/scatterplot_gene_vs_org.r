@@ -19,6 +19,11 @@
 
 library(ggplot2)
 library(reshape2)
+library(showtext)
+
+# Latex font
+font_add(family = "LM Roman", regular = "/storage/koningen/latex-font/lmroman10-regular.otf")
+showtext_auto()
 
 # Genus
 # count_matrix_genes <- "/storage/koningen/genus/normalize/normalized_count_matrix_all_genes.tsv"
@@ -37,7 +42,7 @@ library(reshape2)
 # Species
 count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_all_genes.tsv"
 count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_all_orgs.tsv"
-output_file <- "checking_data/scatterplot_gene_vs_org_species_low_new_res_big_dots.eps"
+output_file <- "checking_data/scatterplot_gene_vs_org_species_high_corr.eps"
 
 # count_matrix_genes <- "/storage/koningen/species/normalize/normalized_count_matrix_hg_genes.tsv"
 # count_matrix_orgs <- "/storage/koningen/species/normalize/normalized_count_matrix_hg.tsv"
@@ -50,11 +55,11 @@ output_file <- "checking_data/scatterplot_gene_vs_org_species_low_new_res_big_do
 
 
 
-# gene <- "GCA_000203195.1_ASM20319v1_FR824044.1_seq1...tet_rpg" # High correlation
-# organism <- "Faecalibacillus intestinalis"
+gene <- "GCA_000203195.1_ASM20319v1_FR824044.1_seq1...tet_rpg" # High correlation
+organism <- "Faecalibacillus intestinalis"
 
-gene <- "GCA_001670625.2_ASM167062v2_CP121209.1_seq1...class_A" # Low correlation
-organism <- "Croceicoccus marinus"
+# gene <- "GCA_001670625.2_ASM167062v2_CP121209.1_seq1...class_A" # Low correlation
+# organism <- "Croceicoccus marinus"
 
 
 count_data_genes <- read.table(count_matrix_genes, sep = "\t", header = TRUE, row.names = 1)
@@ -71,13 +76,19 @@ df <- data.frame(GeneCounts = gene_counts,
 
 
 ggplot(df, aes(x = GeneCounts, y = OrgCounts)) +
-  geom_point(size = 0.75) +
-  labs(x = paste("Count Values for", gene),
-       y = paste("Count Values for", organism)) + 
+  geom_point(size = 0.75, color = "#9b13bb") +
+  labs(x = paste("Count Values for the Gene"),
+       y = paste("Count Values for the Host")) + 
   theme_bw() +
-  ylim(0, 0.02) +
-  xlim(0, 0.02)
+  theme(
+    text = element_text(family = "LM Roman"),         # Set global font
+    plot.title = element_text(size = 15),         # Title font size
+    axis.title.x = element_text(size = 20),       # X-axis title font size
+    axis.title.y = element_text(size = 20),       # Y-axis title font size
+    axis.text.x = element_text(size = 15),        # X-axis tick label size
+    axis.text.y = element_text(size = 15)         # Y-axis tick label size
+  ) +
+  ylim(0, 0.03) +
+  xlim(0, 0.1)
 
-# ggsave(output_file, bg = "white", width = 7, height = 6, dpi = 300)
-ggsave(output_file, 
-       device = "eps", width = 7, height = 6)
+ggsave(output_file, device = "eps", width = 7, height = 6) # device = "eps",
